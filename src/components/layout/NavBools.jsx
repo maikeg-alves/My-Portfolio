@@ -1,9 +1,9 @@
-import { Container, Nav, Navbar, Row } from "react-bootstrap";
-import "./all-styles-layout.css";
+import { Col, Container, Row } from "react-bootstrap";
+import { BsFillCircleFill } from "react-icons/bs";
 import $ from "jquery";
+import "./navbools.css";
 
-export default function NavBar() {
-
+export default function NavBools() {
   const menuLinks = document.querySelectorAll('.menu-bol a[href^="#"]');
 
   function getDistanceFromTheTop(element) {
@@ -54,48 +54,32 @@ export default function NavBar() {
     }, 1000 / 60);
   }
 
-  const date = new Date();
-  const monthNames = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-
-  const day = () => {
-    if (date.getHours() <= 11) {
-      return "Bom dia ";
-    } else if (date.getHours() == 12 || date.getHours() <= 17) {
-      return "Boa tarde ";
-    } else {
-      return "Boa noite ";
-    }
-  };
-
   return (
-    <div className="menu container-lg">
-      <Navbar>
-        <Container>
-          <Navbar.Toggle />
-          <Navbar href="#home">
-            <h1 className="fs-5">{day() + date.getDate() + " " + monthNames[date.getMonth()]}</h1> 
-          </Navbar>
-          <Navbar.Collapse className="justify-content-end">
-            <Nav.Link href="#home">HOME</Nav.Link>
-            <Nav.Link href="#aboutme">ABOUT ME</Nav.Link>
-            <Nav.Link href="#projects">PROJETOS</Nav.Link>
-            <Nav.Link href="#footer">CONTATO</Nav.Link>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-    </div>
+    <>
+      <Row className="Navbools">
+        <Col xs="auto">
+          <li className="menu-bol" onClick={()=> $('.circle1').addClass('select')}>
+            <a className="circle1" href="#home">
+              <BsFillCircleFill />
+            </a>
+          </li>
+          <li className="menu-bol">
+            <a className="circle2" href="#aboutme">
+              <BsFillCircleFill />
+            </a>
+          </li>
+          <li className="menu-bol">
+            <a className="circle3" href="#projects">
+              <BsFillCircleFill />
+            </a>
+          </li>
+          <li className="menu-bol">
+            <a className="circle4" href="#footer">
+              <BsFillCircleFill />
+            </a>
+          </li>
+        </Col>
+      </Row>
+    </>
   );
 }

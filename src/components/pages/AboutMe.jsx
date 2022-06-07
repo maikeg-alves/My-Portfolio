@@ -1,38 +1,35 @@
 import { Container, Row } from "react-bootstrap";
-import $ from "jquery";
+import "./styles/about.css";
 
 export default function AboutMe() {
-
   return (
-    <div>
-      <Container className="About">
-        <Row className="About-row justify-content-center align-items-center">
-          <div className="About-corpo col-8  text-md-center">
-            <div className="About-what col-12">
-              <h1>Quem sou eu?</h1>
-            </div>
-            <div className="About-me col-12">
-              <p className="text-break">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa
-                voluptatum modi maiores inventore iste culpa nesciunt ea facilis
-                quam ab a impedit harum consequuntur, deleniti fugit. Impedit
-                minus omnis dolor. Lorem ipsum dolor, sit amet consectetur
-                adipisicing elit. Voluptatibus assumenda consectetur, dolore ut,
-                provident fugit impedit ipsa blanditiis rem perferendis aliquid
-                quibusdam numquam temporibus doloremque magni. Corrupti a eos
-                dolorum. Lorem, ipsum dolor sit amet consectetur adipisicing
-                elit. Quisquam iure tempora suscipit perspiciatis odit
-                aspernatur, repellat dolorum adipisci quibusdam blanditiis! Nam
-                totam natus obcaecati sunt consequuntur velit aspernatur veniam
-                dolorum.
-              </p>
-            </div>
-            <div className="About-curriculo col-12">
-              <a href="">Meu curriculo (pdf 109kb)</a>
-            </div>
+    <Container className="About" id="aboutme">
+      <Row className="justify-content-center align-items-center">
+        <div className="col-12 d-flex justify-content-center">
+          <div className="col-4 mx-3">
+            <img src="/src/img/aboutme.png" className="photo-profile-about" alt="" />
           </div>
-        </Row>
-      </Container>
-    </div>
+          <div className=" col-4 about-text">
+            <h1>SOBRE MIM</h1>
+             <p className="text-breaks">
+                There are many variations of passages of Lorem Ipsum available,
+                but the majority have suffered alteration in some form, by
+                injected humour, or randomised words which don't look even
+                slightly believable. If you are going to use a passage of Lorem
+                Ipsum, you need to be sure there isn't anything embarrassing
+                hidden in the middle of text. All the Lorem Ipsum generators on
+                the Internet tend to repeat predefined chunks as necessary,
+                making this the first true generator on the Internet. It uses a
+                dictionary of over 200 Latin words, combined with a handful of
+                model sentence structures, to generate Lorem Ipsum which looks
+                reasonable. The generated Lorem Ipsum is therefore always free
+                from repetition, injected humour, or non-characteristic words
+                etc.{" "}
+              </p>
+             <a href="">Meu curriculo (197 bk)</a>
+            </div>
+        </div>
+      </Row>
+    </Container>
   );
 }

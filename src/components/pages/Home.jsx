@@ -1,30 +1,71 @@
 import { Button, Container, Row } from "react-bootstrap";
+import { Link, useNavigate } from "react-router-dom";
+import {
+  AiOutlineInstagram,
+  AiOutlineMail,
+  AiFillGithub,
+} from "react-icons/ai";
+import Contact from "./contact";
 
-import './style-all-pages.css'
-
+import "./styles/home.css";
 
 export default function Home() {
-    return (
-       <div className="">
-       <Container className="Home" >
-           <Row className="home-row align-content-center">
-               <div className="corpo-home col-12 px-5">
-                   <div className="home-hello col-12 py-1">
-                       <h1>Hello World</h1>
-                   </div>
-                   <div className="home-name col-12 py-2">
-                       <h1>MAICON GABRIEL ALVES</h1>
-                   </div>
-                   <div className="home-description col-6">
-                       <p className="text-break">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti ullam, et aperiam sint iste eaque libero. Nostrum, neque! Ad cupiditate magni debitis nemo quos quaerat libero voluptatibus, porro ipsam voluptatem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero necessitatibus voluptate ipsa. Optio obcaecati ullam ea quas minus qui ipsum voluptates, iusto maiores natus quo dolore maxime vero quia atque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus quibusdam quo dolorum iste incidunt dolor totam, atque illum, pariatur ipsam mollitia maxime similique recusandae, facilis deserunt numquam cum est dolore!</p>
-                   </div>
-                   <div className="home-contato col-12 py-2">
-                       <Button>ENTRE EM CONTATO</Button>
-                   </div>
-               </div>
-           </Row>
-       </Container>
-       </div>
-   
-    )
+  const navigate = useNavigate();
+
+  const open = () => {
+    console.log("teste");
+    /* navigate('/contact') */
+  };
+
+  return (
+    <Container className="Home" id="home">
+      <Row className="justify-content-center align-items-center">
+        <div className="d-flex justify-content-between align-items-center px-5">
+          <div className="border-me col-auto px-3">
+            <div>
+              <h1>Maicon Gabriel Alves</h1>
+            </div>
+            <div>
+              <h2>Developer frontend/ Desing/ Artinst</h2>
+            </div>
+            <div>
+              <button data-toggle="modal" data-target="#exampleModal">
+                CONATAT ME
+              </button>
+            </div>
+          </div>
+          <div className="col-auto px-5 ">
+            <div className="photo-profile"></div>
+            <div className="col-12 d-flex justify-content-center">
+              <ul className=" d-flex">
+                <li>
+                  <a href="#">
+                    <span className="icon">
+                      <AiFillGithub />
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <span className="icon">
+                      <AiOutlineMail />
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <span className="icon">
+                      <AiOutlineInstagram />
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <Contact />
+      </Row>
+    </Container>
+  );
 }

@@ -1,0 +1,83 @@
+.Footer {
+    width: 100vw;
+    max-width: 100%;
+    height: 100vh;
+}  
+
+.Footer {
+    color: white;
+    background-image: url("/src/img/backgroud_bolls.png");
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: inline-grid;
+}
+
+.row-box{
+    display: flex;
+    justify-content: center;
+}
+
+.box-styles{
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: space-evenly;
+    background: black;
+    padding: 19px;
+    height: auto;
+    width: 80%;
+    border-radius: 20px;
+    box-shadow: 15px 17px 33px 0px #0b0b0b;
+    position: absolute;
+    top: 310%;
+}
+
+.box-styles h2,h3,button {
+    text-align: center;
+}
+
+.box-styles button {
+        background: transparent;
+        border: solid 5px white;
+        color: white;
+        padding: 10px;
+        border-radius: 100px;
+}
+
+.row-box-white {
+    background-image: url("/src/img/backgroud_bolls_white.png");
+    color: black;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-size: cover;
+}
+
+.box-white{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 55px;
+}
+
+.box-white h1{
+    text-align: center;
+}
+
+.row-redes{
+    display: flex;
+    justify-content: space-between;
+}
+
+.icon-footer{
+    border-radius: 50%;
+    font-size: 40px;
+    color: white;
+    background: #000000d1;
+    padding: 9px;
+}

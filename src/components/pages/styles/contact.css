@@ -1,0 +1,56 @@
+.Contact {
+    background: black;
+    font-size: 16px;
+    color: white;
+    display: flex!important;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    border-radius: 16px;
+}
+
+.Contact img {
+    height: 150px;
+}
+
+.Contact h2 {
+    text-align: center;
+    font-size: 20px;
+}
+
+.modal-content{
+    border-radius: 5%;
+}
+
+.Row_Contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.forme-style {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.enviar {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin-bottom: 25px;
+}
+
+.enviar-style {
+    margin: 10px;
+    padding: 10px 188px 10px 188px!important;
+
+}
+.close_contact{
+   display: flex;
+   justify-content: end;
+   font-size: 30px;
+
+}
+

@@ -5,11 +5,9 @@
     top: 0;
     left: 0;
     right: 0;
+    color: white;
 }
 
-.container {
-    margin-right: 0px;
-}
 
 .nav-link {
     color: #fff !important;
@@ -110,3 +108,4 @@
     }
 
 }
+
