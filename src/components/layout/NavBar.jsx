@@ -1,6 +1,9 @@
-import { Container, Nav, Navbar, Row } from "react-bootstrap";
+import { Container, Nav, Navbar} from "react-bootstrap";
+import { Day_menu, Show_menu } from "../themes/styles/Home-Styles";
 import "./all-styles-layout.css";
-import $ from "jquery";
+
+
+
 
 export default function NavBar() {
 
@@ -10,13 +13,6 @@ export default function NavBar() {
     const id = element.getAttribute("href");
     return document.querySelector(id).offsetTop;
   }
-
-  // function nativeScroll(distanceFromTheTop) {
-  //   window.scroll({
-  //     top: distanceFromTheTop,
-  //     behavior: "smooth",
-  //   });
-  // }
 
   function scrollToSection(event) {
     event.preventDefault();
@@ -86,14 +82,16 @@ export default function NavBar() {
         <Container>
           <Navbar.Toggle />
           <Navbar href="#home">
-            <h1 className="fs-5">{day() + date.getDate() + " " + monthNames[date.getMonth()]}</h1> 
+            <Day_menu className="col-auto fs-5">{day() + date.getDate() + " " + monthNames[date.getMonth()]}</Day_menu> 
           </Navbar>
+          <Show_menu>
           <Navbar.Collapse className="justify-content-end">
             <Nav.Link href="#home">HOME</Nav.Link>
             <Nav.Link href="#aboutme">ABOUT ME</Nav.Link>
             <Nav.Link href="#projects">PROJETOS</Nav.Link>
             <Nav.Link href="#footer">CONTATO</Nav.Link>
           </Navbar.Collapse>
+          </Show_menu>
         </Container>
       </Navbar>
     </div>

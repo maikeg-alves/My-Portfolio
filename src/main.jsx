@@ -1,8 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import './fonts/malgunGothic.ttf';
 import "./index.css";
-import App from "./App";
-import $ from "jquery";
+import './components/themes/responsive.css'
+import App from "./App";  
 import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

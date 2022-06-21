@@ -23,12 +23,7 @@
 
 @media only screen and (max-width: 775px) {
 
-    html,
-    body {
-        max-width: 100%;
-        overflow-x: hidden;
-    }
-
+    
     .text-size-menu a {
         font-size: 30px;
         text-align: center;

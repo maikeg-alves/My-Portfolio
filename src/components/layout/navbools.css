@@ -19,7 +19,7 @@
 }
 
 .circle1, .circle2, .circle3, .circle4{
-    color: rgba(255, 255, 255, 0.789);
+    color: rgba(255, 255, 255, 0.527);
     line-height: 75%;
     display: inline-block;
     border: solid 1px black;
@@ -29,7 +29,7 @@
 .circle1:hover, .circle2:hover, .circle3:hover, .circle4:hover{
     color: rgba(255, 255, 255, 0.789);
 }
-.circle1:focus{
-   color: blueviolet;
+.circle1:focus, .circle2:focus, .circle3:focus, .circle4:focus{
+   color: rgb(255, 255, 255);
 
 }

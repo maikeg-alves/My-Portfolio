@@ -1,35 +1,36 @@
-import { Container, Row } from "react-bootstrap";
-import "./styles/about.css";
+import { Col } from "react-bootstrap";
+import { Row_About } from "../themes/styles/About-styles";
+import { SizeWin } from "../themes/styles/stylesAll";
 
 export default function AboutMe() {
   return (
-    <Container className="About" id="aboutme">
-      <Row className="justify-content-center align-items-center">
-        <div className="col-12 d-flex justify-content-center">
-          <div className="col-4 mx-3">
-            <img src="/src/img/aboutme.png" className="photo-profile-about" alt="" />
-          </div>
-          <div className=" col-4 about-text">
-            <h1>SOBRE MIM</h1>
-             <p className="text-breaks">
-                There are many variations of passages of Lorem Ipsum available,
-                but the majority have suffered alteration in some form, by
-                injected humour, or randomised words which don't look even
-                slightly believable. If you are going to use a passage of Lorem
-                Ipsum, you need to be sure there isn't anything embarrassing
-                hidden in the middle of text. All the Lorem Ipsum generators on
-                the Internet tend to repeat predefined chunks as necessary,
-                making this the first true generator on the Internet. It uses a
-                dictionary of over 200 Latin words, combined with a handful of
-                model sentence structures, to generate Lorem Ipsum which looks
-                reasonable. The generated Lorem Ipsum is therefore always free
-                from repetition, injected humour, or non-characteristic words
-                etc.{" "}
-              </p>
-             <a href="">Meu curriculo (197 bk)</a>
-            </div>
-        </div>
-      </Row>
-    </Container>
+    <SizeWin className="About p-3" id="aboutme">
+      <Row_About className="d-flex lign-items-center " xs={8}>
+          <Col className="px-2">
+             <img src={"/src/img/aboutme.png"} alt="aboutme" className="img-fluid"></img>
+          </Col>
+          <Col className="px-2">
+            <h1>About Me</h1>
+            <p>
+              My name is <strong>João Victor</strong> and I'm a <strong>Front-End Developer</strong> with a <strong>Master's Degree in Computer Science</strong> from <strong>Universidade de São Paulo</strong>.
+            </p>
+            <p>
+              I'm a <strong>
+                <a href="https://www.linkedin.com/in/joaovictor-santos-de-souza-b9a8b8a4/">
+                  Full Stack Developer
+                </a>
+              </strong> with a <strong>
+                <a href="https://www.linkedin.com/in/joaovictor-santos-de-souza-b9a8b8a4/">
+                  Master's Degree in Computer Science
+                </a>
+              </strong> from <strong>
+                <a href="https://www.linkedin.com/in/joaovictor-santos-de-souza-b9a8b8a4/">
+                  Universidade de São Paulo
+                </a>
+              </strong>.
+            </p>
+          </Col>
+      </Row_About>
+    </SizeWin>
   );
 }
