@@ -10,6 +10,10 @@ export const SizeWin = styled.div`
   align-items: center;
   flex-direction: column;
   background-color: #0000004f;
+   span {
+    line-height: 75%;
+    display: inline-block;
+   }
   @media (max-width: 456px) {
     height: 155vh;
   }

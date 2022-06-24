@@ -1,42 +1,8 @@
 import { Col, Form, Modal } from "react-bootstrap";
-import "./contact.css";
-import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import sendMail from "../services/sendMail";
-import { Box, Typography } from "@mui/material";
+import { BoxStyled, ImgProfile, Enviar } from "../themes/styles/components/contact-styles";
 //styled components
-const Enviar = styled.button`
-  padding: 10px 44% 10px 45% !important;
-  background-color: transparent;
-  border-radius: 10px;
-  border: solid 1px #656565;
-  color: #000000;
-  margin-top: 10px;
-  &:hover {
-    background-color: #000000;
-    color: #ffffff;
-    transition: 0.5s ease;
-  }
-`;
-
-const ImgProfile = styled.img`
-  height: 80pt;
-  width: 80pt;
-`;
-
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 400,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
-  boxShadow: 24,
-  p: 4,
-  borderRadius: "19px",
-  color: "black"
-};
 
 export default function Contact({testedefuncion}) {
   const { handleSubmit, register } = useForm({
@@ -80,8 +46,8 @@ export default function Contact({testedefuncion}) {
 
   return (
     <>
-      <Box  sx={style}>
-        <Col xs={12} className="Row_Contact">
+      <BoxStyled>
+        <Col xs={12} className="d-flex flex-column align-items-center">
           
          <Col xs>
             <ImgProfile src="/src/img/Grupo35.png" />
@@ -126,7 +92,7 @@ export default function Contact({testedefuncion}) {
             </Form.Group>
           </Form>
         </Col>
-  </Box>
+  </BoxStyled>
     </>
   );
 }

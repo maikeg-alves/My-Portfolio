@@ -1,17 +1,18 @@
-import "./styles/footer.css";
+
 import {AiOutlineInstagram, AiOutlineMail, AiFillGithub, AiFillLinkedin, AiOutlineWhatsApp} from "react-icons/ai"
 import Modal from '@mui/material/Modal';
 import Contact from "../layout/contact";
 import { useState } from "react";
-import BtnCloseModal from "../layout/buttonCloseModal";
+
 import { SizeWin } from "../themes/styles/stylesAll";
+import { BoxStyles, BoxWhite, IconFoote, RowBox, RowBoxWhite, RowRedes, TextTitle } from "../themes/styles/Footer-styles";
 export default function Footer() {
   const [show, setShow] = useState(false);
   return (
     <>
-    <SizeWin className="Footer" id="footer">
-      <div className="row-box">
-        <div className="box-styles">
+    <SizeWin className="Footer justify-content-end" id="footer">
+      <RowBox >
+        <BoxStyles>
           <div>
             <h2>Interesado em trabalharmos juntos?</h2>
             <h3>vamos marcar uma reunião? </h3>
@@ -21,58 +22,58 @@ export default function Footer() {
               Vamos trabalhar juntos
             </button>
           </div>
-        </div>
-      </div>
-      <div className="row-box-white col-auto">
-        <div className="box-white">
-          <div className="col-5">
+        </BoxStyles>
+      </RowBox>
+      <RowBoxWhite className="bg col-auto">
+        <BoxWhite>
+          <TextTitle className="col-5">
             <h1 className="text-break">
               Esse é o fim da pagina, mas pode ser o começo de tudo. :)
             </h1>
-          </div>
+          </TextTitle>
           <div className="p-5 d-flex">
-            <ul className="row-redes">
+            <RowRedes >
               <li>
                 <a href="mailto:maicongabrielalves99@gmail.com?subject=Olá Maicon">
-                  <span className="icon-footer"><AiOutlineMail/></span>
+                  <IconFoote><AiOutlineMail/></IconFoote>
                 </a>
               </li>
-            </ul>
-            <ul className="row-redes">
+            </RowRedes>
+            <RowRedes >
               <li>
                 <a href="https://github.com/maikeg-alves">
-                  <span className="icon-footer"><AiFillGithub/></span>
+                  <IconFoote><AiFillGithub/></IconFoote>
                 </a>
               </li>
-            </ul>
-            <ul className="row-redes">
+            </RowRedes>
+            <RowRedes >
               <li>
                 <a href="https://www.linkedin.com/in/maicon-gabriel-7b171421b/">
-                <span className="icon-footer"><AiFillLinkedin/></span>
+                <IconFoote><AiFillLinkedin/></IconFoote>
                 </a>
               </li>
-            </ul>
-            <ul className="row-redes">
+            </RowRedes>
+            <RowRedes >
               <li>
                 <a href="https://alvo.chat/1mV">
-                <span className="icon-footer"><AiOutlineWhatsApp/></span>
+                <IconFoote><AiOutlineWhatsApp/></IconFoote>
 
                 </a>
               </li>
-            </ul>
-            <ul className="row-redes">
+            </RowRedes>
+            <RowRedes >
               <li>
                 <a href="https://www.instagram.com/m4ike._.sup/">
-                  <span className="icon-footer"><AiOutlineInstagram/></span>
+                  <IconFoote><AiOutlineInstagram/></IconFoote>
                 </a>
               </li>
-            </ul>
+            </RowRedes>
           </div>
           <div>
             <p> todos os rireitos reserlvado a © Maicon Gabriel Alves</p>
           </div>
-        </div>
-      </div>
+        </BoxWhite>
+      </RowBoxWhite>
     </SizeWin>
     
     <Modal open={show} onClose={() => setShow(false)}>

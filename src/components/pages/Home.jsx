@@ -2,8 +2,7 @@ import { useState } from "react";
 import { Container, Row } from "react-bootstrap";
 import {  AiOutlineInstagram, AiOutlineMail, AiFillGithub, AiFillLinkedin } from "react-icons/ai";
 import Contact from "../layout/contact";
-import Modal from "@mui/material/Modal"; 
-import "./styles/home.css";
+import Modal from "@mui/material/Modal";
 import NavBar from "../layout/NavBar";
 import { RowStyled, SizeWin } from "../themes/styles/stylesAll";
 import { Border_me, HomeStyle, Home_photo, Icon_home, HomeButton} from "../themes/styles/Home-Styles";
@@ -20,8 +19,8 @@ export default function Home() {
       <SizeWin className="Home" id="home" >
       <NavBar /> 
       {/* <Mobile_menu/> */}
-        <RowStyled className="justify-content-center align-items-center">
-          <HomeStyle className="d-flex justify-content-between align-items-center px-5">
+        <RowStyled className="col-12 justify-content-center align-items-center">
+          <HomeStyle className="d-flex justify-content-around align-items-center px-5">
             <Border_me className=" col-auto px-3">
               <div>
                 <h1>Maicon Gabriel Alves</h1>

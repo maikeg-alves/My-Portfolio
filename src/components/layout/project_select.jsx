@@ -1,15 +1,10 @@
 import { useEffect, useState } from "react";
 import { Col, Container, Modal, Row, Stack } from "react-bootstrap";
 import apiGithub from "../services/apiGithub";
-import "./project_select.css";
 import CircleProgress from "./CircleProgress";
 import api from "../services/api";
-import styled from 'styled-components';
+import { ModalHeader, ModalProject, Thechology } from "../themes/styles/components/Project-select-style";
 
-const Listyled = styled.li`
-    height: 22%;
-    width: 22%;
-`;
 
 
 export default function ProjectModal({
@@ -74,11 +69,11 @@ export default function ProjectModal({
 
   return (
     <>
-      <Modal.Header closeButton></Modal.Header>
+      <ModalHeader closeButton></ModalHeader>
       <Modal.Body>
         <Container>
           <Row>
-            <Col className="d-flex justify-content-between">
+            <ModalProject className="d-flex justify-content-between">
               <Col xs={6}>
                 <Col xs={12}>
                   <h1> {name} </h1>
@@ -89,15 +84,12 @@ export default function ProjectModal({
                 <div>
                   <p className="text-brek">{description}</p>
                 </div>
-                <div>
-                  <button>Audio project description</button>
-                </div>
               </Col>
               <Col xs={5}>
                 <div>
                   <p>video demostration project</p>
                 </div>
-                <div className="video_style">
+                <div>
                   <img src={gif} alt="this slowpoke moves" width="250" />
                 </div>
                 <Stack direction="horizontal" className="pt-3" gap={2}>
@@ -128,26 +120,26 @@ export default function ProjectModal({
                 </Stack>
                 <div className="pt-3">
                   <p>Tecnologias</p>
-                  <Stack direction="horizontal" gap={3}>
-                    <Listyled>
+                  <Thechology direction="horizontal" gap={3}>
+                    <li>
                       <img
                        style={{height: "100%", width: "100%"}} 
                       src={getId(technology1).img} alt={getId(technology1).name} />
-                    </Listyled>
-                    <Listyled >
+                    </li>
+                    <li >
                       <img
                        style={{height: "100%", width: "100%"}} 
                       src={getId(technology2).img} alt={getId(technology2).name} />
-                    </Listyled>
-                    <Listyled >
+                    </li>
+                    <li >
                       <img
                        style={{height: "100%", width: "100%"}} 
                       src={getId(technology3).img} alt={getId(technology3).name} />
-                    </Listyled>
-                  </Stack>
+                    </li>
+                  </Thechology>
                 </div>
               </Col>
-            </Col>
+            </ModalProject>
           </Row>
         </Container>
       </Modal.Body>

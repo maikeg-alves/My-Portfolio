@@ -20,6 +20,7 @@ export const Home_photo = styled.div`
   background-size: 120%;
   background-repeat: no-repeat;
   background-position-y: top;
+  transition: all 0.5s ease-in-out;
   @media (max-width: 768px) {
     height: 240px;
     width: 240px;
@@ -38,6 +39,13 @@ export const HomeButton = styled.button`
   border: solid white 1px;
   background: none;
   color: white;
+  transition: 0.3s;
+  &:hover {
+    button {
+      background: white;
+      color: black;
+    }
+  }
   @media (max-width: 768px) {
     padding: 5px 22px 5px 22px;
     border: solid white 1px;
@@ -52,6 +60,7 @@ export const HomeButton = styled.button`
 `;
 
 export const Border_me = styled.div`
+   transition: all 0.5s ease-in-out;
   .Row {
     --bs-gutter-x: none;
   }
@@ -82,7 +91,7 @@ export const Border_me = styled.div`
     }
     @media (min-width: 320px) and (max-width: 376px) {
       text-align: center;
-      font-size: 3.5rem;
+      font-size: 2.5rem;
       margin-bottom: 10px;
     }
   }

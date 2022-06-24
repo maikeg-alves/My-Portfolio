@@ -2,6 +2,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import { BsFillCircleFill } from "react-icons/bs";
 import $ from "jquery";
 import "./navbools.css";
+import { Navbools } from "../themes/styles/components/NavBools-styles";
 
 export default function NavBools() {
   const menuLinks = document.querySelectorAll('.menu-bol a[href^="#"]');
@@ -10,13 +11,6 @@ export default function NavBools() {
     const id = element.getAttribute("href");
     return document.querySelector(id).offsetTop;
   }
-
-  // function nativeScroll(distanceFromTheTop) {
-  //   window.scroll({
-  //     top: distanceFromTheTop,
-  //     behavior: "smooth",
-  //   });
-  // }
 
   function scrollToSection(event) {
     event.preventDefault();
@@ -56,7 +50,7 @@ export default function NavBools() {
 
   return (
     <>
-      <Row className="Navbools">
+      <Navbools >
         <Col xs="auto">
           <li className="menu-bol" onClick={()=> $('.circle1').addClass('select')}>
             <a className="circle1" href="#home">
@@ -79,7 +73,7 @@ export default function NavBools() {
             </a>
           </li>
         </Col>
-      </Row>
+      </Navbools>
     </>
   );
 }

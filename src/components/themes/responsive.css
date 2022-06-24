@@ -14,6 +14,7 @@
     background-size: cover;
     font-family: MalgunGothic, Arial, Helvetica, sans-serif;
     color: white;
+    background-color: black;
  }   
 
 body::-webkit-scrollbar{
@@ -35,7 +36,19 @@ body::-webkit-scrollbar-thumb{
     src: local("fonts/malgunGothic.ttf"),
      url("./fonts/malgunGothic.ttf") format("truetype");
     font-weight: bold;
-} 
+}
+
+dl, ol, ul {
+    margin: 0;
+    padding: 0;
+}
+
+li{
+   padding-left: 10px;
+   padding-right: 10px;
+}
+
+
 
 .Project, .Home, .About, .Footer {
     color: white;
@@ -59,4 +72,21 @@ body::-webkit-scrollbar-thumb{
     color: white;
     background-image: url("/src/img/backgroud_bolls.png");
 
+}
+
+.modal-content{
+    color: black;
+
+}
+
+@media (max-device-width: 769px) {
+    .modal-content{
+      width: 116vh;
+    }
+}
+
+@media (min-device-width: 320px) and (max-device-width: 425px) {
+  .modal-content{
+    width: 100vh;
+  }
 }
