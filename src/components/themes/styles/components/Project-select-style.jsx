@@ -8,7 +8,6 @@ export const ModalProject = styled.div`
 
   img{
      width: 100%;
-     border-radius: 19px;
   }
   li{
     height: 22%;
@@ -44,6 +43,24 @@ export const ModalHeader = styled(Modal.Header)`
     @media (min-device-width: 320px) and (max-device-width: 425px) {
         button {
             font-size : 1.5rem;
+        }
+    }
+`
+
+export const ImgDemostration = styled.div`
+    img{
+         width: 80%;
+         border-radius: 20px;
+         border: 3px solid #000000;
+    }
+    @media (max-device-width: 768px) {
+      img {
+        width: 100%;
+      }
+    }
+    @media (min-device-width: 320px) and (max-device-width: 425px) {
+        img{
+            width: 100%;
         }
     }
 `

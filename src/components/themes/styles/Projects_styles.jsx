@@ -98,6 +98,8 @@ export const Text_item = styled.p`
 `;
 
 export const Title = styled.div`
+    text-align: center;
+    padding-bottom: 36px;
     @media (max-width: 768px) {
     text-align: center;
     padding-bottom: 30px;

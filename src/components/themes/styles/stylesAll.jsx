@@ -9,7 +9,10 @@ export const SizeWin = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: #0000004f;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
    span {
     line-height: 75%;
     display: inline-block;

@@ -79,7 +79,7 @@ export const BoxStyles = styled.div`
 `;
 
 export const RowBoxWhite = styled.div`
-  background-image: url("/src/img/backgroud_bolls_white.png");
+  background-image: url("/src/img/bg-white-full.svg");
   color: black;
   display: flex;
   align-items: center;

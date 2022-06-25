@@ -3,7 +3,7 @@ import { Col, Container, Modal, Row, Stack } from "react-bootstrap";
 import apiGithub from "../services/apiGithub";
 import CircleProgress from "./CircleProgress";
 import api from "../services/api";
-import { ModalHeader, ModalProject, Thechology } from "../themes/styles/components/Project-select-style";
+import { ImgDemostration, ModalHeader, ModalProject, Thechology } from "../themes/styles/components/Project-select-style";
 
 
 
@@ -89,9 +89,9 @@ export default function ProjectModal({
                 <div>
                   <p>video demostration project</p>
                 </div>
-                <div>
+                <ImgDemostration>
                   <img src={gif} alt="this slowpoke moves" width="250" />
-                </div>
+                </ImgDemostration>
                 <Stack direction="horizontal" className="pt-3" gap={2}>
                   {data.map((item) => {
                     return (
