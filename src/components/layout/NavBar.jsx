@@ -1,14 +1,10 @@
 import { Container, Nav, Navbar} from "react-bootstrap";
-import { Day_menu, Show_menu } from "../themes/styles/Home-Styles";
-import "./all-styles-layout.css";
-
-
+import { Menu, Day_menu, Show_menu } from "../themes/styles/components/Navbar-styles";
 
 
 export default function NavBar() {
 
   const menuLinks = document.querySelectorAll('.menu-bol a[href^="#"]');
-
   function getDistanceFromTheTop(element) {
     const id = element.getAttribute("href");
     return document.querySelector(id).offsetTop;
@@ -77,7 +73,7 @@ export default function NavBar() {
   };
 
   return (
-    <div className="menu container-lg">
+    <Menu className=" container-lg">
       <Navbar>
         <Container>
           <Navbar.Toggle />
@@ -88,12 +84,13 @@ export default function NavBar() {
           <Navbar.Collapse className="justify-content-end">
             <Nav.Link href="#home">HOME</Nav.Link>
             <Nav.Link href="#aboutme">ABOUT ME</Nav.Link>
+            <Nav.Link href="#skills">HABILIDADES</Nav.Link>
             <Nav.Link href="#projects">PROJETOS</Nav.Link>
             <Nav.Link href="#footer">CONTATO</Nav.Link>
           </Navbar.Collapse>
           </Show_menu>
         </Container>
       </Navbar>
-    </div>
+    </Menu>
   );
 }

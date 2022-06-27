@@ -11,7 +11,6 @@ export default function Home() {
   const [show, setShow] = useState(false);
 
   function handleClose(data) {
-
     console.log(data, "teste de botão");
   }
   return (

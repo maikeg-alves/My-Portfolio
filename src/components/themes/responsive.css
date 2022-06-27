@@ -60,6 +60,10 @@ li{
 
 }
 
+.Skills{
+    background-image: url('/src/img/bg-bleck.svg');
+}
+
 
 .modal-content{
     color: black;

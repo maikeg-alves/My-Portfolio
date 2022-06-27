@@ -1,18 +1,22 @@
-
 import {AiOutlineInstagram, AiOutlineMail, AiFillGithub, AiFillLinkedin, AiOutlineWhatsApp} from "react-icons/ai"
 import Modal from '@mui/material/Modal';
 import Contact from "../layout/contact";
 import { useState } from "react";
 
 import { SizeWin } from "../themes/styles/stylesAll";
-import { BoxStyles, BoxWhite, IconFoote, RowBox, RowBoxWhite, RowRedes, TextTitle } from "../themes/styles/Footer-styles";
+import { BoxContact, BoxWhite, IconFoote, RowBoxWhite, RowRedes, TextTitle } from "../themes/styles/Footer-styles";
+import { Row } from "react-bootstrap";
+
 export default function Footer() {
   const [show, setShow] = useState(false);
   return (
     <>
     <SizeWin className="Footer justify-content-end" id="footer">
-      <RowBox >
-        <BoxStyles>
+     
+      <BoxContact>
+       <div className="bg_top"></div>
+        <div className="bg_buttom"></div>
+        <div className="BoxStyles">
           <div>
             <h2>Interesado em trabalharmos juntos?</h2>
             <h3>vamos marcar uma reunião? </h3>
@@ -22,8 +26,9 @@ export default function Footer() {
               Vamos trabalhar juntos
             </button>
           </div>
-        </BoxStyles>
-      </RowBox>
+        </div>
+        </BoxContact>
+
       <RowBoxWhite className="bg col-auto">
         <BoxWhite>
           <TextTitle className="col-5">
