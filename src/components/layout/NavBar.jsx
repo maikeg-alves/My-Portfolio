@@ -73,7 +73,7 @@ export default function NavBar() {
   };
 
   return (
-    <Menu className=" container-lg">
+    <Menu className="container-lg">
       <Navbar>
         <Container>
           <Navbar.Toggle />
@@ -83,7 +83,7 @@ export default function NavBar() {
           <Show_menu>
           <Navbar.Collapse className="justify-content-end">
             <Nav.Link href="#home">HOME</Nav.Link>
-            <Nav.Link href="#aboutme">ABOUT ME</Nav.Link>
+            <Nav.Link href="#aboutme">SOBRE MIM</Nav.Link>
             <Nav.Link href="#skills">HABILIDADES</Nav.Link>
             <Nav.Link href="#projects">PROJETOS</Nav.Link>
             <Nav.Link href="#footer">CONTATO</Nav.Link>

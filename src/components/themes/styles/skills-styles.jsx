@@ -5,6 +5,9 @@ export const Skills_row = styled(Row)`
   flex: 0 0 auto;
   width: 100%;
   color: #fff;
+  span {
+    margin: 0.3rem;
+  }
   div > h1 {
     text-align: center;
     padding: 10px;
@@ -35,7 +38,7 @@ export const Skills_row = styled(Row)`
       height: 100%;
 
       img {
-        width: 100px;
+        width: 100%;
         height: 100px;
         padding: 10px;
         @media (min-device-width: 425px) and (max-device-width: 768px) {
@@ -55,7 +58,12 @@ export const Skills_row = styled(Row)`
       }
     }
   }
-
+  @media (min-device-width: 1440px) and (max-device-width: 1920px) {
+    ul {
+      margin-left: 17%;
+      margin-right: 17%;
+    }
+  }
   @media (max-device-width: 320px) {
     div > h1 {
       font-size: 2.5rem;

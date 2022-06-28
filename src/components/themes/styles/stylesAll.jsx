@@ -55,5 +55,25 @@ export const App_ = styled.div`
     height: 100vh;
   }
 `;
-// Home
+//modal
 
+export const BoxStyledall = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  background: #fff;
+  border: 2px solid #000;
+  box-shadow: 24px;
+  border-radius: 19px;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
+  border-radius: 17px;
+  padding: 15px;
+  transition: 0.5s ease;
+`

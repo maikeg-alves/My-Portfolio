@@ -7,10 +7,17 @@ import api from "../services/api";
 //styled components
 import { Modal } from "react-bootstrap";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
-import { CircularProgress } from "@mui/material";
 import { SizeWin } from "../themes/styles/stylesAll";
-import { Buttun, RowBtn, Item, ItemCover, Carousel, Text_item, Title } from "../themes/styles/Projects_styles";
-
+import {
+  Buttun,
+  RowBtn,
+  Item,
+  ItemCover,
+  Carousel,
+  Text_item,
+  Title,
+} from "../themes/styles/Projects_styles";
+import { Skeleton_Select, Skeleton_Projects } from "../skeleton/sheleton";
 
 export default function Projects() {
   const [ID, setID] = useState(0);
@@ -26,11 +33,9 @@ export default function Projects() {
       setBase(res.data.project);
     });
 
-    api.get(`/project/${ID}`)
-    .then((res) => {
-      setProject([res.data])
+    api.get(`/project/${ID}`).then((res) => {
+      setProject([res.data]);
     });
-
   }, [ID]);
 
   //SCROL CAROUSEL
@@ -52,13 +57,10 @@ export default function Projects() {
     return `${day}/${month}/${year}`;
   };
 
-
-
   return (
     <>
       <SizeWin className="Project" id="projects">
         <div className="container w-100 h-100 d-flex flex-column justify-content-center align-items-center">
-
           <Title className="container col-12">
             <h1>PROJETOS</h1>
           </Title>
@@ -70,9 +72,12 @@ export default function Projects() {
               </Buttun>
             </RowBtn>
 
-            <Carousel className=" d-flex w-100 align-items-center" ref={carousel}>
+            <Carousel
+              className=" d-flex w-100 align-items-center"
+              ref={carousel}
+            >
               <div className="d-flex">
-                {base.length > 0 &&
+                {base.length > 0 ? (
                   base.map((item) => {
                     return (
                       <Item
@@ -91,7 +96,12 @@ export default function Projects() {
                         </ItemCover>
                       </Item>
                     );
-                  })}
+                  })
+                ) : (
+                  <>
+                    <Skeleton_Projects/>
+                  </>
+                )}
               </div>
             </Carousel>
 
@@ -109,7 +119,7 @@ export default function Projects() {
           project.map((item) => {
             return (
               <ProjectModal
-                key={item.id} 
+                key={item.id}
                 name={item.name_project}
                 description={item.description}
                 gif={item.gif}
@@ -123,11 +133,11 @@ export default function Projects() {
             );
           })
         ) : (
-          <div>
-            <CircularProgress disableShrink />;
-          </div>
+          <>
+            <Skeleton_Select/>
+          </>
         )}
       </Modal>
     </>
-  )
+  );
 }

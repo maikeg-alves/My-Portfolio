@@ -1,7 +1,9 @@
+import { Box, Skeleton } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Col } from "react-bootstrap";
 import api from "../services/api";
-import { Skills_row, Skills_row_lodding } from "../themes/styles/skills-styles";
+import {Sheleton_skills} from "../skeleton/sheleton";
+import { Skills_row } from "../themes/styles/skills-styles";
 import { SizeWin } from "../themes/styles/stylesAll";
 
 export default function Skills() {
@@ -17,23 +19,22 @@ export default function Skills() {
 
   return (
     <SizeWin className="Skills" id="skills">
-      <Skills_row >
+      <Skills_row>
         <Col xs={12}>
           <h1>HABILIDADES</h1>
         </Col>
         <Col>
           <ul>
-            {tech === [] ? (
-                <Skills_row_lodding>
-                    <li>Carregando...</li> 
-                </Skills_row_lodding>    
+            {tech.length > 0 ? (
+              tech.map((tech) => (
+                <li>
+                  <img src={tech.img} alt={tech.name} />
+                  <p>{tech.name}</p>
+                </li>
+              ))
             ) : (
-              tech.map((tech) => 
-              <li>
-                <img src={tech.img} alt={tech.name} />
-                  <p>{tech.name}</p> 
-              </li>
-            ))}
+              <Sheleton_skills/>
+            )}
           </ul>
         </Col>
       </Skills_row>

@@ -1,7 +1,5 @@
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import { BsFillCircleFill } from "react-icons/bs";
-import $ from "jquery";
-import "./navbools.css";
 import { Navbools } from "../themes/styles/components/NavBools-styles";
 
 export default function NavBools() {
@@ -52,23 +50,28 @@ export default function NavBools() {
     <>
       <Navbools >
         <Col xs="auto">
-          <li className="menu-bol" onClick={()=> $('.circle1').addClass('select')}>
-            <a className="circle1" href="#home">
+          <li  >
+            <a  href="#home">
               <BsFillCircleFill />
             </a>
           </li>
-          <li className="menu-bol">
+          <li >
             <a className="circle2" href="#aboutme">
               <BsFillCircleFill />
             </a>
           </li>
-          <li className="menu-bol">
-            <a className="circle3" href="#projects">
+          <li >
+            <a  href="#skills">
               <BsFillCircleFill />
             </a>
           </li>
-          <li className="menu-bol">
-            <a className="circle4" href="#footer">
+          <li >
+            <a href="#projects">
+              <BsFillCircleFill />
+            </a>
+          </li>
+          <li >
+            <a  href="#footer">
               <BsFillCircleFill />
             </a>
           </li>

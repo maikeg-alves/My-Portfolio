@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Box } from "@mui/material";
+import { Box, Modal } from "@mui/material";
 
 export const Enviar = styled.button`
   padding: 10px 44% 10px 45% !important;
@@ -24,103 +24,93 @@ export const ImgProfile = styled.img`
   }
 `;
 
-export const BoxStyled = styled(Box)`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 400px;
-  background: #fff;
-  border: 2px solid #000;
-  box-shadow: 24px;
-  border-radius: "19px";
-  color: "black";
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: #000000;
-  border-radius: 17px;
-  padding: 15px;
-  transition: 0.5s ease;
-  input {
-    width: 100%;
-    height: 40px;
-    border: 1px solid #474747;
-    border-radius: 4px;
-    padding: 0 10px;
-    margin-bottom: 10px;
-  }
-  textarea {
-    width: 100%;
-    height: 100px;
-    border: 1px solid #474747;
-    border-radius: 4px;
-    padding: 0 10px;
-    margin-bottom: 10px;
-  }
-  button {
-    width: 100%;
-    height: 40px;
-    border: 1px solid #474747;
-    border-radius: 7px;
-    padding: 0 10px;
-    margin-bottom: 10px;
-  }
-  @media (max-device-width: 768px) {
-    label {
-      margin-bottom: -0.5rem;
-      font-size: 15px;
-    }
-  }
-
-  @media (max-device-width: 425px) {
-    width: 525px;
-    height: 89%;
-    padding: 20px;
-    img {
-      height: 135pt;
-      width: 135pt;
-    }
-    p {
-      font-size: 23px;
-    }
-    label {
-      margin-bottom: 0.5rem;
-      font-size: 19px;
+export const ModalContact = styled(Modal)`
+  .modalContact {
+    display: flex;
+    justify-content: space-evenly;
+    svg{
+      cursor: pointer;
     }
     input {
-      height: 53px;
-      margin-bottom: 29px;
+      width: 100%;
+      height: 40px;
+      border: 1px solid #474747;
+      border-radius: 4px;
+      padding: 0 10px;
+      margin-bottom: 10px;
     }
-
-    button {
-      height: 74px;
-      font-size: 23px;
-    }
-  }
-
-  @media (min-device-width: 320px) and (max-device-width: 375px) {
-    width: 585px;
-    height: 83%;
-    padding: 20px;
-    border-radius: 33px;
-    label {
-      margin-bottom: 1.5rem;
-      font-size: 24px;
-    }
-    input {
-      height: 68px;
-      font-size: 23px;
+    textarea {
+      width: 100%;
+      height: 100px;
+      border: 1px solid #474747;
+      border-radius: 4px;
+      padding: 0 10px;
+      margin-bottom: 10px;
     }
     button {
-      height: 74px;
-      font-size: 23px;
+      width: 100%;
+      height: 40px;
+      border: 1px solid #474747;
+      border-radius: 7px;
+      padding: 0 10px;
+      margin-bottom: 10px;
     }
-    p {
-      font-size: 26px;
+    @media (max-device-width: 768px) {
+      label {
+        margin-bottom: -0.5rem;
+        font-size: 15px;
+      }
+    }
+
+    @media (max-device-width: 425px) {
+      width: 525px;
+      height: auto;
+      padding: 20px;
+      img {
+        height: 135pt;
+        width: 135pt;
+      }
+      p {
+        font-size: 23px;
+      }
+      label {
+        margin-bottom: 0.5rem;
+        font-size: 19px;
+      }
+      input {
+        height: 53px;
+        margin-bottom: 29px;
+      }
+
+      button {
+        height: 74px;
+        font-size: 23px;
+      }
+    }
+
+    @media (min-device-width: 320px) and (max-device-width: 375px) {
+      width: 585px;
+      height: auto;
+      padding: 20px;
+      border-radius: 33px;
+      svg{
+        font-size: 30px;
+      }
+      label {
+        margin-bottom: 1.5rem;
+        font-size: 24px;
+      }
+      input {
+        height: 68px;
+        font-size: 23px;
+      }
+      button {
+        height: 74px;
+        font-size: 23px;
+      }
+      p {
+        font-size: 26px;
+      }
     }
   }
 `;
-
-export const Row_Contact = styled.div``;

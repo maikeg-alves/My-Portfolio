@@ -1,23 +1,33 @@
 import { useState } from "react";
-import { Container, Row } from "react-bootstrap";
-import {  AiOutlineInstagram, AiOutlineMail, AiFillGithub, AiFillLinkedin } from "react-icons/ai";
+
+import {
+  AiOutlineInstagram,
+  AiOutlineMail,
+  AiFillGithub,
+  AiFillLinkedin,
+} from "react-icons/ai";
 import Contact from "../layout/contact";
-import Modal from "@mui/material/Modal";
 import NavBar from "../layout/NavBar";
 import { RowStyled, SizeWin } from "../themes/styles/stylesAll";
-import { Border_me, HomeStyle, Home_photo, Icon_home, HomeButton} from "../themes/styles/Home-Styles";
+import {
+  Border_me,
+  HomeStyle,
+  Home_photo,
+  Icon_home,
+  HomeButton,
+} from "../themes/styles/Home-Styles";
+import Modallayout from "../layout/Modallayout";
+import { ModalContact } from "../themes/styles/components/contact-styles";
+
 
 export default function Home() {
   const [show, setShow] = useState(false);
 
-  function handleClose(data) {
-    console.log(data, "teste de botão");
-  }
   return (
     <>
-      <SizeWin className="Home" id="home" >
-      <NavBar /> 
-      {/* <Mobile_menu/> */}
+      <SizeWin className="Home" id="home">
+        <NavBar />
+        {/* <Mobile_menu/> */}
         <RowStyled className="col-12 justify-content-center align-items-center">
           <HomeStyle className="d-flex justify-content-around align-items-center px-5">
             <Border_me className=" col-auto px-3">
@@ -25,7 +35,7 @@ export default function Home() {
                 <h1>Maicon Gabriel Alves</h1>
               </div>
               <div>
-                <h2>Developer frontend/ Desing/ Artinst</h2>
+                <h2>Front End Developer/ UI Design/ Artista </h2>
               </div>
               <div>
                 <HomeButton
@@ -33,7 +43,7 @@ export default function Home() {
                   data-target="#exampleModal"
                   onClick={() => setShow(true)}
                 >
-                  CONATAT ME
+                  CONTATO
                 </HomeButton>
               </div>
             </Border_me>
@@ -41,13 +51,13 @@ export default function Home() {
               <Home_photo></Home_photo>
               <div className="col-12 d-flex justify-content-center">
                 <ul className=" d-flex">
-                    <li>
-                      <a href="https://www.linkedin.com/in/maicon-gabriel-7b171421b/">
-                        <Icon_home className="icon">
-                          <AiFillLinkedin />
-                        </Icon_home>
-                      </a>
-                    </li>
+                  <li>
+                    <a href="https://www.linkedin.com/in/maicon-gabriel-7b171421b/">
+                      <Icon_home className="icon">
+                        <AiFillLinkedin />
+                      </Icon_home>
+                    </a>
+                  </li>
                   <li>
                     <a href="https://github.com/maikeg-alves">
                       <Icon_home className="icon">
@@ -76,9 +86,11 @@ export default function Home() {
         </RowStyled>
       </SizeWin>
 
-      <Modal open={show} onClose={() => setShow(false)}>
-        <Contact testedefuncion={handleClose} />
-      </Modal>
+      <ModalContact open={show} onClose={() => setShow(false)}>
+        <Modallayout onClick={() => setShow(false)} className={"modalContact"}>
+          <Contact onClick={() => setShow(false)} />
+        </Modallayout>
+      </ModalContact>
     </>
   );
 }

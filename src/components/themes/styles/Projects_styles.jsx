@@ -33,16 +33,29 @@ export const Item = styled.div`
     transition: 10s ease-in-out;
   }
 
+  span {
+    height: 400px;
+    width: 250px;
+  }
+
   @media (max-device-width: 425px) {
     height: 759px;
     width: 451px;
     margin-left: 53px;
+    span {
+      height: 759px;
+      width: 451px;
+    }
   }
 
-  @media (min-device-width:320px) and (max-device-width:375px) {
+  @media (min-device-width: 320px) and (max-device-width: 375px) {
     height: 840px;
     width: 535px;
     margin-left: 12px;
+    span {
+      height: 840px;
+      width: 535px;
+    }
   }
 `;
 
@@ -62,14 +75,13 @@ export const ItemCover = styled.div`
   }
 
   @media (min-device-width: 320px) and (max-device-width: 425px) {
-    
     padding: 46px 31px 46px 31px;
-     h3 {
+    h3 {
       font-size: 2.2rem;
-     }
-     p{
-        font-size: 26px;
-     }
+    }
+    p {
+      font-size: 26px;
+    }
   }
 `;
 
@@ -84,7 +96,7 @@ export const Carousel = styled.div`
   }
 `;
 export const Text_item = styled.p`
- transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -98,22 +110,20 @@ export const Text_item = styled.p`
 `;
 
 export const Title = styled.div`
-    text-align: center;
-    padding-bottom: 36px;
-    @media (max-width: 768px) {
+  text-align: center;
+  padding-bottom: 36px;
+  @media (max-width: 768px) {
     text-align: center;
     padding-bottom: 30px;
+  }
+  @media (max-width: 426px) {
+    h1 {
+      font-size: 35px;
     }
-    @media (max-width: 426px) {
-        h1 {
-        font-size: 35px;
-      }
+  }
+  @media (max-width: 320px) and (max-width: 375px) {
+    h1 {
+      font-size: 45px;
     }
-    @media (max-width: 320px) and (max-width: 375px) {
-        h1 {
-        font-size: 45px;
-      }
-    }
-
-
-`
+  }
+`;

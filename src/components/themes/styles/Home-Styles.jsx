@@ -40,11 +40,10 @@ export const HomeButton = styled.button`
   background: none;
   color: white;
   transition: 0.3s;
+  margin-top: 5%;
   &:hover {
-    button {
       background: white;
       color: black;
-    }
   }
   @media (max-width: 768px) {
     padding: 5px 22px 5px 22px;

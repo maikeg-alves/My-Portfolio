@@ -1,11 +1,11 @@
 import {AiOutlineInstagram, AiOutlineMail, AiFillGithub, AiFillLinkedin, AiOutlineWhatsApp} from "react-icons/ai"
-import Modal from '@mui/material/Modal';
 import Contact from "../layout/contact";
 import { useState } from "react";
 
 import { SizeWin } from "../themes/styles/stylesAll";
 import { BoxContact, BoxWhite, IconFoote, RowBoxWhite, RowRedes, TextTitle } from "../themes/styles/Footer-styles";
-import { Row } from "react-bootstrap";
+import { ModalContact } from "../themes/styles/components/contact-styles";
+import Modallayout from "../layout/Modallayout";
 
 export default function Footer() {
   const [show, setShow] = useState(false);
@@ -81,9 +81,11 @@ export default function Footer() {
       </RowBoxWhite>
     </SizeWin>
     
-    <Modal open={show} onClose={() => setShow(false)}>
-        <Contact />
-      </Modal>
+    <ModalContact open={show} onClose={() => setShow(false)}>
+       <Modallayout onClick={()=> setShow(false)} className={"modalContact"}>
+         <Contact onClick={()=> setShow(false) }/>
+       </Modallayout>  
+      </ModalContact>
     </>
   );
 }

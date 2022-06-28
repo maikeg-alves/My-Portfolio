@@ -5,7 +5,7 @@ export const ModalProject = styled.div`
   display: flex;
   width: 100%;
   height: 100%;
-
+  
   img{
      width: 100%;
   }
@@ -19,7 +19,7 @@ export const ModalProject = styled.div`
   align-items: center;
    justify-content: center;
     padding: 30px;
-    h1 {
+    h1{
       font-size: 40px;
       text-align: center;
     }
@@ -52,14 +52,18 @@ export const ImgDemostration = styled.div`
          width: 80%;
          border-radius: 20px;
          border: 3px solid #000000;
+         span {
+          width: 80%;
+          border-radius: 20px;
+         }
     }
     @media (max-device-width: 768px) {
-      img {
+      img, span {
         width: 100%;
       }
     }
     @media (min-device-width: 320px) and (max-device-width: 425px) {
-        img{
+        img, span {
             width: 100%;
         }
     }

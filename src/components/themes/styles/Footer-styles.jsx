@@ -26,14 +26,17 @@ export const BoxWhite = styled.div`
     padding-top: 10%;
     padding-bottom: 10%;
     }
-
+   @media (min-device-width: 768px) and (max-device-height: 1024px) {
+    padding-top: 4%;
+    padding-bottom: 4%;
+   }
   @media (min-device-width: 375px) and (max-device-width: 425px) {
     padding-top: 25%;
     padding-bottom: 25%;
   }
-  @media (max-device-width: 375px) {
-    padding-top: 40%;
-    padding-bottom: 40%;
+  @media (max-device-width: 320px) {
+    padding-top: 50%;
+    padding-bottom: 50%;
   }
 `;
 
@@ -102,6 +105,9 @@ export const BoxContact = styled.div`
       color: white;
       padding: 10px;
       border-radius: 100px;
+    }
+    @media (max-device-width: 1920px) {
+      left: 23%;
     }
     @media (max-device-width: 1440px) {
       left: 25%;
