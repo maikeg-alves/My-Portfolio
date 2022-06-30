@@ -29,6 +29,7 @@ export default function Projects() {
   const carousel = useRef(null);
 
   useEffect(() => {
+    setTimeout(() => {
     api.get("/projects").then((res) => {
       setBase(res.data.project);
     });
@@ -36,6 +37,7 @@ export default function Projects() {
     api.get(`/project/${ID}`).then((res) => {
       setProject([res.data]);
     });
+    }, 1000);
   }, [ID]);
 
   //SCROL CAROUSEL
@@ -57,10 +59,14 @@ export default function Projects() {
     return `${day}/${month}/${year}`;
   };
 
+  const generateUniqueId = () => {
+    return Math.random().toString(36).substr(2, 9);
+  }
+
   return (
     <>
       <SizeWin className="Project" id="projects">
-        <div className="container w-100 h-100 d-flex flex-column justify-content-center align-items-center">
+        <div className="container w-100 h-100 d-flex flex-column justify-content-center align-items-center reveal">
           <Title className="container col-12">
             <h1>PROJETOS</h1>
           </Title>
@@ -81,13 +87,13 @@ export default function Projects() {
                   base.map((item) => {
                     return (
                       <Item
-                        key={item.id}
+                        key={generateUniqueId()}
                         onClick={() => {
                           setShow(true), setID(item.id);
                         }}
                         style={{ backgroundImage: `url(${item.img})` }}
                       >
-                        <ItemCover>
+                        <ItemCover  key={generateUniqueId()}>
                           <h3>{item.name_project}</h3>
                           <div>
                             <p>{dateformating(item.date_created)}</p>
@@ -119,7 +125,7 @@ export default function Projects() {
           project.map((item) => {
             return (
               <ProjectModal
-                key={item.id}
+                key={generateUniqueId()}
                 name={item.name_project}
                 description={item.description}
                 gif={item.gif}

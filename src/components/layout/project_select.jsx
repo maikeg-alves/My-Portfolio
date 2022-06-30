@@ -3,9 +3,12 @@ import { Col, Container, Modal, Row, Stack } from "react-bootstrap";
 import apiGithub from "../services/apiGithub";
 import CircleProgress from "./CircleProgress";
 import api from "../services/api";
-import { ImgDemostration, ModalHeader, ModalProject, Thechology } from "../themes/styles/components/Project-select-style";
-
-
+import {
+  ImgDemostration,
+  ModalHeader,
+  ModalProject,
+  Thechology,
+} from "../themes/styles/components/Project-select-style";
 
 export default function ProjectModal({
   name,
@@ -44,13 +47,15 @@ export default function ProjectModal({
   };
 
   useEffect(() => {
-    apiGithub.get(`/${gitName}`).then((res) => {
-      setData([res.data]);
-    });
+    setTimeout(() => {
+      apiGithub.get(`/${gitName}`).then((res) => {
+        setData([res.data]);
+      });
 
-    api.get(`/technologys`).then((res) => {
-      setDatatech(res.data.tecnologi);
-    });
+      api.get(`/technologys`).then((res) => {
+        setDatatech(res.data.tecnologi);
+      });
+    }, 100);
   }, []);
 
   //select technologies from api and compare with data.tech
@@ -58,13 +63,16 @@ export default function ProjectModal({
     return datatech.find((item) => item.id === id);
   }
 
-
   if (!data || data.length === 0) {
     return null;
   }
 
   if (!datatech || datatech.length === 0) {
     return null;
+  }
+
+  const generateUniqueId = () => {
+    return Math.random().toString(36).substr(2, 9);
   }
 
   return (
@@ -96,7 +104,7 @@ export default function ProjectModal({
                   {data.map((item) => {
                     return (
                       <>
-                        <Stack gap={3}>
+                        <Stack key={generateUniqueId()} gap={3}>
                           <a href={item.html_url}>Link do repositorio</a>
                           <p>
                             tempo de criação:{" "}
@@ -123,18 +131,24 @@ export default function ProjectModal({
                   <Thechology direction="horizontal" gap={3}>
                     <li>
                       <img
-                       style={{height: "100%", width: "100%"}} 
-                      src={getId(technology1).img} alt={getId(technology1).name} />
+                        style={{ height: "100%", width: "100%" }}
+                        src={getId(technology1).img}
+                        alt={getId(technology1).name}
+                      />
                     </li>
-                    <li >
+                    <li>
                       <img
-                       style={{height: "100%", width: "100%"}} 
-                      src={getId(technology2).img} alt={getId(technology2).name} />
+                        style={{ height: "100%", width: "100%" }}
+                        src={getId(technology2).img}
+                        alt={getId(technology2).name}
+                      />
                     </li>
-                    <li >
+                    <li>
                       <img
-                       style={{height: "100%", width: "100%"}} 
-                      src={getId(technology3).img} alt={getId(technology3).name} />
+                        style={{ height: "100%", width: "100%" }}
+                        src={getId(technology3).img}
+                        alt={getId(technology3).name}
+                      />
                     </li>
                   </Thechology>
                 </div>

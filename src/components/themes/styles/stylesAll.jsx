@@ -77,3 +77,4 @@ export const BoxStyledall = styled.div`
   padding: 15px;
   transition: 0.5s ease;
 `
+

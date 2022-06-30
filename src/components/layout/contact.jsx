@@ -2,14 +2,10 @@ import { useState } from "react";
 import { Col, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import sendMail from "../services/sendMail";
-import {
-  ImgProfile,
-  Enviar,
-} from "../themes/styles/components/contact-styles";
-//styled components
+import { ImgProfile, Enviar } from "../themes/styles/components/contact-styles";
+import styled from "styled-components";
 
-export default function Contact( props ) {
-
+export default function Contact(props) {
   const { handleSubmit, register } = useForm({
     mode: "onBlur",
     defaultValues: {
@@ -17,17 +13,36 @@ export default function Contact( props ) {
     },
   });
 
-  const [close , setClose] = useState(false);
+  const [close, setClose] = useState(false);
+  const [input, setInput] = useState(false);
 
+  //styles for the inputs
+const StyledForm = styled(Form)`
+    input, textarea {
+      width: 100%;
+      height: 40px;
+      border-radius: 4px;
+      padding: 0 10px;
+      margin-bottom: 10px;
+      border: ${!input ? `1px solid #656565` : `2px solid #ff0000`};
+    }
+    textarea {
+      height: 100px;
+    }
+`;
+
+  //function formating name and email
   const formatname = (data) => {
     return data.charAt(0).toUpperCase() + data.slice(1);
   };
 
+  //function to send email
   const onSubmit = (data) => {
-    
     if (data.name === "" || data.email === "" || data.message === "") {
-      console.log(`dados não prencidos `);
+      alert("Por favor, complete todos os campos");
+      setInput(true);
     } else {
+      setinput(false);
       console.log(`dados prenchidos `);
       setClose(true);
       const email = {
@@ -64,7 +79,7 @@ export default function Contact( props ) {
           </p>
         </Col>
 
-        <Form className="col-12" onSubmit={handleSubmit(onSubmit)}>
+        <StyledForm className="col-12" onSubmit={handleSubmit(onSubmit)}>
           <Form.Group className=" mb-3" controlId="exampleForm.ControlInput1">
             <Form.Label>Nome:</Form.Label>
             <Form.Control
@@ -91,10 +106,12 @@ export default function Contact( props ) {
             />
 
             <div className="enviar col-auto ">
-              <Enviar type="submit" onClick={ !close ? null : props.onClick }> Enviar</Enviar>
+              <Enviar type="submit" onClick={!close ? null : props.onClick}>
+                Enviar
+              </Enviar>
             </div>
           </Form.Group>
-        </Form>
+        </StyledForm>
       </Col>
     </>
   );

@@ -40,7 +40,7 @@ export const HomeButton = styled.button`
   background: none;
   color: white;
   transition: 0.3s;
-  margin-top: 5%;
+  margin-top: 2%;
   &:hover {
       background: white;
       color: black;

@@ -28,7 +28,7 @@ export default function Home() {
       <SizeWin className="Home" id="home">
         <NavBar />
         {/* <Mobile_menu/> */}
-        <RowStyled className="col-12 justify-content-center align-items-center">
+        <RowStyled className="col-12 justify-content-center align-items-center reveal ">
           <HomeStyle className="d-flex justify-content-around align-items-center px-5">
             <Border_me className=" col-auto px-3">
               <div>

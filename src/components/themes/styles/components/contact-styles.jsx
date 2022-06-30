@@ -1,13 +1,12 @@
 import styled from "styled-components";
-import { Box, Modal } from "@mui/material";
+import { Modal } from "@mui/material";
 
 export const Enviar = styled.button`
   padding: 10px 44% 10px 45% !important;
   background-color: transparent;
   border-radius: 10px;
-  border: solid 1px #656565;
   color: #000000;
-  margin-top: 10px;
+  /* margin-top: 10px; */
   &:hover {
     background-color: #000000;
     color: #ffffff;
@@ -28,33 +27,42 @@ export const ModalContact = styled(Modal)`
   .modalContact {
     display: flex;
     justify-content: space-evenly;
-    svg{
+    svg {
       cursor: pointer;
     }
-    input {
-      width: 100%;
-      height: 40px;
-      border: 1px solid #474747;
-      border-radius: 4px;
-      padding: 0 10px;
-      margin-bottom: 10px;
-    }
-    textarea {
-      width: 100%;
-      height: 100px;
-      border: 1px solid #474747;
-      border-radius: 4px;
-      padding: 0 10px;
-      margin-bottom: 10px;
-    }
     button {
-      width: 100%;
-      height: 40px;
-      border: 1px solid #474747;
-      border-radius: 7px;
-      padding: 0 10px;
-      margin-bottom: 10px;
+      padding: 15px 25px;
+      border: unset;
+      z-index: 1;
+      position: relative;
+      -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+      box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+      transition: all 250ms;
+      overflow: hidden;
     }
+
+    button::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 0;
+      background-color: #212121;
+      z-index: -1;
+      -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+      box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+      transition: all 250ms;
+    }
+
+    button:hover {
+      color: #e8e8e8;
+    }
+
+    button:hover::before {
+      width: 100%;
+    }
+
     @media (max-device-width: 768px) {
       label {
         margin-bottom: -0.5rem;
@@ -93,7 +101,7 @@ export const ModalContact = styled(Modal)`
       height: auto;
       padding: 20px;
       border-radius: 33px;
-      svg{
+      svg {
         font-size: 30px;
       }
       label {

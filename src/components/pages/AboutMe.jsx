@@ -15,9 +15,9 @@ export default function AboutMe() {
 
   return (
     <>
-      <SizeWin className="About p-3" id="aboutme">
+      <SizeWin className="About  p-3" id="aboutme">
         <Row_About
-          className="d-flex align-items-center justify-content-center "
+          className="d-flex align-items-center justify-content-center reveal"
           xs={12}
         >
           <Col className="px-2 col-auto">
