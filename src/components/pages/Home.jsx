@@ -22,13 +22,13 @@ import { ModalContact } from "../themes/styles/components/contact-styles";
 
 export default function Home() {
   const [show, setShow] = useState(false);
-
+  
   return (
     <>
       <SizeWin className="Home" id="home">
         <NavBar />
         {/* <Mobile_menu/> */}
-        <RowStyled className="col-12 justify-content-center align-items-center reveal ">
+        <RowStyled className="col-12 justify-content-center align-items-center ">
           <HomeStyle className="d-flex justify-content-around align-items-center px-5">
             <Border_me className=" col-auto px-3">
               <div>
@@ -88,7 +88,7 @@ export default function Home() {
 
       <ModalContact open={show} onClose={() => setShow(false)}>
         <Modallayout onClick={() => setShow(false)} className={"modalContact"}>
-          <Contact onClick={() => setShow(false)} />
+          <Contact onClick={() => setShow(false) } />
         </Modallayout>
       </ModalContact>
     </>

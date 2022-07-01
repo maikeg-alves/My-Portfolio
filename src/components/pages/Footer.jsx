@@ -39,36 +39,35 @@ export default function Footer() {
           <div className="p-5 d-flex">
             <RowRedes >
               <li>
-                <a href="mailto:maicongabrielalves99@gmail.com?subject=Olá Maicon">
+                <a href="mailto:maicongabrielalves99@gmail.com?subject=Olá Maicon" alt="Email">
                   <IconFoote><AiOutlineMail/></IconFoote>
                 </a>
               </li>
             </RowRedes>
             <RowRedes >
               <li>
-                <a href="https://github.com/maikeg-alves">
+                <a href="https://github.com/maikeg-alves" alt="Github">
                   <IconFoote><AiFillGithub/></IconFoote>
                 </a>
               </li>
             </RowRedes>
             <RowRedes >
               <li>
-                <a href="https://www.linkedin.com/in/maicon-gabriel-7b171421b/">
+                <a href="https://www.linkedin.com/in/maicon-gabriel-7b171421b/" alt="Linkedin">
                 <IconFoote><AiFillLinkedin/></IconFoote>
                 </a>
               </li>
             </RowRedes>
             <RowRedes >
               <li>
-                <a href="https://alvo.chat/1mV">
+                <a href="https://alvo.chat/1mV" alt="Whatsapp">
                 <IconFoote><AiOutlineWhatsApp/></IconFoote>
-
                 </a>
               </li>
             </RowRedes>
             <RowRedes >
               <li>
-                <a href="https://www.instagram.com/m4ike._.sup/">
+                <a href="https://www.instagram.com/m4ike._.sup/" alt="Instagram">
                   <IconFoote><AiOutlineInstagram/></IconFoote>
                 </a>
               </li>

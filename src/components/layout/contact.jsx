@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import sendMail from "../services/sendMail";
 import { ImgProfile, Enviar } from "../themes/styles/components/contact-styles";
 import styled from "styled-components";
+import { Alert, Snackbar } from "@mui/material";
 
 export default function Contact(props) {
   const { handleSubmit, register } = useForm({
@@ -15,10 +16,11 @@ export default function Contact(props) {
 
   const [close, setClose] = useState(false);
   const [input, setInput] = useState(false);
-
+  
   //styles for the inputs
-const StyledForm = styled(Form)`
-    input, textarea {
+  const StyledForm = styled(Form)`
+    input,
+    textarea {
       width: 100%;
       height: 40px;
       border-radius: 4px;
@@ -29,7 +31,7 @@ const StyledForm = styled(Form)`
     textarea {
       height: 100px;
     }
-`;
+  `;
 
   //function formating name and email
   const formatname = (data) => {
@@ -39,12 +41,13 @@ const StyledForm = styled(Form)`
   //function to send email
   const onSubmit = (data) => {
     if (data.name === "" || data.email === "" || data.message === "") {
-      alert("Por favor, complete todos os campos");
+/*       alert("Por favor, complete todos os campos"); */
       setInput(true);
-    } else {
-      setinput(false);
-      console.log(`dados prenchidos `);
       setClose(true);
+      return false;
+    } else {
+      setClose(false)
+      console.log(`dados prenchidos `);
       const email = {
         name: formatname(data.name),
         email: data.email,
@@ -58,13 +61,14 @@ const StyledForm = styled(Form)`
         .then((res) => {
           console.log(res);
           console.log(res.data);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+        }) 
     }
+
   };
 
+
+
+  console.log(close);
   return (
     <>
       <Col xs={12} className="d-flex flex-column align-items-center">
@@ -104,15 +108,22 @@ const StyledForm = styled(Form)`
               {...register("message")}
               rows={3}
             />
-
             <div className="enviar col-auto ">
-              <Enviar type="submit" onClick={!close ? null : props.onClick}>
+              <Enviar type="submit" onClick={()=> close ? console.log('false') : props.onClick}>
                 Enviar
               </Enviar>
             </div>
           </Form.Group>
         </StyledForm>
       </Col>
+
+      <Snackbar open={close} autoHideDuration={6000 } onClose={()=>setClose(false)}>
+        <Alert severity="success" sx={{ width: "100%"}}>
+          Email enviado com sucesso!
+        </Alert>
+      </Snackbar>
     </>
   );
 }
+
+

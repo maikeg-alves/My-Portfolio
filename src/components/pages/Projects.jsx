@@ -5,17 +5,20 @@ import { useRef } from "react";
 import api from "../services/api";
 
 //styled components
+import {
+  AiFillGithub,
+  AiOutlineCodeSandbox,
+  AiOutlineRead,
+} from "react-icons/ai";
 import { Modal } from "react-bootstrap";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import { SizeWin } from "../themes/styles/stylesAll";
 import {
   Buttun,
   RowBtn,
-  Item,
-  ItemCover,
   Carousel,
-  Text_item,
   Title,
+  Card,
 } from "../themes/styles/Projects_styles";
 import { Skeleton_Select, Skeleton_Projects } from "../skeleton/sheleton";
 
@@ -30,13 +33,13 @@ export default function Projects() {
 
   useEffect(() => {
     setTimeout(() => {
-    api.get("/projects").then((res) => {
-      setBase(res.data.project);
-    });
+      api.get("/projects").then((res) => {
+        setBase(res.data.project);
+      });
 
-    api.get(`/project/${ID}`).then((res) => {
-      setProject([res.data]);
-    });
+      api.get(`/project/${ID}`).then((res) => {
+        setProject([res.data]);
+      });
     }, 1000);
   }, [ID]);
 
@@ -61,7 +64,7 @@ export default function Projects() {
 
   const generateUniqueId = () => {
     return Math.random().toString(36).substr(2, 9);
-  }
+  };
 
   return (
     <>
@@ -86,26 +89,52 @@ export default function Projects() {
                 {base.length > 0 ? (
                   base.map((item) => {
                     return (
-                      <Item
-                        key={generateUniqueId()}
-                        onClick={() => {
-                          setShow(true), setID(item.id);
-                        }}
-                        style={{ backgroundImage: `url(${item.img})` }}
-                      >
-                        <ItemCover  key={generateUniqueId()}>
-                          <h3>{item.name_project}</h3>
-                          <div>
-                            <p>{dateformating(item.date_created)}</p>
-                            <Text_item>{item.description}</Text_item>
-                          </div>
-                        </ItemCover>
-                      </Item>
+                      <Card>
+                        <div
+                          class="card-img"
+                          style={{ backgroundImage: `url(${item.img})` }}
+                        ></div>
+                        <ul class="social-media">
+                          <li>
+                            <button
+                              onClick={() => {
+                                setShow(true), setID(item.id);
+                              }}
+                            >
+                              <AiOutlineRead />
+                            </button>
+                          </li>
+                          <li>
+                            <a
+                              href={`https://githubbox.com/maikeg-alves/${item.github_name}`}
+                              target="_blank"
+                              alt="CodeSandBox"
+                            >
+                              <AiOutlineCodeSandbox />
+                            </a>
+                          </li>
+                          <li>
+                            <a
+                              href={`https://github.com/maikeg-alves/${item.github_name}`}
+                              target="_blank"
+                              alt="Github link repositorio"
+                            >
+                              <AiFillGithub />
+                            </a>
+                          </li>
+                        </ul>
+                        <div class="card-info">
+                          <p class="title">{item.name_project}</p>
+                          <p class="subtitle">
+                            {dateformating(item.date_created)}
+                          </p>
+                        </div>
+                      </Card>
                     );
                   })
                 ) : (
                   <>
-                    <Skeleton_Projects/>
+                    <Skeleton_Projects />
                   </>
                 )}
               </div>
@@ -140,7 +169,7 @@ export default function Projects() {
           })
         ) : (
           <>
-            <Skeleton_Select/>
+            <Skeleton_Select />
           </>
         )}
       </Modal>
