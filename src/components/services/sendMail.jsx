@@ -1,7 +1,9 @@
 import axios from "axios";
+import dontenv from "dotenv";
+dontenv.config();
 
 const sendMail = axios.create({
-  baseURL: "https://gmail-nodemailer.herokuapp.com",
+  baseURL: process.env.SEND_EMAIL_BASE,
 });
 
 export default sendMail;
