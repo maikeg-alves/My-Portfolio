@@ -73,7 +73,7 @@ export default function Contact(props) {
     <>
       <Col xs={12} className="d-flex flex-column align-items-center">
         <Col xs>
-          <ImgProfile src="/src/img/Grupo35.png" />
+          <ImgProfile src="https://i.imgur.com/lA8PtvQ.png" alt="avatar" />
         </Col>
 
         <Col xs>
