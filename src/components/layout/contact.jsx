@@ -41,12 +41,11 @@ export default function Contact(props) {
   //function to send email
   const onSubmit = (data) => {
     if (data.name === "" || data.email === "" || data.message === "") {
-/*       alert("Por favor, complete todos os campos"); */
+      alert("Por favor, complete todos os campos");
       setInput(true);
-      setClose(true);
       return false;
     } else {
-      setClose(false)
+      setClose(true)
       console.log(`dados prenchidos `);
       const email = {
         name: formatname(data.name),
@@ -65,8 +64,6 @@ export default function Contact(props) {
     }
 
   };
-
-
 
   console.log(close);
   return (

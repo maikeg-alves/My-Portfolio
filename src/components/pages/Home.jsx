@@ -35,7 +35,7 @@ export default function Home() {
                 <h1>Maicon Gabriel Alves</h1>
               </div>
               <div>
-                <h2>Front-end Web Development/ UI Desigg </h2>
+                <h2>Front-end Web Development/ UI Design </h2>
               </div>
               <div>
                 <HomeButton
