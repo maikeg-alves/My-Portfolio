@@ -22,7 +22,7 @@ export default function AboutMe() {
         >
           <Col className="px-2 col-auto">
             <img
-              src={"/src/img/aboutme.png"}
+              src={"https://i.imgur.com/FZ79qZQ.png"}
               alt="aboutme"
               className="img-fluid"
             ></img>

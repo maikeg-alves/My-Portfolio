@@ -13,7 +13,7 @@ export const Home_photo = styled.div`
   height: 250px;
   width: 250px;
   border-radius: 50%;
-  background-image: url(/src/img/Grupo35.png);
+  background-image: url(https://i.imgur.com/lA8PtvQ.png);
   box-shadow: -20px 19px 20px 0px #0b0b0b, -20px -15px 59px 4px #313131;
   margin-bottom: 5%;
   background-position: center;
