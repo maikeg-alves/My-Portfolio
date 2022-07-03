@@ -16,7 +16,7 @@ já em questão de consumo de dados, o portfólio conta com uma api pessoal minh
 rodando também a api do GitHub, responsável por pegar dados dos repositórios como
 link da repo, data de criação da repo, ultima atualização da repo e a descrição do projeto.
 
-já no envio de email usei nodemailer, uma dependência simples de envio de email escrita em Nodejs também.
+já no envio de email usei nodemailer, uma biblioteca simples de envio de email escrita em Nodejs também.
 
 
 ## Demonstração
