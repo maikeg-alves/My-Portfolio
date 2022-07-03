@@ -65,6 +65,9 @@ li{
     background-image: url('/src/img/bg-bleck.svg');
 }
 
+.bg_buttom{
+   background-image: url('/src/img/bg-white-full.svg');
+}
 
 .modal-content{
     color: black;

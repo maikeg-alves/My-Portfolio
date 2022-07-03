@@ -74,7 +74,6 @@ export const BoxContact = styled.div`
     height: 120px;
   }
   .bg_buttom {
-    background-image: url("/src/img/bg-white-full.svg"); 
     height: 120px;
     background-size: cover;
     background-position: center;
