@@ -46,7 +46,6 @@ export default function Contact(props) {
       return false;
     } else {
       setClose(true)
-      console.log(`dados prenchidos `);
       const email = {
         name: formatname(data.name),
         email: data.email,
@@ -59,13 +58,13 @@ export default function Contact(props) {
         .post("/send", email)
         .then((res) => {
           console.log(res);
-          console.log(res.data);
-        }) 
+        }).catch((err) => {
+          console.log(err);
+        })
+
     }
 
   };
-
-  console.log(close);
   return (
     <>
       <Col xs={12} className="d-flex flex-column align-items-center">
@@ -107,7 +106,7 @@ export default function Contact(props) {
               rows={3}
             />
             <div className="enviar col-auto ">
-              <Enviar type="submit" onClick={()=> close ? console.log('false') : props.onClick}>
+              <Enviar type="submit" onClick={()=> close ? null : props.onClick}>
                 Enviar
               </Enviar>
             </div>
