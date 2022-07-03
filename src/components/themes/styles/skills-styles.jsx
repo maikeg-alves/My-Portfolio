@@ -23,7 +23,6 @@ export const Skills_row = styled(Row)`
     align-items: center;
     list-style: none;
     padding: 10px;
-    background-image: url("src/img/bg-white-full.svg");
     background-size: cover;
     background-position: center;
     border-radius: 20px;
