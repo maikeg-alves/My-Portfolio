@@ -91,10 +91,10 @@ export default function Projects() {
                     return (
                       <Card>
                         <div
-                          class="card-img"
+                          className="card-img"
                           style={{ backgroundImage: `url(${item.img})` }}
                         ></div>
-                        <ul class="social-media">
+                        <ul className="social-media">
                           <li>
                             <button
                               onClick={() => {
@@ -123,9 +123,9 @@ export default function Projects() {
                             </a>
                           </li>
                         </ul>
-                        <div class="card-info">
-                          <p class="title">{item.name_project}</p>
-                          <p class="subtitle">
+                        <div className="card-info">
+                          <p className="title">{item.name_project}</p>
+                          <p className="subtitle">
                             {dateformating(item.date_created)}
                           </p>
                         </div>
