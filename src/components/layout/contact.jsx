@@ -78,8 +78,8 @@ export default function Contact(props) {
 
         <Col xs>
           <p className="text-break" style={{ "text-align": "center" }}>
-            Me mande uma proposta de reunião ou entrevista, estou a disposição,
-            irei retornar contato o mais breve possível.
+            Envie-me uma proposta de entrevista, estou à disposição,
+             responderei o mais breve possível.
           </p>
         </Col>
 
@@ -90,13 +90,13 @@ export default function Contact(props) {
               type="name"
               controlId="name"
               {...register("name", { max: 3 })}
-              placeholder="Insira seu nome ou das sua corporação"
+              placeholder="Insira seu nome"
             />
 
             <Form.Label>Email:</Form.Label>
             <Form.Control
               type="email"
-              placeholder="email"
+              placeholder="Insira seu email"
               controlId="email"
               {...register("email")}
             />
@@ -105,6 +105,7 @@ export default function Contact(props) {
             <Form.Control
               as="textarea"
               controlId="message"
+              placeholder="Me envie uma proposta"
               {...register("message")}
               rows={3}
             />
