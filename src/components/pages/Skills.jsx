@@ -24,7 +24,7 @@ export default function Skills() {
           <h1>HABILIDADES</h1>
         </Col>
         <Col>
-          <ul>
+          <ul className="ul-bg">
             {tech.length > 0 ? (
               tech.map((tech) => (
                 <li key={tech.id}>

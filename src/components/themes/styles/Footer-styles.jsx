@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 
 export const RowBoxWhite = styled.div`
-  background-image: url("/src/img/bg-white-full.svg");
   color: black;
   display: flex;
   align-items: center;

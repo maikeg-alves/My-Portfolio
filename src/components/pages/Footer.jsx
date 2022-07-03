@@ -29,7 +29,7 @@ export default function Footer() {
         </div>
         </BoxContact>
 
-      <RowBoxWhite className="bg col-auto">
+      <RowBoxWhite className="bg-full-white bg col-auto">
         <BoxWhite>
           <TextTitle className="col-5">
             <h1 className="text-break">
