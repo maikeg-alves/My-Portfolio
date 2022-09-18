@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from '../themes/styles/pages/home.style';
 import { Col } from 'react-bootstrap';
-
+import ContactEmail from '@components/contact/contact.component';
 import Avatar from '@components/avatar.component';
 import ModalComponent from '@components/modal';
 
@@ -55,8 +55,8 @@ export default function Home() {
             xs={12}
             className="p-2 btn-contact d-flex justify-content-center"
           >
-            <ModalComponent>
-              <h1>teste</h1>
+            <ModalComponent title="Contato">
+              <ContactEmail />
             </ModalComponent>
           </Col>
         )}

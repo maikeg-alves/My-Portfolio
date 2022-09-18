@@ -1,16 +1,18 @@
 import React from 'react';
 import { Col, Form } from 'react-bootstrap';
-import { useForm } from 'react-hook-form';
+import { useForm, SubmitHandler } from 'react-hook-form';
 import styled from 'styled-components';
+import IMGPROFILE from '@img/avatar.png';
 
 /* interfaces */
 
 import { IEmail } from '@interfaces/email.interface';
+import { Avatar, Button } from '@nextui-org/react';
+import { AiOutlineSend } from 'react-icons/ai';
 
-export default function contactEmail() {
+export default function ContactEmail() {
   const { handleSubmit, register } = useForm<IEmail>();
 
-  const [close, setClose] = React.useState(false);
   const [input, setInput] = React.useState(false);
 
   //styles for the inputs
@@ -30,7 +32,7 @@ export default function contactEmail() {
   `;
 
   //function to send email
-  const onSubmit = (data: IEmail) => {
+  const onSubmit: SubmitHandler<IEmail> = (data: IEmail) => {
     console.log(data);
   };
 
@@ -38,7 +40,7 @@ export default function contactEmail() {
     <>
       <Col xs={12} className="d-flex flex-column align-items-center">
         <Col xs>{/* imagem do avatar */}</Col>
-
+        <Avatar squared src={`${IMGPROFILE}`} css={{ size: '$20' }} />
         <Col xs>
           <p className="text-break">
             Envie-me uma proposta de entrevista, estou à disposição, responderei
@@ -58,24 +60,26 @@ export default function contactEmail() {
             <Form.Label>Email:</Form.Label>
             <Form.Control
               type="email"
-              placeholder="Insira seu email"
               {...register('email')}
+              placeholder="Insira seu email"
             />
 
             <Form.Label>Proposta:</Form.Label>
             <Form.Control
-              as="textarea"
-              placeholder="Me envie uma proposta"
-              {...register('message')}
               rows={3}
+              as="textarea"
+              {...register('message')}
+              placeholder="Me envie uma proposta"
             />
             <div className="enviar col-auto ">
-              {/* botão de envio do formulario */}
-
-              {/*  <Enviar type="submit" onClick={()=> close ? null : props.onClick}>
-                Enviar
-              </Enviar> */}
-              <button type="submit">Enviar</button>
+              <Button
+                auto
+                icon={<AiOutlineSend />}
+                type="submit"
+                css={{ width: '100%', marginTop: '30px' }}
+              >
+                emviar mensagem
+              </Button>
             </div>
           </Form.Group>
         </StyledForm>

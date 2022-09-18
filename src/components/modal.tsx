@@ -7,8 +7,10 @@ import { CgClose } from 'react-icons/cg';
 
 export default function ModalComponent({
   children,
+  title,
 }: {
   children: JSX.Element;
+  title: string;
 }) {
   const { setVisible, bindings } = useModal(false);
 
@@ -33,17 +35,11 @@ export default function ModalComponent({
       >
         <Modal.Header>
           <Text id="modal-title" size={18}>
-            Modal with a lot of content
+            {title}
           </Text>
         </Modal.Header>
-        <Modal.Body>
-          <Text id="modal-description">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-          </Text>
-
-          {children}
-        </Modal.Body>
-        <Modal.Footer justify="space-around">
+        <Modal.Body>{children}</Modal.Body>
+        {/*         <Modal.Footer justify="space-around">
           <Button
             auto
             color="error"
@@ -59,7 +55,7 @@ export default function ModalComponent({
           >
             emviar mensagem
           </Button>
-        </Modal.Footer>
+        </Modal.Footer> */}
       </Modal>
     </div>
   );
