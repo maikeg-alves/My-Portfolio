@@ -1,21 +1,28 @@
-import { Modal, useModal, Button, Text } from "@nextui-org/react";
+import { Modal, useModal, Button, Text } from '@nextui-org/react';
 
-//icons 
-import {BsFillChatFill} from 'react-icons/bs';
-import {AiOutlineSend} from 'react-icons/ai';
-import {CgClose} from 'react-icons/cg';
+//icons
+import { BsFillChatFill } from 'react-icons/bs';
+import { AiOutlineSend } from 'react-icons/ai';
+import { CgClose } from 'react-icons/cg';
 
-export default function ModalAboutme({children } : { children : JSX.Element }) {
-    
+export default function ModalComponent({
+  children,
+}: {
+  children: JSX.Element;
+}) {
   const { setVisible, bindings } = useModal(false);
-
 
   return (
     <div>
-      <Button auto flat icon={<BsFillChatFill/>} color="success" 
-                onPress={()=> setVisible(true)}>
-                  Contato
-        </Button>
+      <Button
+        auto
+        flat
+        icon={<BsFillChatFill />}
+        color="success"
+        onPress={() => setVisible(true)}
+      >
+        Contato
+      </Button>
       <Modal
         scroll
         fullScreen
@@ -30,22 +37,26 @@ export default function ModalAboutme({children } : { children : JSX.Element }) {
           </Text>
         </Modal.Header>
         <Modal.Body>
-          
           <Text id="modal-description">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
           </Text>
 
           {children}
-
         </Modal.Body>
         <Modal.Footer justify="space-around">
-          <Button  auto color="error" 
-           icon={<CgClose/>}
-          onClick={() => setVisible(false)}>
+          <Button
+            auto
+            color="error"
+            icon={<CgClose />}
+            onClick={() => setVisible(false)}
+          >
             Close
           </Button>
-          <Button auto icon={<AiOutlineSend/> } 
-          onClick={() => setVisible(false)}>
+          <Button
+            auto
+            icon={<AiOutlineSend />}
+            onClick={() => setVisible(false)}
+          >
             emviar mensagem
           </Button>
         </Modal.Footer>
