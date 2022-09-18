@@ -1,5 +1,5 @@
 import Avatar from '@components/avatar.component';
-import ModalAboutme from '@components/modal';
+import ModalComponent from '@components/modal.component';
 import { Button, Link } from '@nextui-org/react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { TbDownload } from 'react-icons/tb';
@@ -27,9 +27,9 @@ export default function Aboutme() {
             oportunidade de estagio de desenvolvedor web.
           </p>
           <Col xs={'auto'} className="mb-2">
-            <ModalAboutme>
+            <ModalComponent>
               <h1>teste</h1>
-            </ModalAboutme>
+            </ModalComponent>
           </Col>
         </Col>
         <Col xs={'auto'}>

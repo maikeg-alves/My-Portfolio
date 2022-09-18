@@ -3,7 +3,7 @@ import { Container } from '../themes/styles/pages/home.style';
 import { Col } from 'react-bootstrap';
 import ContactEmail from '@components/contact/contact.component';
 import Avatar from '@components/avatar.component';
-import ModalComponent from '@components/modal';
+import ModalComponent from '@components/modal.component';
 
 import Typewriter from 'react-ts-typewriter';
 

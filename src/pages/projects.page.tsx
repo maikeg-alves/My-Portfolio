@@ -17,6 +17,7 @@ const MockItem = ({ text }: { text: string }) => {
 
 export default function Projects() {
   const isMd = useMediaQuery(960);
+
   return (
     <Container>
       <Row className="vh-100 justify-content-center align-items-center flex-column">

@@ -10,7 +10,7 @@ export default function ModalComponent({
   title,
 }: {
   children: JSX.Element;
-  title: string;
+  title?: string;
 }) {
   const { setVisible, bindings } = useModal(false);
 
@@ -39,23 +39,6 @@ export default function ModalComponent({
           </Text>
         </Modal.Header>
         <Modal.Body>{children}</Modal.Body>
-        {/*         <Modal.Footer justify="space-around">
-          <Button
-            auto
-            color="error"
-            icon={<CgClose />}
-            onClick={() => setVisible(false)}
-          >
-            Close
-          </Button>
-          <Button
-            auto
-            icon={<AiOutlineSend />}
-            onClick={() => setVisible(false)}
-          >
-            emviar mensagem
-          </Button>
-        </Modal.Footer> */}
       </Modal>
     </div>
   );
