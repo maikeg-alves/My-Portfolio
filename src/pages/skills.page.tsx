@@ -1,3 +1,4 @@
+import { SkillsContainer } from '@/themes/styles/components/skillsContainer.style';
 import { Grid, Progress, Text } from '@nextui-org/react';
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
@@ -57,14 +58,14 @@ export default function Skills() {
           <Typewriter text={['Minhas', 'Habilidades']} delay={1000} />
         </Col>
         <Col xs={12} className="mt-1">
-          <Grid.Container xs={12} gap={3}>
+          <SkillsContainer xs={12} gap={3}>
             {skills.map((skill: Skill, index: number) => (
               <Grid key={index}>
                 <Text color="#f6f6f6">{skill.name}</Text>
                 <Progress value={skill.level} color={skill.color} />
               </Grid>
             ))}
-          </Grid.Container>
+          </SkillsContainer>
         </Col>
       </Row>
     </Container>

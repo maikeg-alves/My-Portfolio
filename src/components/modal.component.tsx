@@ -1,4 +1,5 @@
-import { Modal, useModal, Button, Text, Link } from '@nextui-org/react';
+import { Modal, useModal, Text, Link } from '@nextui-org/react';
+import { ButtonMy } from '@/themes/styles/components/button.syle';
 //icons
 import { BsFillChatFill } from 'react-icons/bs';
 
@@ -16,7 +17,7 @@ export default function ModalComponent({
   return (
     <div>
       {button ? (
-        <Button
+        <ButtonMy
           auto
           flat
           icon={<BsFillChatFill />}
@@ -24,10 +25,13 @@ export default function ModalComponent({
           onPress={() => setVisible(true)}
         >
           Contato
-        </Button>
+        </ButtonMy>
       ) : (
-        <Link onPress={() => setVisible(true)} style={{ cursor: 'pointer' }}>
-          ler mais ...
+        <Link
+          onPress={() => setVisible(true)}
+          style={{ cursor: 'pointer', color: '#00ee87' }}
+        >
+          ler mais...
         </Link>
       )}
 

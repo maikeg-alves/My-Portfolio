@@ -22,4 +22,11 @@ export const Nav = styled(Navbar)`
   a {
     padding: 0px !important;
   }
+  .nav-link:focus,
+  .nav-link:hover {
+    color: #00ee87 !important;
+  }
+  a:hover {
+    color: #00ee87 !important;
+  }
 `;

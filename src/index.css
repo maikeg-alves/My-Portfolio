@@ -3,12 +3,11 @@
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
-  
+
   padding: 0;
 
   color-scheme: light dark;
-  color: rgba(0, 0, 0, 0.87);
-  background-color: #242424;
+  color: rgba(255, 255, 255, 0.87);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -17,12 +16,6 @@
   -webkit-text-size-adjust: 100%;
 }
 
-/* body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+body {
+  background-color: #050505;
 }
-
- */

@@ -2,6 +2,7 @@ import { Card, Grid, Text } from '@nextui-org/react';
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useMediaQuery } from '@components/windowssize/useMediaQuery';
+import { ColResponsive } from '@/themes/styles/components/colResponsive';
 
 const MockItem = ({ text }: { text: string }) => {
   return (
@@ -24,8 +25,7 @@ export default function Projects() {
         className="justify-content-center align-items-center flex-column"
         style={{ padding: '5% 0' }}
       >
-        <div></div>
-        <Col xs={'auto'} className="d-flex flex-column align-items-center">
+        <ColResponsive xs={'auto'}>
           <h1>Projects</h1>
           <Grid.Container gap={2} justify="center">
             <Grid xs={12} md={6}>
@@ -44,7 +44,7 @@ export default function Projects() {
               <MockItem text={isMd ? '2 of 2' : '3 of 3'} />
             </Grid>
           </Grid.Container>
-        </Col>
+        </ColResponsive>
       </Row>
     </Container>
   );

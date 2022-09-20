@@ -1,16 +1,16 @@
 import React from 'react';
 import Avatar from '@components/avatar.component';
 import ModalComponent from '@components/modal.component';
-import { Button, Link } from '@nextui-org/react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { TbDownload } from 'react-icons/tb';
 import withResponsive from '@components/sizeresponsive/withresponsive.component';
+import { ButtonMy, LinkMy } from '@/themes/styles/components/button.syle';
 
 export default function Aboutme() {
   return (
     <Container>
       <Row
-        className="justify-content-center align-items-center flex-column "
+        className="justify-content-center align-items-center flex-column px-2 "
         style={{ padding: '5% 0' }}
       >
         <Col xs={'auto'} className="mt-5">
@@ -25,7 +25,7 @@ export default function Aboutme() {
           style={{ width: withResponsive('100%', '50%') }}
           aling="center"
         >
-          <p style={{ margin: 0 }}>
+          <p style={{ margin: 0, textAlign: 'justify' }}>
             Olá, meu nome é Maicon Gabriel Alves, tenho 19 anos e sou estudante
             de Ciência da Computação na Universidade Federal de São Carlos.
             Atualmente estou no 4º período do curso e estou em busca de uma
@@ -57,11 +57,11 @@ export default function Aboutme() {
           <Col xs={'auto'} className="mb-2"></Col>
         </Col>
         <Col xs={'auto'}>
-          <Button auto flat icon={<TbDownload />} color="success">
-            <Link href=" " target="_blank" color={'primary'}>
+          <ButtonMy auto flat icon={<TbDownload />} color="success">
+            <LinkMy href=" " target="_blank" color={'primary'}>
               BAIXAR CURRÍCULO
-            </Link>
-          </Button>
+            </LinkMy>
+          </ButtonMy>
         </Col>
       </Row>
     </Container>

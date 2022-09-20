@@ -35,7 +35,7 @@ export default function ContactEmail({ avatar }: { avatar?: boolean }) {
 
   //function to send email
   const onSubmit: SubmitHandler<IEmail> = (data: IEmail) => {
-    console.log(data);
+    alert(JSON.stringify(data));
   };
 
   return (

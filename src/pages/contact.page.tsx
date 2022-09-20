@@ -4,15 +4,17 @@ import { Text } from '@nextui-org/react';
 import React from 'react';
 import { Container, Row, Col, ListGroup } from 'react-bootstrap';
 
-import AiFillLinkedin from 'react-icons/ai';
-import MdOutlineEmail from 'react-icons/md';
-import BsInstagram from 'react-icons/bs';
+import { AiFillLinkedin } from 'react-icons/ai';
+import { MdOutlineEmail } from 'react-icons/md';
+import { BsInstagram } from 'react-icons/bs';
+
+import { List } from '@/themes/styles/components/list.style';
 
 export default function Contact() {
   return (
     <Container>
       <Row
-        className="justify-content-center align-items-center flex-column"
+        className="justify-content-center align-items-center flex-column px-2"
         style={{ padding: '5% 0' }}
       >
         <Col
@@ -34,12 +36,30 @@ export default function Contact() {
             {'<ou/>'}
           </Text>
         </Col>
-        <ListGroup horizontal className="justify-content-center">
-          <ListGroup.Item> 1 </ListGroup.Item>
-          <ListGroup.Item> 1 </ListGroup.Item>
-          <ListGroup.Item> 1 </ListGroup.Item>
-          <ListGroup.Item> 1 </ListGroup.Item>
-        </ListGroup>
+
+        <List>
+          <li>
+            <a href="">
+              <span>
+                <AiFillLinkedin />
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <span>
+                <MdOutlineEmail />
+              </span>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <span>
+                <BsInstagram />
+              </span>
+            </a>
+          </li>
+        </List>
       </Row>
     </Container>
   );

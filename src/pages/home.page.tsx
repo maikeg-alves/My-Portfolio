@@ -21,12 +21,16 @@ export default function Home() {
 
   return (
     <Container style={{ transform: 'translateY(50%)' }}>
-      <Row className="flex-column align-items-center">
+      <Row className="flex-column align-items-center" align="center">
         <Col xs={'auto'}>
           <Avatar />
         </Col>
 
-        <Col xs={'auto'} className="p-2" style={{ fontSize: 'large' }}>
+        <Col
+          xs={12}
+          className="p-2 btn-contact d-flex justify-content-center"
+          style={{ fontSize: '20px' }}
+        >
           <Typewriter
             text={['Olá, eu sou', 'Maicon Gabriel Alves']}
             delay={1000 || 0}
