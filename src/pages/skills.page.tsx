@@ -49,14 +49,17 @@ export default function Skills() {
 
   return (
     <Container>
-      <Row className="vh-100 justify-content-center align-items-center flex-column">
+      <Row
+        className=" justify-content-center align-items-center flex-column"
+        style={{ padding: '5% 0' }}
+      >
         <Col xs={'auto'}>
           <Typewriter text={['Minhas', 'Habilidades']} delay={1000} />
         </Col>
         <Col xs={12} className="mt-1">
-          <Grid.Container xs={12} sm={6} gap={3}>
-            {skills.map((skill, index) => (
-              <Grid>
+          <Grid.Container xs={12} gap={3}>
+            {skills.map((skill: Skill, index: number) => (
+              <Grid key={index}>
                 <Text color="#f6f6f6">{skill.name}</Text>
                 <Progress value={skill.level} color={skill.color} />
               </Grid>

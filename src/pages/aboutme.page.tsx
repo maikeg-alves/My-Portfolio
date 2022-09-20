@@ -1,13 +1,18 @@
+import React from 'react';
 import Avatar from '@components/avatar.component';
 import ModalComponent from '@components/modal.component';
 import { Button, Link } from '@nextui-org/react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { TbDownload } from 'react-icons/tb';
+import withResponsive from '@components/sizeresponsive/withresponsive.component';
 
 export default function Aboutme() {
   return (
     <Container>
-      <Row className="min-vh-100 justify-content-center align-items-center flex-column ">
+      <Row
+        className="justify-content-center align-items-center flex-column "
+        style={{ padding: '5% 0' }}
+      >
         <Col xs={'auto'} className="mt-5">
           <Avatar />
         </Col>
@@ -17,7 +22,7 @@ export default function Aboutme() {
         <Col
           xs={5}
           className="text-break"
-          style={{ width: '75%' }}
+          style={{ width: withResponsive('100%', '50%') }}
           aling="center"
         >
           <p style={{ margin: 0 }}>
@@ -25,12 +30,31 @@ export default function Aboutme() {
             de Ciência da Computação na Universidade Federal de São Carlos.
             Atualmente estou no 4º período do curso e estou em busca de uma
             oportunidade de estagio de desenvolvedor web.
-          </p>
-          <Col xs={'auto'} className="mb-2">
-            <ModalComponent>
-              <h1>teste</h1>
+            <ModalComponent button={false} title={'Sobre mim'}>
+              <p
+                style={{
+                  width: withResponsive('100%', '50%'),
+                  fontSize: withResponsive('16px', '26px'),
+                }}
+              >
+                Oi! Eu sou Maicon Gabriel Alves. Um desenvolvedor front-end de
+                São Paulo - SP que adora desafios e que está a procura de sempre
+                resolver problemas com tecnologia e um apaixonado por ciência e
+                astronomia.
+                <br />
+                <br /> Programação nasceu para mim como um hoppy em 2020, em
+                meio a um cenário de incertezas, naquele ano eu tive uma
+                certeza, que gostaria de tornar aquele hoppy em carreira, e
+                desde então estou tralhando para que esse sonho se torne
+                realidade. <br />
+                <br /> Quando não estou codando, estou desenhando ou vendo algum
+                documentário, amo aprender e descobrir coisas novas, sou
+                dedicado e ágil, e gostaria de ter essa primeira oportunidade de
+                emprego.
+              </p>
             </ModalComponent>
-          </Col>
+          </p>
+          <Col xs={'auto'} className="mb-2"></Col>
         </Col>
         <Col xs={'auto'}>
           <Button auto flat icon={<TbDownload />} color="success">

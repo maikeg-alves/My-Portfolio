@@ -1,7 +1,7 @@
 import { Card, Grid, Text } from '@nextui-org/react';
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-import { useMediaQuery } from '@/components/windowssize/usemediaquery';
+import { useMediaQuery } from '@components/windowssize/useMediaQuery';
 
 const MockItem = ({ text }: { text: string }) => {
   return (
@@ -20,7 +20,10 @@ export default function Projects() {
 
   return (
     <Container>
-      <Row className="vh-100 justify-content-center align-items-center flex-column">
+      <Row
+        className="justify-content-center align-items-center flex-column"
+        style={{ padding: '5% 0' }}
+      >
         <div></div>
         <Col xs={'auto'} className="d-flex flex-column align-items-center">
           <h1>Projects</h1>

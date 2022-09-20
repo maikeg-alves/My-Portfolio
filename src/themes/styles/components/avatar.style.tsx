@@ -1,16 +1,16 @@
-import { useMediaQuery } from '@/components/windowssize/usemediaquery';
+import { useMediaQuery } from '@components/windowssize/useMediaQuery';
 import styled from 'styled-components';
 
-const area = (value: boolean) => {
+export const area = (value: boolean) => {
   return value ? '120px' : '150px';
 };
 
 export const MyAvatar = styled.div`
-  width: ${(props) => area(useMediaQuery(960))};
-  height: ${(props) => area(useMediaQuery(960))};
+  width: ${() => area(useMediaQuery(960))};
+  height: ${() => area(useMediaQuery(960))};
   border-radius: 50%;
   background-color: #00f78c;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 
   img {
     width: 100%;

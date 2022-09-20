@@ -1,30 +1,36 @@
-import { Modal, useModal, Button, Text } from '@nextui-org/react';
-
+import { Modal, useModal, Button, Text, Link } from '@nextui-org/react';
 //icons
 import { BsFillChatFill } from 'react-icons/bs';
-import { AiOutlineSend } from 'react-icons/ai';
-import { CgClose } from 'react-icons/cg';
 
 export default function ModalComponent({
   children,
   title,
+  button,
 }: {
   children: JSX.Element;
   title?: string;
+  button?: boolean;
 }) {
   const { setVisible, bindings } = useModal(false);
 
   return (
     <div>
-      <Button
-        auto
-        flat
-        icon={<BsFillChatFill />}
-        color="success"
-        onPress={() => setVisible(true)}
-      >
-        Contato
-      </Button>
+      {button ? (
+        <Button
+          auto
+          flat
+          icon={<BsFillChatFill />}
+          color="success"
+          onPress={() => setVisible(true)}
+        >
+          Contato
+        </Button>
+      ) : (
+        <Link onPress={() => setVisible(true)} style={{ cursor: 'pointer' }}>
+          ler mais ...
+        </Link>
+      )}
+
       <Modal
         scroll
         fullScreen
@@ -38,7 +44,7 @@ export default function ModalComponent({
             {title}
           </Text>
         </Modal.Header>
-        <Modal.Body>{children}</Modal.Body>
+        <Modal.Body className="align-items-center">{children}</Modal.Body>
       </Modal>
     </div>
   );

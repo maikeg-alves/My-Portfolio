@@ -9,8 +9,10 @@ import IMGPROFILE from '@img/avatar.png';
 import { IEmail } from '@interfaces/email.interface';
 import { Avatar, Button } from '@nextui-org/react';
 import { AiOutlineSend } from 'react-icons/ai';
+import withResponsive from '../sizeresponsive/withresponsive.component';
+/* import Avatar from '../avatar.component'; */
 
-export default function ContactEmail() {
+export default function ContactEmail({ avatar }: { avatar?: boolean }) {
   const { handleSubmit, register } = useForm<IEmail>();
 
   const [input, setInput] = React.useState(false);
@@ -38,15 +40,22 @@ export default function ContactEmail() {
 
   return (
     <>
-      <Col xs={12} className="d-flex flex-column align-items-center">
-        <Col xs>{/* imagem do avatar */}</Col>
-        <Avatar squared src={`${IMGPROFILE}`} css={{ size: '$20' }} />
-        <Col xs>
-          <p className="text-break">
-            Envie-me uma proposta de entrevista, estou à disposição, responderei
-            o mais breve possível.
-          </p>
-        </Col>
+      <Col
+        xs={12}
+        className="d-flex flex-column align-items-center"
+        style={{ width: withResponsive('100%', '50%') }}
+      >
+        {avatar && (
+          <>
+            <Avatar squared src={`${IMGPROFILE}`} css={{ size: '$20' }} />
+            <Col xs>
+              <p className="text-break mt-1">
+                Envie-me uma proposta de entrevista, estou à disposição,
+                responderei o mais breve possível.
+              </p>
+            </Col>
+          </>
+        )}
 
         <StyledForm className="col-12" onSubmit={handleSubmit(onSubmit)}>
           <Form.Group className=" mb-3" controlId="exampleForm.ControlInput1">
