@@ -2,7 +2,7 @@ import { Navbar, Text } from '@nextui-org/react';
 import styled from 'styled-components';
 
 export const Nav = styled(Navbar)`
-  /* position: absolute; */
+  position: absolute;
   background: transparent;
   color: #fff !important;
 

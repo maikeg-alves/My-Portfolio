@@ -5,10 +5,10 @@ export const List = styled.ul`
   flex-direction: row;
   justify-content: center;
   list-style: none;
-  margin-top: 20px;
+  margin-top: 10px;
   li {
     margin: 0 10px;
-    padding: 10px;
+    padding: 5px;
     border-radius: 50%;
     background-color: #00ee87;
     a {

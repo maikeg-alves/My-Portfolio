@@ -8,9 +8,9 @@ import { ButtonMy, LinkMy } from '@/themes/styles/components/button.syle';
 
 export default function Aboutme() {
   return (
-    <Container>
+    <Container style={{ height: '100%', padding: '0 5%' }}>
       <Row
-        className="justify-content-center align-items-center flex-column px-2 "
+        className="justify-content-center align-items-center flex-column px-2 h-100 w-100 "
         style={{ padding: '5% 0' }}
       >
         <Col xs={'auto'} className="mt-5">

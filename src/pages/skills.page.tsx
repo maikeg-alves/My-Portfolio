@@ -49,9 +49,9 @@ export default function Skills() {
   ];
 
   return (
-    <Container>
+    <Container style={{ height: '100%', padding: '0 5%' }}>
       <Row
-        className=" justify-content-center align-items-center flex-column"
+        className=" justify-content-center align-items-center flex-column h-100 w-100 m-0 "
         style={{ padding: '5% 0' }}
       >
         <Col xs={'auto'}>

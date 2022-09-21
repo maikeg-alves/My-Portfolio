@@ -21,6 +21,7 @@
     "react-router-dom": "^6.3.0",
     "react-ts-typewriter": "^0.1.8-b",
     "styled-components": "^5.3.5",
+    "swiper": "^8.4.2",
     "typewriter-effect": "^2.19.0"
   },
   "devDependencies": {

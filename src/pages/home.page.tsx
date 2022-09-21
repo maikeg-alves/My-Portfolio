@@ -20,58 +20,63 @@ export default function Home() {
   });
 
   return (
-    <Container style={{ transform: 'translateY(50%)' }}>
-      <Row className="flex-column align-items-center" align="center">
-        <Col xs={'auto'}>
-          <Avatar />
-        </Col>
+    <Container style={{ height: '100%', padding: '0 5%' }}>
+      <Row
+        className="flex-column align-items-center justify-content-center h-100 w-100"
+        align="center"
+      >
+        <Col xs={12}>
+          <Col xs={'auto'}>
+            <Avatar />
+          </Col>
 
-        <Col
-          xs={12}
-          className="p-2 btn-contact d-flex justify-content-center"
-          style={{ fontSize: '20px' }}
-        >
-          <Typewriter
-            text={['Olá, eu sou', 'Maicon Gabriel Alves']}
-            delay={1000 || 0}
-            cursor={false}
-            onFinished={() =>
-              setTimeout(() => {
-                setShow(true);
-              }, 2000)
-            }
-          />
-        </Col>
-
-        {show && (
           <Col
             xs={12}
             className="p-2 btn-contact d-flex justify-content-center"
-            style={{ color: '#00ee87' }}
+            style={{ fontSize: '20px' }}
           >
             <Typewriter
-              text={['UI Design', 'Illustration', 'Front-end Developer']}
-              delay={1000}
-              cursor={true}
+              text={['Olá, eu sou', 'Maicon Gabriel Alves']}
+              delay={1000 || 0}
+              cursor={false}
               onFinished={() =>
                 setTimeout(() => {
-                  setShow2(true);
+                  setShow(true);
                 }, 2000)
               }
             />
           </Col>
-        )}
 
-        {show2 && (
-          <Col
-            xs={12}
-            className="p-2 btn-contact d-flex justify-content-center"
-          >
-            <ModalComponent title="Contato" button={true}>
-              <ContactEmail avatar={true} />
-            </ModalComponent>
-          </Col>
-        )}
+          {show && (
+            <Col
+              xs={12}
+              className="p-2 btn-contact d-flex justify-content-center"
+              style={{ color: '#00ee87' }}
+            >
+              <Typewriter
+                text={['UI Design', 'Illustration', 'Front-end Developer']}
+                delay={1000}
+                cursor={true}
+                onFinished={() =>
+                  setTimeout(() => {
+                    setShow2(true);
+                  }, 2000)
+                }
+              />
+            </Col>
+          )}
+
+          {show2 && (
+            <Col
+              xs={12}
+              className="p-2 btn-contact d-flex justify-content-center"
+            >
+              <ModalComponent title="Contato" button={true}>
+                <ContactEmail avatar={true} />
+              </ModalComponent>
+            </Col>
+          )}
+        </Col>
       </Row>
     </Container>
   );

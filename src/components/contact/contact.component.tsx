@@ -85,7 +85,7 @@ export default function ContactEmail({ avatar }: { avatar?: boolean }) {
                 auto
                 icon={<AiOutlineSend />}
                 type="submit"
-                css={{ width: '100%', marginTop: '30px' }}
+                css={{ width: '100%', marginTop: '20px' }}
               >
                 emviar mensagem
               </Button>
