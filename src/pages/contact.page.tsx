@@ -12,16 +12,16 @@ import { List } from '@/themes/styles/components/list.style';
 
 export default function Contact() {
   return (
-    <Container className={'h-100'}>
-      <Row
-        className="justify-content-center align-items-center flex-column h-100 w-100 m-0"
-        style={{ padding: '5% 0' }}
-      >
+    <Container>
+      <Row className="justify-content-center align-items-center flex-column h-100 w-100 m-0">
         <Col
           xs={'auto'}
           align={'center'}
           style={{ width: withResponsive('100%', '50%') }}
         >
+          <div
+            style={{ width: '100%', height: '100%', marginTop: '100px' }}
+          ></div>
           <Text color="white" h1>
             Contato
           </Text>
