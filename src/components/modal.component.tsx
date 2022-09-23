@@ -8,10 +8,14 @@ export default function ModalComponent({
   children,
   title,
   button,
+  namebtn,
+  icon,
 }: {
   children: JSX.Element;
   title?: string;
   button?: boolean;
+  namebtn?: string;
+  icon?: JSX.Element;
 }) {
   const { setVisible, bindings } = useModal(false);
 
@@ -21,11 +25,11 @@ export default function ModalComponent({
         <ButtonMy
           auto
           flat
-          icon={<BsFillChatFill />}
+          icon={icon ? icon : <BsFillChatFill />}
           color="success"
           onPress={() => setVisible(true)}
         >
-          Contato
+          {namebtn ? namebtn : 'Contato'}
         </ButtonMy>
       ) : (
         <Link

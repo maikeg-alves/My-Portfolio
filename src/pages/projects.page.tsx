@@ -6,7 +6,7 @@ import { ColResponsive } from '@/themes/styles/components/colResponsive';
 
 import { IProjects } from '@/interfaces/projects.interface';
 
-import { CardProject } from '@/components/carrosel/cardproject.component';
+import CardProject from '@/components/carrosel/cardproject.component';
 import { SwiperSlide } from 'swiper/react';
 
 import Carrosel from '@/components/carrosel/carrosel.component';
