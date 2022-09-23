@@ -9,34 +9,24 @@ import IMGPROFILE from '@img/avatar.png';
 import { IEmail } from '@interfaces/email.interface';
 import { Avatar, Button } from '@nextui-org/react';
 import { AiOutlineSend } from 'react-icons/ai';
-import withResponsive from '../sizeresponsive/withresponsive.component';
+
+import { FormMy } from '@/themes/styles/components/form.style';
 /* import Avatar from '../avatar.component'; */
 
 export default function ContactEmail({ avatar }: { avatar?: boolean }) {
-  const { handleSubmit, register } = useForm<IEmail>();
-
-  const [input, setInput] = React.useState(false);
-
-  //styles for the inputs
-  const StyledForm = styled(Form)`
-    input,
-    textarea {
-      width: 100%;
-      height: 40px;
-      border-radius: 4px;
-      padding: 0 10px;
-      margin-bottom: 10px;
-      border: ${!input ? `1px solid #656565` : `2px solid #ff0000`};
-    }
-    textarea {
-      height: 100px;
-    }
-  `;
+  const {
+    handleSubmit,
+    register,
+    setError,
+    formState: { errors },
+  } = useForm<IEmail>();
 
   //function to send email
   const onSubmit: SubmitHandler<IEmail> = (data: IEmail) => {
-    alert(JSON.stringify(data));
+    console.log(data);
   };
+
+  React.useEffect(() => {}, [setError, errors]);
 
   return (
     <>
@@ -57,28 +47,55 @@ export default function ContactEmail({ avatar }: { avatar?: boolean }) {
           </>
         )}
 
-        <StyledForm className="col-12" onSubmit={handleSubmit(onSubmit)}>
+        <FormMy className="col-12" onSubmit={handleSubmit(onSubmit)}>
           <Form.Group className=" mb-3" controlId="exampleForm.ControlInput1">
             <Form.Label>Nome:</Form.Label>
             <Form.Control
               type="name"
-              {...register('name', { max: 3 })}
-              placeholder="Insira seu nome"
+              {...register('name', {
+                required: true,
+                minLength: 3,
+                maxLength: 20,
+                pattern: /^[a-z ,.'-]+$/i,
+              })}
+              placeholder={'Digite seu nome'}
+              style={{
+                border: `${
+                  errors.name ? '2px solid #f51717' : '1px solid #ccc'
+                }`,
+              }}
             />
 
             <Form.Label>Email:</Form.Label>
             <Form.Control
               type="email"
-              {...register('email')}
-              placeholder="Insira seu email"
+              {...register('email', {
+                required: true,
+                minLength: 3,
+                pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+              })}
+              placeholder="Digite seu email"
+              style={{
+                border: `${
+                  errors.email ? '2px solid #f51717' : '1px solid #ccc'
+                }`,
+              }}
             />
-
             <Form.Label>Proposta:</Form.Label>
             <Form.Control
               rows={3}
               as="textarea"
-              {...register('message')}
+              {...register('message', {
+                required: true,
+                minLength: 15,
+                maxLength: 200,
+              })}
               placeholder="Me envie uma proposta"
+              style={{
+                border: `${
+                  errors.message ? '2px solid #f51717' : '1px solid #ccc'
+                }`,
+              }}
             />
             <div className="enviar col-auto ">
               <Button
@@ -91,7 +108,7 @@ export default function ContactEmail({ avatar }: { avatar?: boolean }) {
               </Button>
             </div>
           </Form.Group>
-        </StyledForm>
+        </FormMy>
       </Col>
     </>
   );
