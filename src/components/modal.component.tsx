@@ -2,6 +2,7 @@ import { Modal, useModal, Text, Link } from '@nextui-org/react';
 import { ButtonMy } from '@/themes/styles/components/button.syle';
 //icons
 import { BsFillChatFill } from 'react-icons/bs';
+import { useMediaQuery } from './windowssize/useMediaQuery';
 
 export default function ModalComponent({
   children,
@@ -15,7 +16,7 @@ export default function ModalComponent({
   const { setVisible, bindings } = useModal(false);
 
   return (
-    <div>
+    <>
       {button ? (
         <ButtonMy
           auto
@@ -36,11 +37,10 @@ export default function ModalComponent({
       )}
 
       <Modal
-        scroll
-        fullScreen
+        blur
+        fullScreen={useMediaQuery(375)} // if true, the modal will be full screen
         closeButton
         aria-labelledby="modal-title"
-        aria-describedby="modal-description"
         {...bindings}
       >
         <Modal.Header>
@@ -50,6 +50,16 @@ export default function ModalComponent({
         </Modal.Header>
         <Modal.Body className="align-items-center">{children}</Modal.Body>
       </Modal>
-    </div>
+      {/* 
+      <Modal closeButton blur aria-labelledby="modal-title" {...bindings}>
+        <Modal.Header>
+          <Text id="modal-title" size={18}>
+            {title}
+          </Text>
+        </Modal.Header>
+        <Modal.Body>{children}</Modal.Body>
+        <Modal.Footer></Modal.Footer>
+      </Modal> */}
+    </>
   );
 }

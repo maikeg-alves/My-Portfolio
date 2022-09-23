@@ -20,6 +20,9 @@ export const CardProject = ({
         <Text h3 color="black">
           {name}
         </Text>
+        <Text size={12} color="black">
+          {description}
+        </Text>
       </Col>
     </Card.Header>
     <Card.Body css={{ p: 0 }}>

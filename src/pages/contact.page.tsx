@@ -14,52 +14,54 @@ export default function Contact() {
   return (
     <Container>
       <Row className="justify-content-center align-items-center flex-column h-100 w-100 m-0">
-        <Col
-          xs={'auto'}
-          align={'center'}
-          style={{ width: withResponsive('100%', '50%') }}
-        >
-          <div
-            style={{ width: '100%', height: '100%', marginTop: '100px' }}
-          ></div>
-          <Text color="white" h1>
-            Contato
-          </Text>
-          <p style={{ fontSize: withResponsive('13px', '20px') }}>
-            Me mande uma mesnagem que entrarei em contato o mmais breve
-            possivel, se preferrir entre em contato pelas redes sociais.
-          </p>
-        </Col>
-        <ContactEmail avatar={false} />
-        <Col xs={12} align={'center'}>
-          <Text h5 color="#00ee87">
-            {'<ou/>'}
-          </Text>
-        </Col>
+        <Col xs={12} style={{ maxWidth: '500px' }}>
+          <Col
+            xs={'auto'}
+            align={'center'}
+            /* style={{ width: withResponsive('100%', '50%') }} */
+          >
+            <div
+              style={{ width: '100%', height: '100%', marginTop: '100px' }}
+            ></div>
+            <Text color="white" h1>
+              Contato
+            </Text>
+            <p style={{ fontSize: withResponsive('13px', '20px') }}>
+              Me mande uma mesnagem que entrarei em contato o mmais breve
+              possivel, se preferrir entre em contato pelas redes sociais.
+            </p>
+          </Col>
+          <ContactEmail avatar={false} />
+          <Col xs={12} align={'center'}>
+            <Text h5 color="#00ee87">
+              {'<ou/>'}
+            </Text>
+          </Col>
 
-        <List>
-          <li>
-            <a href="">
-              <span>
-                <AiFillLinkedin />
-              </span>
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <span>
-                <MdOutlineEmail />
-              </span>
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <span>
-                <BsInstagram />
-              </span>
-            </a>
-          </li>
-        </List>
+          <List>
+            <li>
+              <a href="">
+                <span>
+                  <AiFillLinkedin />
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <span>
+                  <MdOutlineEmail />
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="">
+                <span>
+                  <BsInstagram />
+                </span>
+              </a>
+            </li>
+          </List>
+        </Col>
       </Row>
     </Container>
   );

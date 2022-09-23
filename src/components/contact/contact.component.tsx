@@ -43,7 +43,7 @@ export default function ContactEmail({ avatar }: { avatar?: boolean }) {
       <Col
         xs={12}
         className="d-flex flex-column align-items-center"
-        style={{ width: withResponsive('100%', '50%') }}
+        /* style={{ width: withResponsive('100%', '50%') }} */
       >
         {avatar && (
           <>

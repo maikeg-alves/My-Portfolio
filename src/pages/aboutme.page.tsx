@@ -10,7 +10,7 @@ export default function Aboutme() {
   return (
     <Container style={{ height: '100%', padding: '0 5%' }}>
       <Row
-        className="justify-content-center align-items-center flex-column px-2 h-100 w-100 "
+        className="justify-content-center align-items-center flex-column px-2 h-100 w-100 m-0"
         style={{ padding: '5% 0' }}
       >
         <Col xs={'auto'} className="mt-5">
@@ -32,10 +32,12 @@ export default function Aboutme() {
             oportunidade de estagio de desenvolvedor web.
             <ModalComponent button={false} title={'Sobre mim'}>
               <p
-                style={{
-                  width: withResponsive('100%', '50%'),
-                  fontSize: withResponsive('16px', '26px'),
-                }}
+                style={
+                  {
+                    /*                   width: withResponsive('100%', '50%'),
+                  fontSize: withResponsive('16px', '26px'), */
+                  }
+                }
               >
                 Oi! Eu sou Maicon Gabriel Alves. Um desenvolvedor front-end de
                 São Paulo - SP que adora desafios e que está a procura de sempre

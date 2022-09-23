@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <Container style={{ height: '100%', padding: '0 5%' }}>
       <Row
-        className="flex-column align-items-center justify-content-center h-100 w-100"
+        className="flex-column align-items-center justify-content-center h-100 w-100 m-0  "
         align="center"
       >
         <Col xs={12}>
