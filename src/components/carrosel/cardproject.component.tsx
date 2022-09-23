@@ -14,7 +14,7 @@ export default function CardProject({
   technologies,
   data,
 }: ICard) {
-  const infosProject: ICard = {
+  const dados: ICard = {
     name: name,
     description: description,
     image: image,
@@ -74,7 +74,7 @@ export default function CardProject({
                 namebtn="Veja Mais"
                 icon={<AiFillEye />}
               >
-                <InfoProjects {...infosProject} />
+                <InfoProjects {...dados} />
               </ModalComponent>
             </Row>
           </Col>

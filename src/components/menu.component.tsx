@@ -31,7 +31,12 @@ export default function Menu() {
     }
   }
 
-  const routes = [
+  type MenuProps = {
+    route: string;
+    text: string;
+  };
+
+  const routes: MenuProps[] = [
     {
       route: '/',
       text: 'Home',

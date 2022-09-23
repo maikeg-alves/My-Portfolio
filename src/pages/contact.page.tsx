@@ -12,7 +12,7 @@ import { List } from '@/themes/styles/components/list.style';
 
 export default function Contact() {
   return (
-    <Container>
+    <Container className="vh-100">
       <Row className="justify-content-center align-items-center flex-column h-100 w-100 m-0">
         <Col xs={12} style={{ maxWidth: '500px' }}>
           <Col
