@@ -54,16 +54,6 @@ export default function ModalComponent({
         </Modal.Header>
         <Modal.Body className="align-items-center">{children}</Modal.Body>
       </Modal>
-      {/* 
-      <Modal closeButton blur aria-labelledby="modal-title" {...bindings}>
-        <Modal.Header>
-          <Text id="modal-title" size={18}>
-            {title}
-          </Text>
-        </Modal.Header>
-        <Modal.Body>{children}</Modal.Body>
-        <Modal.Footer></Modal.Footer>
-      </Modal> */}
     </>
   );
 }

@@ -26,7 +26,7 @@ export default function ContactEmail({ avatar }: { avatar?: boolean }) {
     console.log(data);
   };
 
-  React.useEffect(() => {}, [setError, errors]);
+  React.useEffect(() => {}, [errors]);
 
   return (
     <>
@@ -87,7 +87,6 @@ export default function ContactEmail({ avatar }: { avatar?: boolean }) {
               as="textarea"
               {...register('message', {
                 required: true,
-                minLength: 15,
                 maxLength: 200,
               })}
               placeholder="Me envie uma proposta"

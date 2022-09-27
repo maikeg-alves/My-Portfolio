@@ -1,0 +1,23 @@
+{
+  "folders": [
+	{
+		"path": ".."
+	},
+	{
+		"path": "../../aulas-typescript"
+	},
+	{
+		"path": "../../my-portfolio"
+	},
+	{
+		"path": "../../apiRest"
+	},
+	{
+		"path": "../../ApiRestTS"
+	}
+],
+  "settings": {
+    "commentTranslate.targetLanguage": "en",
+    "liveServer.settings.multiRootWorkspaceName": "aulas-typescript"
+  }
+}
