@@ -9,6 +9,7 @@ import { Reponsive } from '@libs';
 import { ContactEmail } from '@components';
 import { List } from '@styles';
 import type { NextPage } from 'next';
+import { ITheme } from 'interfaces';
 
 const Contact: NextPage = () => {
   return (
@@ -23,7 +24,7 @@ const Contact: NextPage = () => {
             <div
               style={{ width: '100%', height: '100%', marginTop: '100px' }}
             ></div>
-            <Text color="white" h1>
+            <Text color={`${(props: ITheme) => props.theme.body.color}`} h1>
               Contato
             </Text>
             <p style={{ fontSize: Reponsive('13px', '20px', 960) }}>

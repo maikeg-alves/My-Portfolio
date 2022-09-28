@@ -3,3 +3,7 @@ export interface IEmail {
   email: string;
   message: string;
 }
+
+export interface MailtrapTransporter {
+  service: string;
+}

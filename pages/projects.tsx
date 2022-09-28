@@ -3,44 +3,21 @@ import { SwiperSlide } from 'swiper/react';
 
 import { Carrosel, CardProject } from '@components';
 import { IProjects } from '../interfaces';
-import type { GetStaticProps, NextPage } from 'next';
+import type { NextPage } from 'next';
 
-const Projects: NextPage = (props) => {
-  /*   const items: IProjects[] = [
+const Projects: NextPage = () => {
+  const items: IProjects[] = [
     {
       id: 1,
-      name: "NextUI",
-      description:
-        "NextUI is a React UI library that is built with Next.js and Tailwind CSS.",
-      image: "https://nextui.org/nextui.png",
-      url: "https://nextui.org",
-      github: "https://github.io/nextui-org/nextui",
-      technologies: ["React", "Next.js", "Tailwind CSS"],
-      data: "02/12/2022",
+      name: 'Portfolio',
+      description: 'My portfolio, where I show my prNext.js,more.',
+      image: '/images/portfolio.png',
+      url: 'https://portfolio-ten.vercel.app/',
+      github: 'asdasdsa',
+      technologies: ['Next.js', 'React.js', 'TypeScript', 'Bootstrap', 'SASS'],
+      data: '2021',
     },
-    {
-      id: 2,
-      name: "LastUI",
-      description:
-        "NextUI is a React UI library that is built with Next.js and Tailwind CSS.",
-      image: "https://nextui.org/nextui.png",
-      url: "https://nextui.org",
-      github: "https://github.io/nextui-org/nextui",
-      technologies: ["React", "Next.js", "Tailwind CSS"],
-      data: "02/12/2022",
-    },
-    {
-      id: 3,
-      name: "LastUI",
-      description:
-        "NextUI is a React UI library that is built with Next.js and Tailwind CSS.",
-      image: "https://nextui.org/nextui.png",
-      url: "https://nextui.org",
-      github: "https://github.io/nextui-org/nextui",
-      technologies: ["React", "Next.js", "Tailwind CSS"],
-      data: "02/12/2022",
-    },
-  ]; */
+  ];
 
   return (
     <>
@@ -53,11 +30,11 @@ const Projects: NextPage = (props) => {
             <Col xs={12}>
               <Carrosel>
                 <>
-                  {/*                   {items.map((item, id) => (
+                  {items.map((item, id) => (
                     <SwiperSlide key={id}>
                       <CardProject {...item} />
                     </SwiperSlide>
-                  ))} */}
+                  ))}
                 </>
               </Carrosel>
             </Col>
@@ -69,15 +46,3 @@ const Projects: NextPage = (props) => {
 };
 
 export default Projects;
-
-const getStaticProps: GetStaticProps = async () => {
-  const res = await fetch('https:/.../api');
-  const items = await res.json();
-
-  console.log(items);
-  return {
-    props: {
-      items,
-    },
-  };
-};

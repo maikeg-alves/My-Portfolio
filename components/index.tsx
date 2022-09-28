@@ -5,7 +5,7 @@ import ModalComponent from './modal/modal.component';
 import Carrosel from './carrosel/carrosel.component';
 import CardProject from './card/card.component';
 import ContactEmail from './contact/contact.component';
-
+import BtnMode from './mode/buttonmode.component';
 export {
   NavBar,
   Container,
@@ -14,4 +14,5 @@ export {
   Carrosel,
   CardProject,
   ContactEmail,
+  BtnMode,
 };

@@ -1,13 +1,15 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
+import { ITheme } from '@interfaces';
 
 export const GlobalStyle = createGlobalStyle`
-/* html,
+html,
 body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    background-color: #f5f5f5;
+  color: white;
+  background: #1e1e1e;
 }
 
 a {
@@ -26,9 +28,7 @@ a {
     color-scheme: dark;
   }
   body {
-    color: white;
-    background: black;
-  }
-} */
-
+    color:${(props: ITheme) => props.theme.body.color};
+    background: ${(props: ITheme) => props.theme.body.background};
+  } } 
 `;
