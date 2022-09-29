@@ -1,7 +1,7 @@
-import { Card, Col, Row, Text } from '@nextui-org/react';
+import { Card, Row, Text } from '@nextui-org/react';
 import { Container } from 'react-bootstrap';
 import { AiFillEye } from 'react-icons/ai';
-
+import { Col } from 'react-bootstrap';
 import { ICard } from '../../interfaces';
 import { ModalComponent } from '../../components';
 
@@ -14,7 +14,7 @@ export default function CardProject({
   technologies,
   data,
 }: ICard) {
-  const dados: ICard = {
+  /*   const dados: ICard = {
     name: name,
     description: description,
     image: image,
@@ -22,7 +22,7 @@ export default function CardProject({
     github: github,
     technologies: technologies,
     data: data,
-  };
+  }; */
 
   return (
     <Card className="h-100 w-100">

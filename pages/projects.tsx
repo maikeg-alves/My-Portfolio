@@ -3,21 +3,16 @@ import { SwiperSlide } from 'swiper/react';
 
 import { Carrosel, CardProject } from '@components';
 import { IProjects } from '../interfaces';
-import type { NextPage } from 'next';
+import type { GetStaticProps, NextPage } from 'next';
 
-const Projects: NextPage = () => {
-  const items: IProjects[] = [
-    {
-      id: 1,
-      name: 'Portfolio',
-      description: 'My portfolio, where I show my prNext.js,more.',
-      image: '/images/portfolio.png',
-      url: 'https://portfolio-ten.vercel.app/',
-      github: 'asdasdsa',
-      technologies: ['Next.js', 'React.js', 'TypeScript', 'Bootstrap', 'SASS'],
-      data: '2021',
-    },
-  ];
+import { prisma } from 'libs';
+
+const Projects: NextPage<IProjects> = ({ projects }) => {
+  console.log(projects);
+
+  if (!projects) {
+    return <h1>Carregando...</h1>;
+  }
 
   return (
     <>
@@ -30,8 +25,8 @@ const Projects: NextPage = () => {
             <Col xs={12}>
               <Carrosel>
                 <>
-                  {items.map((item, id) => (
-                    <SwiperSlide key={id}>
+                  {projects.map((item) => (
+                    <SwiperSlide key={item.id}>
                       <CardProject {...item} />
                     </SwiperSlide>
                   ))}
@@ -47,15 +42,43 @@ const Projects: NextPage = () => {
 
 export default Projects;
 
-//jeito de chamar a api no next.js
+export const getStaticProps: GetStaticProps = async () => {
+  const projects = await prisma?.project.findMany({
+    select: {
+      id: true,
+      name: true,
+      github: true,
+      description: true,
+      difficulty: true,
+      img: true,
+      gif: true,
+      technologys: true,
+    },
+  });
 
-/* const data = await fetch("/api/profiles", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify({ name, email }),
-});
+  return {
+    props: {
+      projects,
+    },
+    revalidate: 10, //10 seconds
+  };
+};
 
-toast.success("Posted");
-}; */
+// TODO: acesso restrito a rota
+/* export default async function handler(req, res) {
+  // Check for secret to confirm this is a valid request
+  if (req.query.secret !== process.env.MY_SECRET_TOKEN) {
+    return res.status(401).json({ message: 'Invalid token' })
+  }
+
+  try {
+  //este deve ser o caminho real e não um caminho reescrito
+    //por exemplo. para "/blog/[slug]" deve ser "/blog/post-1"
+    await res.revalidate('/path-to-revalidate')
+    return res.json({ revalidated: true })
+  } catch (err) {
+    // If there was an error, Next.js will continue
+    // to show the last successfully generated page
+    return res.status(500).send('Error revalidating')
+  }
+} */
