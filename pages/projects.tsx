@@ -46,3 +46,16 @@ const Projects: NextPage = () => {
 };
 
 export default Projects;
+
+//jeito de chamar a api no next.js
+
+/* const data = await fetch("/api/profiles", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({ name, email }),
+});
+
+toast.success("Posted");
+}; */

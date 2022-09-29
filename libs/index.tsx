@@ -1,3 +1,5 @@
 import { Reponsive, useMediaQuery } from './responsivesize/responsive';
 
-export { Reponsive, useMediaQuery };
+import { prisma } from './prisma';
+
+export { Reponsive, useMediaQuery, prisma };

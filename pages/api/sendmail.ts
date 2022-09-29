@@ -1,12 +1,13 @@
-import type { IEmail, MailtrapTransporter } from 'interfaces';
 import { google } from 'googleapis';
 import SMTPTransport from 'nodemailer';
+
 import { NextApiRequest, NextApiResponse } from 'next';
+import type { IEmail, MailtrapTransporter } from 'interfaces';
 
 export default async function sandmail(
   req: NextApiRequest,
   res: NextApiResponse,
-) {
+): Promise<void> {
   switch (req.method) {
     case 'POST':
       try {
