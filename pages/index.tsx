@@ -1,8 +1,10 @@
 import React from 'react';
-import Typewriter from 'typewriter-effect';
+/* import Typewriter from 'typewriter-effect'; */
 import { Col } from 'react-bootstrap';
 
-import { Avatar, ContactEmail, ModalComponent } from '@components';
+import { Typewriter } from '@components';
+
+import { Avatar, ContactEmail, Layout, ModalComponent } from '@components';
 import type { NextPage } from 'next';
 
 const Home: NextPage = () => {
@@ -17,32 +19,30 @@ const Home: NextPage = () => {
   }
 
   return (
-    <>
-      <Col xs={12} className="d-flex flex-column align-items-center">
-        <Col xs={'auto'}>
-          <Avatar />
-        </Col>
+    <Layout justify="center" align="center" direction="column">
+      <Col xs={'auto'}>
+        <Avatar />
+        {/*  <Testimg /> */}
+      </Col>
 
+      <Col>
         <Col
           xs={'auto'}
           className="p-2 btn-contact d-flex justify-content-center"
           style={{ fontSize: '20px' }}
         >
           <Typewriter
-            onInit={(typewriter) => {
-              typewriter
-                .typeString('Olá, eu sou')
-                .pauseFor(500)
-                .deleteAll()
-                .typeString('Maicon Gabriel Alves')
-                .callFunction(() => {
-                  setShow(true);
-                })
-
-                .start();
-            }}
+            text={['Olá, eu sou', 'Maicon Gabriel Alves']}
+            delay={1000 || 0}
+            cursor={false}
+            onFinished={() =>
+              setTimeout(() => {
+                setShow(true);
+              }, 2000)
+            }
           />
         </Col>
+
         {show && (
           <Col
             xs={'auto'}
@@ -50,20 +50,14 @@ const Home: NextPage = () => {
             style={{ color: '#00ee87' }}
           >
             <Typewriter
-              onInit={(typewriter) => {
-                typewriter
-                  .typeString('UI Design')
-                  .pauseFor(500)
-                  .deleteAll()
-                  .typeString('Illustration')
-                  .pauseFor(500)
-                  .deleteAll()
-                  .typeString('Front-end Developer')
-                  .callFunction(() => {
-                    setShow2(true);
-                  })
-                  .start();
-              }}
+              text={['UI Design', 'Illustration', 'Front-end Developer']}
+              delay={1000}
+              cursor={true}
+              onFinished={() =>
+                setTimeout(() => {
+                  setShow2(true);
+                }, 2000)
+              }
             />
           </Col>
         )}
@@ -79,7 +73,7 @@ const Home: NextPage = () => {
           </Col>
         )}
       </Col>
-    </>
+    </Layout>
   );
 };
 

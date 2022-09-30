@@ -5,8 +5,8 @@ export const List = styled.ul`
   flex-direction: row;
   justify-content: center;
   list-style: none;
-  margin-top: 10px;
-  padding: 0;
+  margin: 10px 0 !important;
+  padding: 0 !important;
   li {
     margin: 0 10px;
     padding: 5px;

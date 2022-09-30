@@ -1,4 +1,4 @@
-import { NavBar } from '../index';
+import { NavBar, Footer } from '../index';
 import { Main } from '../container/container.styled';
 import { ContainerProps } from 'react-bootstrap';
 import styles from '../../styles/Home.module.css';
@@ -9,6 +9,7 @@ export default function Container({ children }: ContainerProps) {
     <Main className={styles.main}>
       <NavBar />
       <Main>{children}</Main>
+      <Footer />
     </Main>
   );
 }

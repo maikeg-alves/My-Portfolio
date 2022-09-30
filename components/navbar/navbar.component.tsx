@@ -33,15 +33,8 @@ export default function NavBar() {
 
   return (
     <>
-      <Nav
-        isBordered
-        variant="floating"
-        css={{
-          background: 'transparent',
-        }}
-      >
+      <Nav variant="floating">
         <Nav.Toggle showIn="xs" />
-
         <Nav.Brand
           css={{
             '@xs': {

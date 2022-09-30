@@ -18,7 +18,7 @@
     "paths": {
       "@/*": ["./"],
       "@components": ["./components/"],
-      "@img*": ["./public/img/"],
+      "@img": ["./public/images/"],
       "@interfaces": ["./interfaces/"],
       "@pages": ["./pages/"],
       "@libs": ["./libs/"],

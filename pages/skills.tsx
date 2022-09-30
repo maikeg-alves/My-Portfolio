@@ -1,9 +1,9 @@
 import { Grid, Progress, Text } from '@nextui-org/react';
-import { Col, Row } from 'react-bootstrap';
-import { Container } from 'react-bootstrap';
-import Typewriter from 'typewriter-effect';
+import { Col } from 'react-bootstrap';
+import { Typewriter, Layout } from '@components';
 
 import type { NextPage } from 'next';
+import { ITheme } from 'interfaces';
 
 const Skills: NextPage = () => {
   type Skill = {
@@ -50,35 +50,25 @@ const Skills: NextPage = () => {
   ];
 
   return (
-    <Container>
-      <Row
-        className=" justify-content-center align-items-center flex-column h-100 w-100 m-0 "
-        style={{ padding: '5% 0' }}
-      >
-        <Col xs={'auto'}>
-          <Typewriter
-            onInit={(typewriter) => {
-              typewriter
-                .typeString('Minhas')
-                .pauseFor(600)
-                .deleteAll()
-                .typeString('Habilidades')
-                .start();
-            }}
-          />
-        </Col>
-        <Col xs={12} className="mt-1">
-          <Grid.Container xs={12} gap={3} className="p-2">
-            {skills.map((skill: Skill, index: number) => (
-              <Grid key={index}>
-                <Text color="#f6f6f6">{skill.name}</Text>
-                <Progress value={skill.level} color={skill.color} />
-              </Grid>
-            ))}
-          </Grid.Container>
-        </Col>
-      </Row>
-    </Container>
+    <Layout justify="center">
+      <Col xs={'auto'}>
+        <h3>
+          <Typewriter text={['Minhas', 'Habilidades']} delay={1000} />
+        </h3>
+      </Col>
+      <Col xs={12} className="mt-1">
+        <Grid.Container xs={12} gap={3} className="p-2">
+          {skills.map((skill: Skill, index: number) => (
+            <Grid key={index}>
+              <Text color={`${(props: ITheme) => props.theme.body.color}`}>
+                {skill.name}
+              </Text>
+              <Progress value={skill.level} color={skill.color} />
+            </Grid>
+          ))}
+        </Grid.Container>
+      </Col>
+    </Layout>
   );
 };
 

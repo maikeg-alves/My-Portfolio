@@ -1,7 +1,7 @@
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col } from 'react-bootstrap';
 import { SwiperSlide } from 'swiper/react';
 
-import { Carrosel, CardProject } from '@components';
+import { Carrosel, CardProject, Layout } from '@components';
 import { IProjects } from '../interfaces';
 import type { GetStaticProps, NextPage } from 'next';
 
@@ -15,28 +15,22 @@ const Projects: NextPage<IProjects> = ({ projects }) => {
   }
 
   return (
-    <>
-      <Container style={{ height: '100%' }}>
-        <Row className="justify-content-center align-items-center flex-column h-100 w-100 m-0 ">
-          <Col xs={'auto'}>
-            <Col xs={12} align={'center'}>
-              <h1>Projects</h1>
-            </Col>
-            <Col xs={12}>
-              <Carrosel>
-                <>
-                  {projects.map((item) => (
-                    <SwiperSlide key={item.id}>
-                      <CardProject {...item} />
-                    </SwiperSlide>
-                  ))}
-                </>
-              </Carrosel>
-            </Col>
-          </Col>
-        </Row>
-      </Container>
-    </>
+    <Layout>
+      <Col xs={12} align={'center'}>
+        <h1>Projects</h1>
+      </Col>
+      <Col xs={12}>
+        <Carrosel>
+          <>
+            {projects.map((item) => (
+              <SwiperSlide key={item.id}>
+                <CardProject {...item} />
+              </SwiperSlide>
+            ))}
+          </>
+        </Carrosel>
+      </Col>
+    </Layout>
   );
 };
 

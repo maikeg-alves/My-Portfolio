@@ -1,24 +1,27 @@
 import { Link, Navbar } from '@nextui-org/react';
+import { ITheme } from 'interfaces';
 import styled from 'styled-components';
 
 export const Nav = styled(Navbar)`
-  position: absolute;
   background: transparent;
-  color: #fff !important;
+  color: ${(props: ITheme) => props.theme.navbar.color} !important;
 
   .nextui-navbar-container {
-    background: #000 !important;
+    background: ${(props: ITheme) => props.theme.navbar.background} !important;
+    box-shadow: -25px 25px 29px
+        ${(props: ITheme) => props.theme.boxShadow.color1},
+      25px -25px 29px ${(props: ITheme) => props.theme.boxShadow.color2};
     .nextui-navbar-toggle-icon {
       filter: invert(1);
     }
   }
   .nextui-navbar-collapse {
-    background: #000000ae !important;
+    background: ${(props: ITheme) => props.theme.navbar.colapse} !important;
+
     .nextui-navbar-collapse-wrapper {
       background: transparent !important;
     }
   }
-
   a {
     padding: 0px !important;
   }
@@ -36,5 +39,5 @@ export const LinkText = styled(Link)`
   font-size: 1.2rem;
   font-weight: 500;
   padding: 0.5rem 1rem !important;
-  color: #fff !important;
+  color: ${(props: ITheme) => props.theme.navbar.color} !important;
 `;

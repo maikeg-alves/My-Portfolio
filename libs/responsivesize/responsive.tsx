@@ -8,7 +8,7 @@ const Reponsive = (minSize: string, maxSize: string, maxWindow: number) => {
 const useMediaQuery = (width: number) => {
   const [targetReached, setTargetReached] = React.useState(false);
 
-  const updateTarget = React.useCallback((e: any) => {
+  const updateTarget = React.useCallback((e: MediaQueryListEvent) => {
     if (e.matches) {
       setTargetReached(true);
     } else {

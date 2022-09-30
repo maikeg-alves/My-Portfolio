@@ -1,17 +1,16 @@
-/* import { ITheme } from 'interfaces'; */
-import /* ITheme */ 'interfaces';
 import { NextPage } from 'next';
 import Image from 'next/image';
 /* import { DarkMode, LightMode } from 'styles'; */
 import { Reponsive } from '../../libs/responsivesize/responsive';
-/* import IMG_AVATAR from '../../public/images/avatar.png'; */
-import { MyAvatar } from './avatar.style';
+
+import { MyAvatar } from '../avatar/avatar.style';
 
 type Mobile = {
   mobile?: boolean;
+  img?: string;
 };
 
-const Avatar: NextPage<Mobile> = ({ mobile }) => {
+const Testimg: NextPage<Mobile> = ({ mobile, img }) => {
   return (
     <MyAvatar
       accessKey={`${
@@ -22,7 +21,7 @@ const Avatar: NextPage<Mobile> = ({ mobile }) => {
     >
       <Image
         /* src={`${img}`} */
-        src={`https://i.imgur.com/nBtsD1X.png`}
+        src={`${img}`}
         alt={'foto de perfil'}
         width={'500px'}
         height={'500px'}
@@ -31,4 +30,4 @@ const Avatar: NextPage<Mobile> = ({ mobile }) => {
   );
 };
 
-export default Avatar;
+export default Testimg;

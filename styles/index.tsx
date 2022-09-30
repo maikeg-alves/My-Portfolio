@@ -1,7 +1,13 @@
 import { ButtonMy } from './button';
 import { LinkMy } from './link';
 import { List } from './list';
-import { Nextuidark, Nextuilight, theme, Theme, theme2 } from './theme/theme';
+import {
+  Nextuidark,
+  Nextuilight,
+  LightMode,
+  Theme,
+  DarkMode,
+} from './theme/theme';
 
 export {
   ButtonMy,
@@ -9,7 +15,7 @@ export {
   List,
   Nextuidark,
   Nextuilight,
-  theme,
-  theme2,
+  LightMode,
+  DarkMode,
   Theme,
 };

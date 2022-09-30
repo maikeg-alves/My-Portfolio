@@ -20,5 +20,17 @@ export interface ITheme {
       medium: string;
       large: string;
     };
+    navbar: {
+      background: string;
+      color: string;
+      colapse: string;
+    };
+    boxShadow: {
+      color1: string;
+      color2: string;
+    };
+    avatar: {
+      img: string;
+    }
   };
 }

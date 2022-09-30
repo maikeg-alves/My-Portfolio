@@ -6,6 +6,11 @@ import Carrosel from './carrosel/carrosel.component';
 import CardProject from './card/card.component';
 import ContactEmail from './contact/contact.component';
 import BtnMode from './mode/buttonmode.component';
+import Layout from './layout/layout.component';
+import { Typewriter } from './TypewriterNextjs/typewriter';
+import Footer from './footer/footer.component';
+import Testimg from './teste/testes';
+
 export {
   NavBar,
   Container,
@@ -15,4 +20,8 @@ export {
   CardProject,
   ContactEmail,
   BtnMode,
+  Layout,
+  Typewriter,
+  Footer,
+  Testimg,
 };

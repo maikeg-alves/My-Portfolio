@@ -2,10 +2,11 @@ import { Card, Row, Text } from '@nextui-org/react';
 import { Container } from 'react-bootstrap';
 import { AiFillEye } from 'react-icons/ai';
 import { Col } from 'react-bootstrap';
-import { ICard } from '../../interfaces';
+import { ICard, ITheme } from '../../interfaces';
 import { ModalComponent } from '../../components';
+import { NextPage } from 'next';
 
-export default function CardProject({
+const CardProject: NextPage<ICard> = ({
   name,
   description,
   image,
@@ -13,28 +14,26 @@ export default function CardProject({
   github,
   technologies,
   data,
-}: ICard) {
-  /*   const dados: ICard = {
-    name: name,
-    description: description,
-    image: image,
-    url: url,
-    github: github,
-    technologies: technologies,
-    data: data,
-  }; */
-
+}) => {
   return (
     <Card className="h-100 w-100">
       <Card.Header css={{ position: 'absolute', zIndex: 1, top: 5 }}>
         <Col>
-          <Text size={12} weight="bold" transform="uppercase" color="#ffffffAA">
+          <Text
+            size={12}
+            weight="bold"
+            transform="uppercase"
+            color={`${(props: ITheme) => props.theme.body.color}`}
+          >
             New
           </Text>
-          <Text h3 color="black">
+          <Text h3 color={`${(props: ITheme) => props.theme.body.color}`}>
             {name}
           </Text>
-          <Text size={12} color="black">
+          <Text
+            size={12}
+            color={`${(props: ITheme) => props.theme.body.color}`}
+          >
             {description}
           </Text>
         </Col>
@@ -52,10 +51,16 @@ export default function CardProject({
       >
         <Row>
           <Col>
-            <Text color="#000" size={12}>
+            <Text
+              color={`${(props: ITheme) => props.theme.body.color}`}
+              size={12}
+            >
               Ultima modifção
             </Text>
-            <Text color="#000" size={12}>
+            <Text
+              color={`${(props: ITheme) => props.theme.body.color}`}
+              size={12}
+            >
               {data}
             </Text>
           </Col>
@@ -86,4 +91,6 @@ export default function CardProject({
       </Card.Footer>
     </Card>
   );
-}
+};
+
+export default CardProject;
