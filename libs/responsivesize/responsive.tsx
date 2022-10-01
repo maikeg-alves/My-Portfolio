@@ -1,6 +1,10 @@
 import React from 'react';
 
-const Reponsive = (minSize: string, maxSize: string, maxWindow: number) => {
+const Reponsive = (
+  minSize: string | number,
+  maxSize: string | number,
+  maxWindow: number,
+) => {
   const isMaxWidth = useMediaQuery(maxWindow);
   return isMaxWidth ? maxSize : minSize;
 };

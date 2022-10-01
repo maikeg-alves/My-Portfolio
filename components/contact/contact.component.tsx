@@ -18,7 +18,6 @@ export default function ContactEmail({ avatar }: { avatar?: boolean }) {
   const {
     handleSubmit,
     register,
-    setError,
     formState: { errors },
   } = useForm<IEmail>();
 
@@ -26,8 +25,6 @@ export default function ContactEmail({ avatar }: { avatar?: boolean }) {
   const onSubmit: SubmitHandler<IEmail> = (data: IEmail) => {
     console.log(data);
   };
-
-  React.useEffect(() => {}, [errors]);
 
   return (
     <>
@@ -41,7 +38,7 @@ export default function ContactEmail({ avatar }: { avatar?: boolean }) {
             {/* <Avatar squared src={`123`} css={{ size: "$20" }} /> */}
             <Avatar mobile={true} />
             <Col xs>
-              <p className="text-break mt-1">
+              <p className="text-break mt-1 text-center">
                 Envie-me uma proposta de entrevista, estou à disposição,
                 responderei o mais breve possível.
               </p>

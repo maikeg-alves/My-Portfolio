@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 export const Float = styled.div`
   position: fixed;
-  bottom: 40px;
-  right: 40px;
+  bottom: 20px;
+  right: 20px;
   color: #fff;
   text-align: center;
   font-size: 30px;
@@ -19,8 +19,7 @@ export const Float = styled.div`
 
   .container {
     margin: 0;
-    /*     width: 60px;
-    height: 60px; */
+    padding: 0;
     width: ${(props) => props.defaultValue};
     height: ${(props) => props.defaultValue};
     display: flex;
@@ -34,8 +33,8 @@ export const Float = styled.div`
     position: relative;
     background: transparent;
     border: 0;
-    width: 30px;
-    height: 30px;
+    width: 100%;
+    height: 100%;
     padding: 0;
     display: flex;
     align-items: center;

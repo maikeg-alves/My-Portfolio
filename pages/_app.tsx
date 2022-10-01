@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { NextUIProvider } from '@nextui-org/react';
 import { AppProps } from 'next/dist/shared/lib/router/router';
-
 import { GlobalStyle } from '../styles/global';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Container, BtnMode } from '@components';
@@ -16,6 +15,13 @@ import '../node_modules/react-ts-typewriter/dist/Typewriter.module.css';
 
 function App({ Component, pageProps }: AppProps) {
   const [themeMode, setThemeMode] = React.useState(false);
+
+  React.useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const mode = localStorage.getItem('mode');
+      setThemeMode(mode === 'light' ? true : false);
+    }
+  }, [themeMode]);
 
   return (
     <>

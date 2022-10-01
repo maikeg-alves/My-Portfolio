@@ -9,12 +9,18 @@ type Props = {
 const BtnMode: React.FC<Props> = ({ setState }) => {
   const handleChange = (e: React.MouseEvent) => {
     setState((e.target as HTMLInputElement).checked);
+
+    //store in localstorage
+    localStorage.setItem(
+      'mode',
+      (e.target as HTMLInputElement).checked ? 'light' : ' dark',
+    );
   };
 
   return (
     <Float className="float" defaultValue={Reponsive('60px', '50px', 960)}>
-      <div className="my-float">
-        <input id="checkbox" type="checkbox" onClick={handleChange} />
+      <div className="my-float" onClick={handleChange}>
+        <input id="checkbox" type="checkbox" />
         <div className="container">
           <label htmlFor="checkbox" id="switch">
             <div className="mode"></div>

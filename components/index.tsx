@@ -9,9 +9,9 @@ import BtnMode from './mode/buttonmode.component';
 import Layout from './layout/layout.component';
 import { Typewriter } from './TypewriterNextjs/typewriter';
 import Footer from './footer/footer.component';
-import Testimg from './teste/testes';
-import TextNext from './text/textnext.component';
 import LoadingMy from './loading/loading.component';
+import GridLayout from './grid_skills/grid.component';
+
 export {
   NavBar,
   Container,
@@ -24,7 +24,6 @@ export {
   Layout,
   Typewriter,
   Footer,
-  Testimg,
-  TextNext,
   LoadingMy,
+  GridLayout,
 };

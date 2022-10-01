@@ -1,11 +1,11 @@
 import { Grid, Progress } from '@nextui-org/react';
 import { Col } from 'react-bootstrap';
-import { Typewriter, Layout, LoadingMy } from '@components';
+import { Typewriter, Layout, LoadingMy, GridLayout } from '@components';
 
 import { TextUI } from 'styles';
 
 import type { GetStaticProps, NextPage } from 'next';
-import { prisma } from 'libs';
+import { prisma, Reponsive } from 'libs';
 import { ITech } from 'interfaces';
 
 const Skills: NextPage<ITech> = ({ technologys }) => {
@@ -62,20 +62,37 @@ const Skills: NextPage<ITech> = ({ technologys }) => {
     <Layout justify="center">
       {technologys ? (
         <>
-          <Col xs={12} className="mt-1">
-            <Col xs={'auto'} className="text-center">
-              <h3>
-                <Typewriter text={['Minhas', 'Habilidades']} delay={1000} />
-              </h3>
+          <Col xs={12} className="d-flex">
+            <Col
+              className={`
+              col-${Reponsive(
+                6,
+                12,
+                990,
+              )} d-flex justify-content-center flex-column px-2`}
+            >
+              <Col xs={'auto'} className="text-center">
+                <TextUI className="m-0" b size={27}>
+                  <Typewriter text={['Minhas', 'Habilidades']} delay={1000} />
+                </TextUI>
+              </Col>
+              <Grid.Container
+                xs={12}
+                gap={3}
+                className="p-2 align-content-center"
+                style={{ display: 'contents' }}
+              >
+                {data[0].map((item) => (
+                  <Grid key={item.id} className="p-2">
+                    <TextUI>{item.name}</TextUI>
+                    <Progress value={item.ability} color={'success'} />
+                  </Grid>
+                ))}
+              </Grid.Container>
             </Col>
-            <Grid.Container xs={12} gap={3} className="p-2">
-              {data[0].map((item) => (
-                <Grid key={item.id}>
-                  <TextUI>{item.name}</TextUI>
-                  <Progress value={item.ability} color={'success'} />
-                </Grid>
-              ))}
-            </Grid.Container>
+            <>
+              <GridLayout />
+            </>
           </Col>
         </>
       ) : (

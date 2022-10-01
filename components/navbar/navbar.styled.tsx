@@ -8,7 +8,7 @@ export const Nav = styled(Navbar)`
 
   .nextui-navbar-container {
     background: ${(props) => props.theme.navbar.background} !important;
-    box-shadow: -25px 25px 29px ${(props) => props.theme.boxShadow.color1},
+    box-shadow: -10px 12px 29px ${(props) => props.theme.boxShadow.color1},
       25px -25px 29px ${(props) => props.theme.boxShadow.color2};
     .nextui-navbar-toggle-icon {
       filter: invert(1);

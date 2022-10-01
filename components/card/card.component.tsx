@@ -1,10 +1,11 @@
-import { Card, Row, Text } from '@nextui-org/react';
+import { Card, Row } from '@nextui-org/react';
 import { Container } from 'react-bootstrap';
 import { AiFillEye } from 'react-icons/ai';
 import { Col } from 'react-bootstrap';
-import { ICard, ITheme } from '../../interfaces';
+import { ICard } from '../../interfaces';
 import { ModalComponent } from '../../components';
 import { NextPage } from 'next';
+import { TextUI } from 'styles';
 
 const CardProject: NextPage<ICard> = ({
   name,
@@ -19,23 +20,11 @@ const CardProject: NextPage<ICard> = ({
     <Card className="h-100 w-100">
       <Card.Header css={{ position: 'absolute', zIndex: 1, top: 5 }}>
         <Col>
-          <Text
-            size={12}
-            weight="bold"
-            transform="uppercase"
-            color={`${(props: ITheme) => props.theme.body.color}`}
-          >
+          <TextUI size={12} weight="bold" transform="uppercase">
             New
-          </Text>
-          <Text h3 color={`${(props: ITheme) => props.theme.body.color}`}>
-            {name}
-          </Text>
-          <Text
-            size={12}
-            color={`${(props: ITheme) => props.theme.body.color}`}
-          >
-            {description}
-          </Text>
+          </TextUI>
+          <TextUI h3>{name}</TextUI>
+          <TextUI size={12}>{description}</TextUI>
         </Col>
       </Card.Header>
       <Card.Body css={{ p: 0 }}>{/* aqui vai a imagem */}</Card.Body>
@@ -51,18 +40,8 @@ const CardProject: NextPage<ICard> = ({
       >
         <Row>
           <Col>
-            <Text
-              color={`${(props: ITheme) => props.theme.body.color}`}
-              size={12}
-            >
-              Ultima modifção
-            </Text>
-            <Text
-              color={`${(props: ITheme) => props.theme.body.color}`}
-              size={12}
-            >
-              {data}
-            </Text>
+            <TextUI size={12}>Ultima modifção</TextUI>
+            <TextUI size={12}>{data}</TextUI>
           </Col>
           <Col>
             <Row justify="flex-end">

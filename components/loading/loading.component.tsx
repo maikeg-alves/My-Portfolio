@@ -1,17 +1,18 @@
 import { Loading } from '@nextui-org/react';
-import { Typewriter, TextNext } from '@components';
+import { Typewriter } from '@components';
+import { TextUI } from 'styles';
 
 const LoadingMy = () => {
   return (
     <Loading color="success">
-      <TextNext>
+      <TextUI>
         <Typewriter
           text={'Carregando...'}
           loop={true}
           speed={240}
           cursor={false}
         />
-      </TextNext>
+      </TextUI>
     </Loading>
   );
 };

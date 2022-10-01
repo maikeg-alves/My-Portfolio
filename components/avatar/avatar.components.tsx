@@ -21,7 +21,6 @@ const Avatar: NextPage<Mobile> = ({ mobile }) => {
       }`}
     >
       <Image
-        /* src={`${img}`} */
         src={`https://i.imgur.com/nBtsD1X.png`}
         alt={'foto de perfil'}
         width={'500px'}
