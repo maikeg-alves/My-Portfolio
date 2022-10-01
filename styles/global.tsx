@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components';
-import { ITheme } from '@interfaces';
 
 export const GlobalStyle = createGlobalStyle`
 html,
@@ -30,7 +29,7 @@ a {
     color-scheme: dark;
   }
   body {
-    color:${(props: ITheme) => props.theme.body.color};
-    background: ${(props: ITheme) => props.theme.body.background};
+    color:${(props) => props.theme.body.color};
+    background: ${(props) => props.theme.body.background};
   } } 
 `;

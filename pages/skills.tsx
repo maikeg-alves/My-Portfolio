@@ -1,27 +1,30 @@
-import { Grid, Progress, Text } from '@nextui-org/react';
+import { Grid, Progress } from '@nextui-org/react';
 import { Col } from 'react-bootstrap';
-import { Typewriter, Layout } from '@components';
+import { Typewriter, Layout, LoadingMy } from '@components';
 
-import type { NextPage } from 'next';
-import { ITheme } from 'interfaces';
+import { TextUI } from 'styles';
 
-const Skills: NextPage = () => {
-  type Skill = {
+import type { GetStaticProps, NextPage } from 'next';
+import { prisma } from 'libs';
+import { ITech } from 'interfaces';
+
+const Skills: NextPage<ITech> = ({ technologys }) => {
+  /*   type Skill = {
     name: string;
     level: number;
     color: NormalColors;
-  };
+  }; */
 
-  type NormalColors =
+  /*   type NormalColors =
     | 'default'
     | 'primary'
     | 'secondary'
     | 'success'
     | 'warning'
     | 'error'
-    | 'gradient';
+    | 'gradient'; */
 
-  const skills: Skill[] = [
+  /*   const skills: Skill[] = [
     {
       name: 'HTML',
       level: 90,
@@ -47,29 +50,67 @@ const Skills: NextPage = () => {
       level: 70,
       color: 'success',
     },
-  ];
+  ]; */
+
+  const data = [];
+
+  if (technologys != null) {
+    data.push(technologys.slice(0, 5));
+  }
 
   return (
     <Layout justify="center">
-      <Col xs={'auto'}>
-        <h3>
-          <Typewriter text={['Minhas', 'Habilidades']} delay={1000} />
-        </h3>
-      </Col>
-      <Col xs={12} className="mt-1">
-        <Grid.Container xs={12} gap={3} className="p-2">
-          {skills.map((skill: Skill, index: number) => (
-            <Grid key={index}>
-              <Text color={`${(props: ITheme) => props.theme.body.color}`}>
-                {skill.name}
-              </Text>
-              <Progress value={skill.level} color={skill.color} />
-            </Grid>
-          ))}
-        </Grid.Container>
-      </Col>
+      {technologys ? (
+        <>
+          <Col xs={12} className="mt-1">
+            <Col xs={'auto'} className="text-center">
+              <h3>
+                <Typewriter text={['Minhas', 'Habilidades']} delay={1000} />
+              </h3>
+            </Col>
+            <Grid.Container xs={12} gap={3} className="p-2">
+              {data[0].map((item) => (
+                <Grid key={item.id}>
+                  <TextUI>{item.name}</TextUI>
+                  <Progress value={item.ability} color={'success'} />
+                </Grid>
+              ))}
+            </Grid.Container>
+          </Col>
+        </>
+      ) : (
+        <Col xs={'auto'}>
+          <LoadingMy />
+        </Col>
+      )}
     </Layout>
   );
 };
 
 export default Skills;
+
+export const getStaticProps: GetStaticProps = async () => {
+  try {
+    const technologys = await prisma?.technology.findMany({
+      select: {
+        id: true,
+        name: true,
+        icon: true,
+        ability: true,
+      },
+    });
+
+    return {
+      props: {
+        technologys: technologys,
+      },
+      revalidate: 10, //10 seconds OBSERVATION: tenho que mudar para 25 horas depois
+    };
+  } catch (error) {
+    return {
+      props: {
+        technologys: null,
+      },
+    };
+  }
+};

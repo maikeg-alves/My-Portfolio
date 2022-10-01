@@ -10,7 +10,8 @@ import Layout from './layout/layout.component';
 import { Typewriter } from './TypewriterNextjs/typewriter';
 import Footer from './footer/footer.component';
 import Testimg from './teste/testes';
-
+import TextNext from './text/textnext.component';
+import LoadingMy from './loading/loading.component';
 export {
   NavBar,
   Container,
@@ -24,4 +25,6 @@ export {
   Typewriter,
   Footer,
   Testimg,
+  TextNext,
+  LoadingMy,
 };

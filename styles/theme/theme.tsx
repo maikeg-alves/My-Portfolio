@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { ThemeProvider } from 'styled-components';
+import { DefaultTheme, ThemeProvider } from 'styled-components';
 import { createTheme } from '@nextui-org/react';
 
 export const Nextuidark = createTheme({
@@ -10,16 +10,16 @@ export const Nextuilight = createTheme({
   type: 'light',
 });
 
-export const DarkMode = {
+export const DarkMode: DefaultTheme = {
   body: {
     background: '#111111',
-    color: '#ffffff',
+    color: '#fff',
   },
   colors: {
-    powderWhite: '#FFFDF9',
+    primary: '#00ee87',
     persianGreen: '#06B49A',
     lightBlue: '#AFDBD2',
-    onyx: '#36313D',
+    onyx: '#ffffff',
   },
   button: {
     background: '#06B49A',
@@ -45,16 +45,16 @@ export const DarkMode = {
   },
 };
 
-export const LightMode = {
+export const LightMode: DefaultTheme = {
   body: {
     background: '#ffffff',
     color: '#000000',
   },
   colors: {
-    powderWhite: '#FFFDF9',
+    primary: '#00ee87',
     persianGreen: '#06B49A',
     lightBlue: '#AFDBD2',
-    onyx: '#36313D',
+    onyx: '#000000',
   },
   fonts: ['sans-serif', 'Roboto'],
   fontSizes: {
@@ -82,7 +82,7 @@ export const LightMode = {
 
 type Props = {
   children: ReactNode;
-  theme?: typeof DarkMode; //disable this line
+  theme?: any; //eslint-disable-line
 };
 
 export const Theme = ({ children, theme }: Props) => {

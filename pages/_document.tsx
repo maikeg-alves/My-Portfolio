@@ -1,7 +1,7 @@
-import React from "react";
-import Document, { Html, Head, Main, NextScript } from "next/document";
-import { CssBaseline } from "@nextui-org/react";
-import "../styles/global";
+import React from 'react';
+import Document, { Html, Head, Main, NextScript } from 'next/document';
+import { CssBaseline } from '@nextui-org/react';
+import '../styles/global';
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: any) {

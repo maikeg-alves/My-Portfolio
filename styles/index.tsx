@@ -8,6 +8,7 @@ import {
   Theme,
   DarkMode,
 } from './theme/theme';
+import { TextUI } from './nextuiStyled/styles';
 
 export {
   ButtonMy,
@@ -18,4 +19,5 @@ export {
   LightMode,
   DarkMode,
   Theme,
+  TextUI,
 };
