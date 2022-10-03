@@ -3,7 +3,7 @@ import { TbDownload } from 'react-icons/tb';
 
 import { Avatar, ModalComponent, Layout } from '@components';
 import { ButtonMy, LinkMy } from '@styles';
-import { Reponsive } from '@libs';
+import { Responsive } from '@libs';
 import type { NextPage } from 'next';
 
 const About: NextPage = () => {
@@ -20,7 +20,7 @@ const About: NextPage = () => {
       <Col
         xs={5}
         className="text-break"
-        style={{ width: Reponsive('50%', '100%', 960) }}
+        style={{ width: Responsive('50%', '100%', 960) }}
         aling="center"
       >
         <p style={{ margin: 0, textAlign: 'justify' }}>
@@ -28,7 +28,7 @@ const About: NextPage = () => {
           Ciência da Computação na Universidade Federal de São Carlos.
           Atualmente estou no 4º período do curso e estou em busca de uma
           oportunidade de estagio de desenvolvedor web.
-          <ModalComponent button={false} title={'Sobre mim'}>
+          <ModalComponent button={false} title={'Sobre mim'} ontitle={true}>
             <p>
               Oi! Eu sou Maicon Gabriel Alves. Um desenvolvedor front-end de São
               Paulo - SP que adora desafios e que está a procura de sempre

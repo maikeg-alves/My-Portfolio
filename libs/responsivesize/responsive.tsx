@@ -1,25 +1,21 @@
-import React from 'react';
+import { useState, useCallback, useEffect } from 'react';
 
-const Reponsive = (
-  minSize: string | number,
-  maxSize: string | number,
-  maxWindow: number,
-) => {
+const Responsive = (minSize: string, maxSize: string, maxWindow: number) => {
   const isMaxWidth = useMediaQuery(maxWindow);
   return isMaxWidth ? maxSize : minSize;
 };
 
 const useMediaQuery = (width: number) => {
-  const [targetReached, setTargetReached] = React.useState(false);
+  const [targetReached, setTargetReached] = useState(false);
 
-  const updateTarget = React.useCallback((e: MediaQueryListEvent) => {
+  const updateTarget = useCallback((e: MediaQueryListEvent) => {
     if (e.matches) {
       setTargetReached(true);
     } else {
       setTargetReached(false);
     }
   }, []);
-  React.useEffect(() => {
+  useEffect(() => {
     const media = window.matchMedia(`(max-width: ${width}px)`);
     media.addListener(updateTarget);
 
@@ -34,4 +30,4 @@ const useMediaQuery = (width: number) => {
   return targetReached;
 };
 
-export { Reponsive, useMediaQuery };
+export { Responsive, useMediaQuery };

@@ -5,7 +5,7 @@ import { Typewriter, Layout, LoadingMy, GridLayout } from '@components';
 import { TextUI } from 'styles';
 
 import type { GetStaticProps, NextPage } from 'next';
-import { prisma, Reponsive } from 'libs';
+import { prisma, Responsive } from 'libs';
 import { ITech } from 'interfaces';
 
 const Skills: NextPage<ITech> = ({ technologys }) => {
@@ -65,7 +65,7 @@ const Skills: NextPage<ITech> = ({ technologys }) => {
           <Col xs={12} className="d-flex">
             <Col
               className={`
-              col-${Reponsive(
+              col-${Responsive(
                 6,
                 12,
                 990,

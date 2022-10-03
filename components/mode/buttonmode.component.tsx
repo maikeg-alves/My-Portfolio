@@ -1,6 +1,6 @@
 import React from 'react';
 import { Float } from './buttonmode.style';
-import { Reponsive } from '@libs';
+import { Responsive } from '@libs';
 
 type Props = {
   readonly setState: (arg0: boolean) => void;
@@ -18,7 +18,7 @@ const BtnMode: React.FC<Props> = ({ setState }) => {
   };
 
   return (
-    <Float className="float" defaultValue={Reponsive('60px', '50px', 960)}>
+    <Float className="float" defaultValue={Responsive('60px', '50px', 960)}>
       <div className="my-float" onClick={handleChange}>
         <input id="checkbox" type="checkbox" />
         <div className="container">

@@ -2,13 +2,13 @@ import { NextPage } from 'next';
 import { Grid, Text, Tooltip } from '@nextui-org/react';
 import { Col } from 'react-bootstrap';
 import Image from 'next/image';
-import { Reponsive } from 'libs';
+import { Responsive } from 'libs';
 import { TextUI } from 'styles';
 
 const GridLayout: NextPage = () => {
   return (
     <Col
-      style={{ display: `${Reponsive('block', 'none', 960)}` }}
+      style={{ display: `${Responsive('block', 'none', 960)}` }}
       className=" px-2"
     >
       <Col xs={12} className="text-center mb-2">

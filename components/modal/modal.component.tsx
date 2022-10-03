@@ -14,12 +14,14 @@ export default function ModalComponent({
   button,
   namebtn,
   icon,
+  ontitle,
 }: {
   children: ReactNode;
   title?: string;
   button?: boolean;
   namebtn?: string;
   icon?: ReactNode;
+  ontitle?: boolean;
 }) {
   const { setVisible, bindings } = useModal(false);
 
@@ -51,11 +53,14 @@ export default function ModalComponent({
         aria-labelledby="modal-title"
         {...bindings}
       >
-        <Modal.Header>
-          <Text id="modal-title" size={18}>
-            {title}
-          </Text>
-        </Modal.Header>
+        {ontitle ? (
+          <Modal.Header>
+            <Text id="modal-title" size={18}>
+              {title}
+            </Text>
+          </Modal.Header>
+        ) : null}
+
         <Modal.Body className="align-items-center justify-content-center">
           {children}
         </Modal.Body>

@@ -32,4 +32,8 @@ a {
     color:${(props) => props.theme.body.color};
     background: ${(props) => props.theme.body.background};
   } } 
+
+  .container {
+    --bs-gutter-x: 0.5rem!important;
+  }
 `;

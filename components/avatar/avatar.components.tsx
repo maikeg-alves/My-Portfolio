@@ -3,7 +3,7 @@ import /* ITheme */ 'interfaces';
 import { NextPage } from 'next';
 import Image from 'next/image';
 /* import { DarkMode, LightMode } from 'styles'; */
-import { Reponsive } from '../../libs/responsivesize/responsive';
+import { Responsive } from '../../libs/responsivesize/responsive';
 /* import IMG_AVATAR from '../../public/images/avatar.png'; */
 import { MyAvatar } from './avatar.style';
 
@@ -16,8 +16,8 @@ const Avatar: NextPage<Mobile> = ({ mobile }) => {
     <MyAvatar
       accessKey={`${
         mobile
-          ? Reponsive('100px', '100px', 960)
-          : Reponsive('145px', '130px', 960)
+          ? Responsive('100px', '100px', 960)
+          : Responsive('145px', '130px', 960)
       }`}
     >
       <Image
