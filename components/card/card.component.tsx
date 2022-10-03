@@ -65,7 +65,7 @@ const CardProject: NextPage<Allover> = ({
                   size={12}
                   weight="bold"
                   transform="uppercase"
-                  color="white"
+                  color="#00ee87"
                 >
                   New
                 </Text>
@@ -110,7 +110,10 @@ const CardProject: NextPage<Allover> = ({
                     namebtn="Veja Mais"
                     icon={<AiFillEye />}
                   >
-                    <ProjectModal {...modalProject} />
+                    {modalProject &&
+                      modalProject.map((item, index) => (
+                        <ProjectModal key={index} {...item} />
+                      ))}
                   </ModalComponent>
                 </Row>
               </Col>

@@ -1,10 +1,8 @@
 import Layout from 'components/layout/layout.component';
 import { NextPage } from 'next';
 import { List } from '@styles';
-import { AiFillLinkedin } from 'react-icons/ai';
-import { MdOutlineEmail } from 'react-icons/md';
-import { SiGithub } from 'react-icons/si';
 import { Col } from 'react-bootstrap';
+import { AiFillLinkedin, MdOutlineEmail, SiGithub } from '@styles';
 
 const Footer: NextPage = () => {
   return (

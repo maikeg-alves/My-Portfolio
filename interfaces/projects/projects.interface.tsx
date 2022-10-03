@@ -43,8 +43,11 @@ export interface Allover {
   github: string;
   html_url: string;
   language: string;
-  created_at: number;
-  pushed_at: number;
-  updated_at: number;
-  technologys: string[];
+  created_at: string;
+  pushed_at: string;
+  updated_at: string;
+  technologys: {
+    name: string;
+    icon: string;
+  }[];
 }

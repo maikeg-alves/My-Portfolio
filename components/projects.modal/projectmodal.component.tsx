@@ -1,24 +1,26 @@
-import { Button, Text } from '@nextui-org/react';
+import { Button, Progress, Text, Grid } from '@nextui-org/react';
 import Layout from 'components/layout/layout.component';
 import { NextPage } from 'next';
 import Image from 'next/image';
-import { Col } from 'react-bootstrap';
+import { Card, Col } from 'react-bootstrap';
 import { Allover } from '@interfaces';
+import { BsCodeSlash, BsWindow } from '@styles';
 
-const ProjectModal: NextPage<Allover[]> = ({
+const ProjectModal: NextPage<Allover> = ({
   name,
   difficulty,
-  gif,
+  /*   gif, */
   img,
   description,
-  github,
+  /*   github, */
   html_url,
-  language,
+  /*   language, */
   created_at,
   pushed_at,
-  updated_at,
+  /*   updated_at, */
   technologys,
 }) => {
+  console.log(technologys);
   return (
     <Layout>
       <Col xs={12}>
@@ -37,18 +39,34 @@ const ProjectModal: NextPage<Allover[]> = ({
 
         <Text h6>{description}</Text>
 
-        <Text h6> Linguagem: {language}</Text>
-        <Text h6> Dificuldade: {difficulty}</Text>
-        <Text h6> Tecnologias: {technologys}</Text>
+        <Col xs={12}>
+          <Text h6> Dificuldade:</Text>
+          <Progress color="error" value={difficulty} />
+        </Col>
+        <Col xs={12}>
+          <Text h6> Tecnologias:</Text>
+          <Col xs={12} className="d-flex">
+            {technologys.map((item, index) => {
+              return (
+                <>
+                  <Col key={index}>
+                    <Text h6 color="blue">
+                      {item.name}
+                    </Text>
+                  </Col>
+                </>
+              );
+            })}
+          </Col>
+        </Col>
         <Text h6>Criado em: {created_at}</Text>
-        <Text h6>Ultima modifção: {updated_at}</Text>
         <Text h6>Ultimo push: {pushed_at}</Text>
 
-        <Col xs={'auto'}>
-          <Button>
+        <Col xs={'auto'} className="d-flex justify-content-between py-2">
+          <Button size={'sm'} icon={<BsCodeSlash />}>
             <a href={html_url}> Repo </a>
           </Button>
-          <Button>
+          <Button size={'sm'} icon={<BsWindow />}>
             <a href=""> Viste </a>
           </Button>
         </Col>
