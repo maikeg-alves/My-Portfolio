@@ -3,6 +3,7 @@ import { Grid, Text, Tooltip } from '@nextui-org/react';
 import { Col } from 'react-bootstrap';
 import Image from 'next/image';
 import { Reponsive } from 'libs';
+import { TextUI } from 'styles';
 
 const GridLayout: NextPage = () => {
   return (
@@ -14,9 +15,9 @@ const GridLayout: NextPage = () => {
         <Text color="sucess" size={50} weight="bold" h1>
           Tecnologias
         </Text>
-        <Text color="white" h6>
+        <TextUI h6>
           Conheça as tecnologias que utilizo no meu dia a dia :D
-        </Text>
+        </TextUI>
       </Col>
 
       <Grid.Container gap={2}>

@@ -11,6 +11,7 @@ import { Typewriter } from './TypewriterNextjs/typewriter';
 import Footer from './footer/footer.component';
 import LoadingMy from './loading/loading.component';
 import GridLayout from './grid_skills/grid.component';
+import ProjectModal from './projects.modal/projectmodal.component';
 
 export {
   NavBar,
@@ -26,4 +27,5 @@ export {
   Footer,
   LoadingMy,
   GridLayout,
+  ProjectModal,
 };

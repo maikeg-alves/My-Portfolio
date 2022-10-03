@@ -1,25 +1,91 @@
+import React from 'react';
+
 import { Col } from 'react-bootstrap';
 import { SwiperSlide } from 'swiper/react';
 
 import { Carrosel, CardProject, Layout, LoadingMy } from '@components';
-import { IProjects } from '../interfaces';
+import { Allover } from '@interfaces';
 import type { GetStaticProps, NextPage } from 'next';
 
 import { prisma } from 'libs';
 
-const Projects: NextPage<IProjects> = ({ projects }) => {
+type Over = {
+  projects: Allover[];
+  github: Allover[];
+};
+
+const Projects: NextPage<Over> = ({ projects, github }) => {
+  const [data, setData] = React.useState<Allover[]>([]);
+
+  //ANNOTATION: merging github api data with database data
+
+  const meta = () => {
+    try {
+      if (projects.length > 0 && github.length > 0) {
+        const merge = projects.map((project) => {
+          const githubProject = github.find(
+            (git) => git.name === project.github,
+          ) as Allover;
+
+          const {
+            description,
+            html_url,
+            language,
+            created_at,
+            updated_at,
+            pushed_at,
+          } = githubProject;
+
+          if (githubProject) {
+            return {
+              ...project,
+              description,
+              html_url,
+              language,
+              created_at,
+              updated_at,
+              pushed_at,
+            };
+          }
+        });
+
+        return merge as Allover[];
+      }
+
+      return [];
+    } catch (err) {
+      return [];
+    }
+  };
+
+  function orderArray(array: Array<Allover>): Array<Allover> {
+    const dateNow: Date = new Date();
+    const newArray = array
+      .filter((item) => {
+        return new Date(item.created_at).getTime() < dateNow.getTime();
+      })
+      .sort((a, b) => +new Date(b.created_at) - +new Date(a.created_at));
+
+    return newArray;
+  }
+
+  React.useEffect(() => {
+    setData(orderArray(meta()));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [projects, github]);
+
   return (
     <Layout justify="center">
       <Col xs={'auto'}>
         <>
-          {projects ? (
+          {data?.length > 0 ? (
             <>
               <Col xs={12} align={'center'}>
                 <h1>Projects</h1>
               </Col>
               <Carrosel>
-                {projects.map((item) => (
-                  <SwiperSlide key={item.id}>
+                {data.map((item, index) => (
+                  <SwiperSlide key={index}>
                     <CardProject {...item} />
                   </SwiperSlide>
                 ))}
@@ -51,11 +117,23 @@ export const getStaticProps: GetStaticProps = async () => {
       },
     });
 
+    const datagit = await fetch(
+      'https://api.github.com/users/maikeg-alves/repos',
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `token ${process.env.GITHUB_TOKEN}`,
+        },
+      },
+    );
+    const data = await datagit.json();
+
     return {
       props: {
-        projects: projects || [],
+        projects: projects,
+        github: data,
       },
-      revalidate: 10, //10 seconds OBSERVATION: tenho que mudar para 25 horas depois
+      revalidate: 10, //10 seconds OBSERVATION: tenho que mudar para 24 horas depois
     };
   } catch (error) {
     return {

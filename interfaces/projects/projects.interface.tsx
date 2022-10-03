@@ -3,11 +3,21 @@ export interface IProjects {
     id: number;
     name: string;
     description: string;
-    image: string;
+    img: string;
     url: string;
     github: string;
     technologies: string[];
-    data: string;
+  }[];
+
+  github: {
+    id: number;
+    name: string;
+    description: string;
+    html_url: string;
+    language: string;
+    created_at: string;
+    updated_at: string;
+    pushed_at: string;
   }[];
 }
 
@@ -17,9 +27,24 @@ export interface ICard {
   id: number;
   name: string;
   description: string;
-  image: string;
+  img: string;
   url: string;
   github: string;
   technologies: string[];
   data: string;
+}
+
+export interface Allover {
+  name: string;
+  difficulty: number;
+  gif: string;
+  img: string;
+  description: string;
+  github: string;
+  html_url: string;
+  language: string;
+  created_at: number;
+  pushed_at: number;
+  updated_at: number;
+  technologys: string[];
 }

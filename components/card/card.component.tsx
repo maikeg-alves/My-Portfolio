@@ -1,74 +1,128 @@
-import { Card, Row } from '@nextui-org/react';
-import { Container } from 'react-bootstrap';
+import { Card, Row, Text } from '@nextui-org/react';
 import { AiFillEye } from 'react-icons/ai';
 import { Col } from 'react-bootstrap';
-import { ICard } from '../../interfaces';
-import { ModalComponent } from '../../components';
+import { ModalComponent, ProjectModal } from '@components';
 import { NextPage } from 'next';
-import { TextUI } from 'styles';
+import { Allover } from '@interfaces';
 
-const CardProject: NextPage<ICard> = ({
+const CardProject: NextPage<Allover> = ({
   name,
+  difficulty,
+  gif,
+  img,
   description,
-  image,
-  url,
   github,
-  technologies,
-  data,
+  html_url,
+  language,
+  created_at,
+  pushed_at,
+  updated_at,
+  technologys,
 }) => {
+  // check if item is new
+  function checkNewItems(date: string): boolean {
+    const dateNow = new Date();
+    const datecreate = new Date(date);
+    const timeDiff = Math.abs(datecreate.getTime() - dateNow.getTime());
+    const diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+    return diffDays <= 30 ? true : false;
+  }
+
+  //format date
+  function formatDate(date: string): string {
+    const datecreate = new Date(date);
+    const day = datecreate.getDate();
+    const month = datecreate.getMonth() + 1;
+    const year = datecreate.getFullYear();
+    return `${day}/${month}/${year}`;
+  }
+
+  const modalProject = [
+    {
+      name: name,
+      difficulty: difficulty,
+      gif: gif,
+      img: img,
+      description: description,
+      github: github,
+      html_url: html_url,
+      language: language,
+      created_at: formatDate(String(created_at)),
+      pushed_at: formatDate(String(pushed_at)),
+      updated_at: formatDate(String(updated_at)),
+      technologys: technologys,
+    },
+  ];
+
   return (
-    <Card className="h-100 w-100">
-      <Card.Header css={{ position: 'absolute', zIndex: 1, top: 5 }}>
-        <Col>
-          <TextUI size={12} weight="bold" transform="uppercase">
-            New
-          </TextUI>
-          <TextUI h3>{name}</TextUI>
-          <TextUI size={12}>{description}</TextUI>
-        </Col>
-      </Card.Header>
-      <Card.Body css={{ p: 0 }}>{/* aqui vai a imagem */}</Card.Body>
-      <Card.Footer
-        isBlurred
-        css={{
-          position: 'absolute',
-          bgBlur: '#ffffff66',
-          borderTop: '$borderWeights$light solid rgba(255, 255, 255, 0.2)',
-          bottom: 0,
-          zIndex: 1,
-        }}
-      >
-        <Row>
-          <Col>
-            <TextUI size={12}>Ultima modifção</TextUI>
-            <TextUI size={12}>{data}</TextUI>
-          </Col>
-          <Col>
-            <Row justify="flex-end">
-              <ModalComponent
-                button={true}
-                namebtn="Veja Mais"
-                icon={<AiFillEye />}
-              >
-                <Container style={{ height: '100%' }}>
-                  <Row className="justify-content-center align-items-center flex-column h-100 w-100 m-0 ">
-                    <Col xs={12}>
-                      <h1>{name}</h1>
-                      <p>{description}</p>
-                      <p>{image}</p>
-                      <p>{url}</p>
-                      <p>{github}</p>
-                      <p>{technologies}</p>
-                      <p>{data}</p>
-                    </Col>
-                  </Row>
-                </Container>
-              </ModalComponent>
+    <>
+      {name ? (
+        <Card className="h-100 w-100">
+          <Card.Header css={{ position: 'absolute', zIndex: 1, top: 5 }}>
+            <Col>
+              {checkNewItems(String(created_at)) && (
+                <Text
+                  size={12}
+                  weight="bold"
+                  transform="uppercase"
+                  color="white"
+                >
+                  New
+                </Text>
+              )}
+              <Text color="white" h2>
+                {name}
+              </Text>
+              <Text h6 color="white">
+                {description}
+              </Text>
+            </Col>
+          </Card.Header>
+          <Card.Body css={{ padding: '0' }}>
+            <Card.Image
+              style={{ backgroundColor: 'black', filter: 'brightness(0.5)' }}
+              src={`${img}`}
+              width="100%"
+              height="100%"
+              objectFit="cover"
+              alt="Card example background"
+            />
+          </Card.Body>
+          <Card.Footer
+            isBlurred
+            css={{
+              position: 'absolute',
+              bgBlur: '#ffffff66',
+              borderTop: '$borderWeights$light solid rgba(255, 255, 255, 0.2)',
+              bottom: 0,
+              zIndex: 1,
+            }}
+          >
+            <Row>
+              <Col>
+                <Text size={12}>Ultima modifção</Text>
+                <Text size={12}>{formatDate(String(updated_at))}</Text>
+              </Col>
+              <Col>
+                <Row justify="flex-end">
+                  <ModalComponent
+                    button={true}
+                    namebtn="Veja Mais"
+                    icon={<AiFillEye />}
+                  >
+                    <ProjectModal {...modalProject} />
+                  </ModalComponent>
+                </Row>
+              </Col>
             </Row>
-          </Col>
-        </Row>
-      </Card.Footer>
-    </Card>
+          </Card.Footer>
+        </Card>
+      ) : (
+        <Col>
+          <Text> sem dados </Text>
+        </Col>
+      )}
+    </>
   );
 };
 
