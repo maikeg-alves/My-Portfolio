@@ -11,6 +11,7 @@ import {
   ImageNext,
   SiGithub,
 } from '@styles';
+import React from 'react';
 
 const ProjectModal: NextPage<Allover> = ({
   name,
@@ -26,7 +27,28 @@ const ProjectModal: NextPage<Allover> = ({
   /*   updated_at, */
   technologys,
 }) => {
-  console.log(technologys);
+  const [text, setText] = React.useState<string>('');
+
+  const highlight = (text: string, words: string[]) => {
+    for (let i = 0; i < words.length; i++) {
+      const textformat = new RegExp(words[i], 'gi');
+      text = text.replace(
+        textformat,
+        "<span class='sinalize'>" + words[i] + '</span>',
+      );
+    }
+    return text;
+  };
+
+  React.useEffect(() => {
+    setText(
+      highlight(
+        description,
+        technologys.map((tech) => tech.name),
+      ),
+    );
+  }, [description, technologys]);
+
   return (
     <>
       <Col xs={12}>
@@ -51,7 +73,9 @@ const ProjectModal: NextPage<Allover> = ({
           <Text h6 color="#8e8e8e">
             Descrição:
           </Text>
-          <Text h6>{description}</Text>
+          <Text h6>
+            <span dangerouslySetInnerHTML={{ __html: text }} />
+          </Text>
         </Col>
 
         <Col xs={12} className="my-2">

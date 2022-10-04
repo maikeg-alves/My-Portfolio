@@ -58,27 +58,34 @@ const CardProject: NextPage<Allover> = ({
     <>
       {name ? (
         <Card className="h-100 w-100">
-          <Card.Header css={{ position: 'absolute', zIndex: 1, top: 5 }}>
-            <Col xs={12} style={{ height: '282px' }}>
-              {checkNewItems(String(created_at)) && (
-                <Text
-                  size={12}
-                  weight="bold"
-                  transform="uppercase"
-                  color="#00ee87"
-                >
-                  New
-                </Text>
-              )}
-
+          <Card.Header
+            css={{ position: 'absolute', zIndex: 1, top: 5, height: '77%' }}
+          >
+            <Col xs={12} className="h-100">
               <Col
                 xs={12}
                 className="d-flex flex-column h-100 justify-content-between"
               >
-                <Text color="white" h2>
-                  {name}
-                </Text>
-                <Text h6 color="white">
+                <Col xs={12}>
+                  <Col>
+                    {checkNewItems(String(created_at)) && (
+                      <Text
+                        size={12}
+                        weight="bold"
+                        transform="uppercase"
+                        color="#00ee87"
+                      >
+                        New
+                      </Text>
+                    )}
+                  </Col>
+                  <Col>
+                    <Text color="white" h2>
+                      {name}
+                    </Text>
+                  </Col>
+                </Col>
+                <Text h6 color="white" className="linebreak">
                   {description}
                 </Text>
               </Col>

@@ -22,6 +22,23 @@ a {
   padding: 0;
 }
 
+.linebreak {
+    overflow: hidden;
+    display: -webkit-box;
+    line-height: 18px;
+    max-height: 55px;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+}
+
+.sinalize {
+    color: #000000;
+    font-weight: bold;
+    background:  linear-gradient( #4ef3ac 0%,#0aee00 100%);
+    padding: 2px;
+    border-radius: 6px;
+}
 
 
 @media (prefers-color-scheme: dark) {
