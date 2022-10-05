@@ -2,6 +2,7 @@ import React from 'react';
 import { Text } from '@nextui-org/react';
 import Link from 'next/link';
 import { LinkText, Nav } from './navbar.styled';
+import { Responsive } from 'libs';
 
 export default function NavBar() {
   const [isSideMenuOpen, setIsSideMenuOpen] = React.useState<boolean>(false);
@@ -61,13 +62,18 @@ export default function NavBar() {
               w: '12%',
             },
           }}
+          className="col"
+          style={{
+            marginRight: '22px',
+            justifyContent: Responsive('flex-start', 'center', 650),
+          }}
         >
-          <Text b color="inherit" hideIn="xs">
+          <Text b color="inherit">
             MY PORTFOLIO
           </Text>
         </Nav.Brand>
 
-        <Nav.Content hideIn="md" variant="underline" activeColor={'success'}>
+        <Nav.Content hideIn="xs" variant="underline" activeColor={'success'}>
           {routes.map((item, id) => (
             <Link href={`${item.route}`} key={id}>
               <LinkText

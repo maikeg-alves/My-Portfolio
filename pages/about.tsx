@@ -24,25 +24,31 @@ const About: NextPage = () => {
         aling="center"
       >
         <p style={{ margin: 0, textAlign: 'justify' }}>
-          Olá, meu nome é Maicon Gabriel Alves, tenho 19 anos e sou estudante de
-          Ciência da Computação na Universidade Federal de São Carlos.
-          Atualmente estou no 4º período do curso e estou em busca de uma
-          oportunidade de estagio de desenvolvedor web.
+          Olá, me chamo <b>Maicon</b> e sou desenvolvedor web, apaixonado por
+          tecnologia e ciência, um entusiasta de novas tecnologias e frameworks,
+          sempre em busca de novos conhecimentos e desafios. estou a procura de
+          uma oportunidade de trabalho para colocar em prática meus
+          conhecimentos e aprender mais.
           <ModalComponent button={false} title={'Sobre mim'} ontitle={true}>
-            <p>
-              Oi! Eu sou Maicon Gabriel Alves. Um desenvolvedor front-end de São
-              Paulo - SP que adora desafios e que está a procura de sempre
-              resolver problemas com tecnologia e um apaixonado por ciência e
-              astronomia.
-              <br />
-              <br /> Programação nasceu para mim como um hoppy em 2020, em meio
-              a um cenário de incertezas, naquele ano eu tive uma certeza, que
-              gostaria de tornar aquele hoppy em carreira, e desde então estou
-              tralhando para que esse sonho se torne realidade. <br />
-              <br /> Quando não estou codando, estou desenhando ou vendo algum
-              documentário, amo aprender e descobrir coisas novas, sou dedicado
-              e ágil, e gostaria de ter essa primeira oportunidade de emprego.
-            </p>
+            <Col sm={'11'}>
+              <p>
+                Programação nasceu para mim como um hoppy em 2020, em meio a um
+                cenário de incertezas, naquele ano eu tive uma certeza, que
+                gostaria de tornar aquele hoppy em carreira, e desde então estou
+                tralhando para que esse sonho se torne realidade.
+                <br />
+                <br />
+                Quando não estou codando, estou desenhando ou vendo algum
+                documentário, amo aprender e descobrir coisas novas, sou
+                dedicado e ágil, e gostaria de ter essa primeira oportunidade de
+                emprego.
+                <br />
+                <br />
+                Meu objetivo é me tornar um desenvolvedor fullstack, e estou
+                estudando para isso, atualmente estou estudando ReactJS, NextJS,
+                NodeJS, Typescript, e outras tecnologias.
+              </p>
+            </Col>
           </ModalComponent>
         </p>
         <Col xs={'auto'} className="mb-2"></Col>
