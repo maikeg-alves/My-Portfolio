@@ -74,7 +74,7 @@ const Projects: NextPage<Over> = ({ projects, github }) => {
   }, [projects, github]);
 
   return (
-    <Layout justify="center">
+    <Layout justify="center" title="Projetos">
       <Col xs={'auto'}>
         <>
           {data?.length > 0 ? (
@@ -133,7 +133,7 @@ export const getStaticProps: GetStaticProps = async () => {
         projects: projects,
         github: data,
       },
-      revalidate: 10, //10 seconds OBSERVATION: tenho que mudar para 24 horas depois
+      revalidate: 60 * 60 * 24, // 24 hours
     };
   } catch (error) {
     return {

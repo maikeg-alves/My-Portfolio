@@ -9,7 +9,7 @@ import { TextUI } from 'styles';
 
 const Contact: NextPage = () => {
   return (
-    <Layout justify="center">
+    <Layout justify="center" title="Contato">
       <Col xs={12} style={{ maxWidth: '500px' }}>
         <Col xs={'auto'} align={'center'}>
           <TextUI h1>Contato</TextUI>

@@ -36,8 +36,12 @@ export default async function projects(
       break;
 
     case 'POST':
-      const { name, icon, ability } = req.body;
       try {
+        if (req.query.secret !== process.env.SECRET) {
+          return res.status(401).json({ message: 'Invalid secret' });
+        }
+
+        const { name, icon, ability } = req.body;
         const technology = await prisma.technology.findUnique({
           where: { name },
         });
@@ -56,9 +60,13 @@ export default async function projects(
           },
         });
 
-        res.status(200).json({
+        //revalidate page
+        await res.revalidate('/skills');
+
+        return res.status(200).json({
           mensager: 'technology created successfull✅',
           Newtechnology,
+          revalidated: true,
         });
       } catch (err) {
         res.status(505).send(`${err}error when creating technology ❌`);
@@ -67,6 +75,10 @@ export default async function projects(
 
     case 'PUT':
       try {
+        if (req.query.secret !== process.env.SECRET) {
+          return res.status(401).json({ message: 'Invalid secret' });
+        }
+
         const id = req.query.id;
         const { name, icon, ability } = req.body;
         const technology = await prisma.technology.findUnique({
@@ -88,9 +100,13 @@ export default async function projects(
           },
         });
 
-        res.status(200).json({
+        //revalidate page
+        await res.revalidate('/skills');
+
+        return res.status(200).json({
           mensager: 'tecnologia actualizada com sucesso ✅',
           updateTechnology,
+          revalidated: true,
         });
       } catch (err) {
         res.status(505).send(`${err} error communicating with server ❌`);
@@ -99,6 +115,10 @@ export default async function projects(
 
     case 'DELETE':
       try {
+        if (req.query.secret !== process.env.SECRET) {
+          return res.status(401).json({ message: 'Invalid secret' });
+        }
+
         const id = req.query.id;
 
         const technology = await prisma.technology.findMany({
@@ -115,9 +135,13 @@ export default async function projects(
           },
         });
 
-        res.status(200).json({
+        //revalidate page
+        await res.revalidate('/skills');
+
+        return res.status(200).json({
           mensager: 'technology successfully deleted! ✅',
           deleteProject,
+          revalidated: true,
         });
       } catch (error) {
         return res

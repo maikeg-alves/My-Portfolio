@@ -32,19 +32,19 @@ export default function NavBar() {
     },
     {
       route: '/about',
-      name: 'About me',
+      name: 'Sobre mim',
     },
     {
       route: '/skills',
-      name: 'Skills',
+      name: 'Habilidades',
     },
     {
       route: '/projects',
-      name: 'Projects',
+      name: 'Projetos',
     },
     {
       route: '/contact',
-      name: 'Contact',
+      name: 'Contato',
     },
   ];
 

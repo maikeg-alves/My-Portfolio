@@ -44,6 +44,10 @@ export default async function projects(
 
     case 'POST':
       try {
+        if (req.query.secret !== process.env.SECRET) {
+          return res.status(401).json({ message: 'Invalid secret' });
+        }
+
         const {
           name,
           github,
@@ -80,28 +84,38 @@ export default async function projects(
           },
         });
 
-        res
-          .status(200)
-          .json({ mensager: 'project created successfully ✅', NewProject });
+        //revalidate page
+        await res.revalidate('/projects');
+
+        return res.status(200).json({
+          mensager: 'project created successfully ✅',
+          NewProject,
+          revalidated: true,
+        });
       } catch (error) {
         res.status(505).send(`${error} error communicating with server ❌`);
       }
       break;
 
     case 'PUT':
-      const id = req.query.id;
-
-      const {
-        name,
-        github,
-        description,
-        difficulty,
-        img,
-        gif,
-        technologys_id,
-      } = req.body;
-
       try {
+        //validetion secret
+        if (req.query.secret !== process.env.SECRET) {
+          return res.status(401).json({ message: 'Invalid secret' });
+        }
+
+        const id = req.query.id;
+
+        const {
+          name,
+          github,
+          description,
+          difficulty,
+          img,
+          gif,
+          technologys_id,
+        } = req.body;
+
         const project = await prisma.project.findMany({
           where: { id: Number(id) },
         });
@@ -125,9 +139,14 @@ export default async function projects(
           },
         });
 
-        res
-          .status(200)
-          .json({ mensager: 'project updated successfully ✅', update });
+        //revalidate page
+        await res.revalidate('/projects');
+
+        return res.status(200).json({
+          mensager: 'project updated successfully ✅',
+          update,
+          revalidated: true,
+        });
       } catch (error) {
         res.status(505).json(`${error} error communicating with server ❌`);
       }
@@ -135,6 +154,10 @@ export default async function projects(
 
     case 'DELETE':
       try {
+        if (req.query.secret !== process.env.SECRET) {
+          return res.status(401).json({ message: 'Invalid secret' });
+        }
+
         const id = req.query.id;
 
         const project = await prisma.project.findMany({
@@ -151,14 +174,16 @@ export default async function projects(
           },
         });
 
-        res.status(200).json({
+        //revalidate page
+        await res.revalidate('/projects');
+
+        return res.status(200).json({
           mensager: 'Project successfully deleted! ✅',
           deleteProject,
+          revalidated: true,
         });
       } catch (error) {
-        return res
-          .status(505)
-          .json(`${error} error communicating with server ❌`);
+        res.status(505).json(`${error} error communicating with server ❌`);
       }
       break;
 

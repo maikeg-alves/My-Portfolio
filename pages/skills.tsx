@@ -24,7 +24,7 @@ const Skills: NextPage<ITech> = ({ technologys }) => {
   }, [technologys]);
 
   return (
-    <Layout justify="center">
+    <Layout justify="center" title="HAbilidades">
       {technologys ? (
         <>
           <Col xs={12} className="d-flex">
@@ -87,7 +87,7 @@ export const getStaticProps: GetStaticProps = async () => {
       props: {
         technologys: technologys,
       },
-      revalidate: 10, //10 seconds OBSERVATION: tenho que mudar para 25 horas depois
+      revalidate: 60 * 60 * 24, // 24 hours
     };
   } catch (error) {
     return {

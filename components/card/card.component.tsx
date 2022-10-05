@@ -113,7 +113,7 @@ const CardProject: NextPage<Allover> = ({
           >
             <Row>
               <Col>
-                <Text size={12}>Ultima modifção</Text>
+                <Text size={12}>Ultima modificação</Text>
                 <Text size={12}>{formatDate(String(updated_at))}</Text>
               </Col>
               <Col>

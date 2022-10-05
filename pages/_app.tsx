@@ -12,6 +12,7 @@ import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 
 import '../node_modules/react-ts-typewriter/dist/Typewriter.module.css';
+import Head from 'next/head';
 
 function App({ Component, pageProps }: AppProps) {
   const [themeMode, setThemeMode] = React.useState(false);
@@ -26,6 +27,9 @@ function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Theme theme={themeMode ? LightMode : DarkMode}>
+        <Head>
+          <link rel="icon" href="./favicon.ico" />
+        </Head>
         <GlobalStyle />
         <BtnMode setState={(e) => setThemeMode(e)} />
         <Container>
