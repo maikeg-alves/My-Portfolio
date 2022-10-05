@@ -19,7 +19,7 @@ const Home: NextPage = () => {
   }
 
   return (
-    <Layout justify="center" align="center" direction="column">
+    <Layout justify="center" align="center" direction="column" title="Home">
       <Col xs={'auto'}>
         <Avatar />
         {/*  <Testimg /> */}

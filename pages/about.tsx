@@ -8,7 +8,7 @@ import type { NextPage } from 'next';
 
 const About: NextPage = () => {
   return (
-    <Layout direction="column" align="center">
+    <Layout direction="column" align="center" title="Sobre mim">
       <Col xs={'auto'}>
         <Avatar />
       </Col>

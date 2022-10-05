@@ -24,7 +24,7 @@ const Skills: NextPage<ITech> = ({ technologys }) => {
   }, [technologys]);
 
   return (
-    <Layout justify="center">
+    <Layout justify="center" title="HAbilidades">
       {technologys ? (
         <>
           <Col xs={12} className="d-flex">
