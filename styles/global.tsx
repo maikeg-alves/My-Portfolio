@@ -9,6 +9,7 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     color:${(props) => props.theme.body.color};
     background: ${(props) => props.theme.body.background};
+    width: 100%;
 }
 
 a {
