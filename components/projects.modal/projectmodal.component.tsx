@@ -110,7 +110,7 @@ const ProjectModal: NextPage<Allover> = ({
                 size={'sm'}
                 href="google.com"
               >
-                Repositorio
+                Repositório
               </Button>
             </MYlink>
           </Col>
@@ -127,7 +127,7 @@ const ProjectModal: NextPage<Allover> = ({
                 color="success"
                 size={'sm'}
               >
-                Visite
+                Visite me
               </Button>
             </MYlink>
           </Col>

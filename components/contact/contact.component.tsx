@@ -28,19 +28,14 @@ export default function ContactEmail({ avatar }: { avatar?: boolean }) {
 
   return (
     <>
-      <Col
-        xs={12}
-        className="d-flex flex-column align-items-center"
-        /* style={{ width: withResponsive('100%', '50%') }} */
-      >
+      <Col xs={12} className="d-flex flex-column align-items-center">
         {avatar && (
           <>
-            {/* <Avatar squared src={`123`} css={{ size: "$20" }} /> */}
             <Avatar mobile={true} />
             <Col xs>
               <p className="text-break mt-1 text-center">
-                Envie-me uma proposta de entrevista, estou à disposição,
-                responderei o mais breve possível.
+                Me mande uma mensagem que entrarei em contato o mais breve
+                possível, se preferir entre em contato pelas redes sociais.
               </p>
             </Col>
           </>
@@ -88,7 +83,7 @@ export default function ContactEmail({ avatar }: { avatar?: boolean }) {
                 required: true,
                 maxLength: 200,
               })}
-              placeholder="Me envie uma proposta"
+              placeholder="Me envie uma mensagem"
               style={{
                 border: `${
                   errors.message ? '2px solid #f51717' : '1px solid #ccc'
@@ -102,7 +97,7 @@ export default function ContactEmail({ avatar }: { avatar?: boolean }) {
                 type="submit"
                 css={{ width: '100%', marginTop: '20px' }}
               >
-                emviar mensagem
+                Enviar mensagem
               </Button>
             </div>
           </Form.Group>

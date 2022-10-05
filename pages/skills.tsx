@@ -87,7 +87,7 @@ export const getStaticProps: GetStaticProps = async () => {
       props: {
         technologys: technologys,
       },
-      revalidate: 10, //10 seconds OBSERVATION: tenho que mudar para 25 horas depois
+      revalidate: 60 * 60 * 24, // 24 hours
     };
   } catch (error) {
     return {

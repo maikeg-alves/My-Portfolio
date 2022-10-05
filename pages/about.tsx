@@ -24,9 +24,9 @@ const About: NextPage = () => {
         aling="center"
       >
         <p style={{ margin: 0, textAlign: 'justify' }}>
-          Olá, me chamo <b>Maicon</b> e sou desenvolvedor web, apaixonado por
+          Olá, me chamo Maicon e sou desenvolvedor web, apaixonado por
           tecnologia e ciência, um entusiasta de novas tecnologias e frameworks,
-          sempre em busca de novos conhecimentos e desafios. estou a procura de
+          sempre em busca de novos conhecimentos e desafios. Estou a procura de
           uma oportunidade de trabalho para colocar em prática meus
           conhecimentos e aprender mais.
           <ModalComponent button={false} title={'Sobre mim'} ontitle={true}>
@@ -38,10 +38,9 @@ const About: NextPage = () => {
                 tralhando para que esse sonho se torne realidade.
                 <br />
                 <br />
-                Quando não estou codando, estou desenhando ou vendo algum
+                Quando não estou estudando, estou desenhando ou vendo algum
                 documentário, amo aprender e descobrir coisas novas, sou
-                dedicado e ágil, e gostaria de ter essa primeira oportunidade de
-                emprego.
+                dedicado e ágil, e estou sempre em busca de novos desafios.
                 <br />
                 <br />
                 Meu objetivo é me tornar um desenvolvedor fullstack, e estou

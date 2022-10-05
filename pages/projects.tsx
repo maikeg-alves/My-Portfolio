@@ -133,7 +133,7 @@ export const getStaticProps: GetStaticProps = async () => {
         projects: projects,
         github: data,
       },
-      revalidate: 10, //10 seconds OBSERVATION: tenho que mudar para 24 horas depois
+      revalidate: 60 * 60 * 24, // 24 hours
     };
   } catch (error) {
     return {
