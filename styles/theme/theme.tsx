@@ -34,7 +34,7 @@ export const DarkMode: DefaultTheme = {
   navbar: {
     background: '#000000',
     color: '#fff',
-    colapse: '#0000009c ',
+    colapse: '#000000d2 ',
   },
   boxShadow: {
     color1: '#00000000',
@@ -47,7 +47,7 @@ export const DarkMode: DefaultTheme = {
 
 export const LightMode: DefaultTheme = {
   body: {
-    background: '#ffffff',
+    background: '#eaeaea',
     color: '#000000',
   },
   colors: {
@@ -69,7 +69,7 @@ export const LightMode: DefaultTheme = {
   navbar: {
     background: '#ececec',
     color: '#000000a9',
-    colapse: '#ffffff9c',
+    colapse: '#ffffffd9',
   },
   boxShadow: {
     color1: '#c3c3c3',

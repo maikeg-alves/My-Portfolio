@@ -7,8 +7,8 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  color: white;
-  background: #1e1e1e;
+    color:${(props) => props.theme.body.color};
+    background: ${(props) => props.theme.body.background};
 }
 
 a {
@@ -38,6 +38,10 @@ a {
     background:  linear-gradient( #4ef3ac 0%,#0aee00 100%);
     padding: 2px;
     border-radius: 6px;
+}
+
+button {
+  z-index: 0;
 }
 
 

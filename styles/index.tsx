@@ -19,6 +19,8 @@ import {
 
 import { ImageNext } from './next/styles.next';
 
+import { MYlink } from './link/link.styled';
+
 export {
   ButtonMy,
   LinkMy,
@@ -36,4 +38,5 @@ export {
   BsWindow,
   ImageNext,
   ConatinerUIH1,
+  MYlink,
 };

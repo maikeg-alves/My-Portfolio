@@ -1,10 +1,9 @@
 import React from 'react';
-
 import { Col } from 'react-bootstrap';
 import { SwiperSlide } from 'swiper/react';
 
 import { Carrosel, CardProject, Layout, LoadingMy } from '@components';
-import { Allover } from '@interfaces';
+import type { Allover } from '@interfaces';
 import type { GetStaticProps, NextPage } from 'next';
 
 import { prisma } from 'libs';
@@ -126,6 +125,7 @@ export const getStaticProps: GetStaticProps = async () => {
         },
       },
     );
+
     const data = await datagit.json();
 
     return {

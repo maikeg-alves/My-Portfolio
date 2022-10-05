@@ -1,16 +1,9 @@
 import { Button, Progress, Text } from '@nextui-org/react';
-import Layout from 'components/layout/layout.component';
 import { NextPage } from 'next';
 /* import Image from 'next/image'; */
 import { Col } from 'react-bootstrap';
 import { Allover } from '@interfaces';
-import {
-  BsCodeSlash,
-  BsWindow,
-  ConatinerUIH1,
-  ImageNext,
-  SiGithub,
-} from '@styles';
+import { BsWindow, ConatinerUIH1, ImageNext, MYlink, SiGithub } from '@styles';
 import React from 'react';
 
 const ProjectModal: NextPage<Allover> = ({
@@ -22,22 +15,25 @@ const ProjectModal: NextPage<Allover> = ({
   /*   github, */
   html_url,
   /*   language, */
-  created_at,
-  pushed_at,
+  /*   created_at, */
+  /*   pushed_at, */
   /*   updated_at, */
   technologys,
 }) => {
   const [text, setText] = React.useState<string>('');
 
   const highlight = (text: string, words: string[]) => {
-    for (let i = 0; i < words.length; i++) {
-      const textformat = new RegExp(words[i], 'gi');
-      text = text.replace(
-        textformat,
-        "<span class='sinalize'>" + words[i] + '</span>',
-      );
+    if (text && words) {
+      for (let i = 0; i < words.length; i++) {
+        const textformat = new RegExp(words[i], 'gi');
+        text = text.replace(
+          textformat,
+          "<span class='sinalize'>" + words[i] + '</span>',
+        );
+      }
+      return text;
     }
-    return text;
+    return '';
   };
 
   React.useEffect(() => {
@@ -106,26 +102,34 @@ const ProjectModal: NextPage<Allover> = ({
 
         <Col xs={12} className="d-flex justify-content-between py-2 ">
           <Col xs={'auto'}>
-            <Button
-              icon={<SiGithub fill="currentColor" />}
-              style={{ padding: '22px' }}
-              color="success"
-              size={'sm'}
-              href="google.com"
-            >
-              Repositorio
-            </Button>
+            <MYlink href={html_url} target={'_blank'} rel={'noreferrer'}>
+              <Button
+                icon={<SiGithub fill="currentColor" />}
+                style={{ padding: '22px' }}
+                color="success"
+                size={'sm'}
+                href="google.com"
+              >
+                Repositorio
+              </Button>
+            </MYlink>
           </Col>
 
           <Col xs={'auto'}>
-            <Button
-              icon={<BsWindow fill="currentColor" />}
-              style={{ padding: '22px 0' }}
-              color="success"
-              size={'sm'}
+            <MYlink
+              href="https://google.com"
+              target={'_blank'}
+              rel={'noreferrer'}
             >
-              Visite
-            </Button>
+              <Button
+                icon={<BsWindow fill="currentColor" />}
+                style={{ padding: '22px 0' }}
+                color="success"
+                size={'sm'}
+              >
+                Visite
+              </Button>
+            </MYlink>
           </Col>
         </Col>
       </Col>

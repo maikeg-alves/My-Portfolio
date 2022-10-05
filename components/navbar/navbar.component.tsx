@@ -1,8 +1,24 @@
+import React from 'react';
 import { Text } from '@nextui-org/react';
 import Link from 'next/link';
 import { LinkText, Nav } from './navbar.styled';
 
 export default function NavBar() {
+  const [isSideMenuOpen, setIsSideMenuOpen] = React.useState<boolean>(false);
+  const [activeMenu, setActiveMenu] = React.useState();
+
+  React.useEffect(() => {
+    isSideMenuOpen && (document.body.style.overflow = 'hidden');
+  }, [isSideMenuOpen]);
+
+  const HandleSideMenu = (flag = false, index = undefined) => {
+    setTimeout(() => {
+      setActiveMenu(index);
+      flag && setIsSideMenuOpen(!isSideMenuOpen);
+      isSideMenuOpen && setIsSideMenuOpen(false);
+    }, 300);
+  };
+
   type MenuProps = {
     route: string;
     name: string;
@@ -34,7 +50,11 @@ export default function NavBar() {
   return (
     <>
       <Nav variant="floating">
-        <Nav.Toggle showIn="xs" />
+        <Nav.Toggle
+          showIn="xs"
+          isSelected={isSideMenuOpen}
+          onChange={() => HandleSideMenu(true, activeMenu)}
+        />
         <Nav.Brand
           css={{
             '@xs': {
@@ -47,19 +67,29 @@ export default function NavBar() {
           </Text>
         </Nav.Brand>
 
-        <Nav.Content hideIn="xs" variant="underline" activeColor={'success'}>
+        <Nav.Content hideIn="md" variant="underline" activeColor={'success'}>
           {routes.map((item, id) => (
             <Link href={`${item.route}`} key={id}>
-              <LinkText>{item.name}</LinkText>
+              <LinkText
+                isActive={id === activeMenu}
+                onClick={() => HandleSideMenu(false)}
+              >
+                {item.name}
+              </LinkText>
             </Link>
           ))}
         </Nav.Content>
 
-        <Nav.Collapse>
+        <Nav.Collapse isOpen={isSideMenuOpen}>
           {routes.map((item, id) => (
             <Nav.CollapseItem key={id}>
               <Link href={`${item.route}`}>
-                <LinkText>{item.name}</LinkText>
+                <LinkText
+                  isActive={id === activeMenu}
+                  onClick={() => HandleSideMenu(false)}
+                >
+                  {item.name}
+                </LinkText>
               </Link>
             </Nav.CollapseItem>
           ))}

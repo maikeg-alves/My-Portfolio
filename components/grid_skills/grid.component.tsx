@@ -1,11 +1,28 @@
-import { NextPage } from 'next';
+import React from 'react';
 import { Grid, Text, Tooltip } from '@nextui-org/react';
 import { Col } from 'react-bootstrap';
 import Image from 'next/image';
+
 import { Responsive } from 'libs';
 import { TextUI } from 'styles';
 
-const GridLayout: NextPage = () => {
+import type { NextPage } from 'next';
+import type { Techmology } from 'interfaces';
+
+const GridLayout: NextPage<Techmology[]> = (props) => {
+  const [techs, setTechs] = React.useState<Techmology[]>([]);
+
+  React.useEffect(() => {
+    if (props != null) {
+      //transforma o array em um array de objetos
+      setTechs(
+        Object.keys(props).map((index) => props[Number(index)] as Techmology),
+      ),
+        [];
+    }
+  }, [props]);
+
+  console.log(techs);
   return (
     <Col
       style={{ display: `${Responsive('block', 'none', 960)}` }}
@@ -20,138 +37,14 @@ const GridLayout: NextPage = () => {
         </TextUI>
       </Col>
 
-      <Grid.Container gap={2}>
-        <Grid xs={3}>
-          <Tooltip content="Developers love Next.js" contentColor="success">
-            <Image
-              src="https://www.vectorlogo.zone/logos/reactjs/reactjs-icon.svg"
-              width={100}
-              height={100}
-              alt="React"
-            />
-          </Tooltip>
-        </Grid>
-
-        <Grid xs={3}>
-          <Tooltip content="Developers love Next.js" contentColor="success">
-            <Image
-              src="https://www.vectorlogo.zone/logos/reactjs/reactjs-icon.svg"
-              width={100}
-              height={100}
-              alt="React"
-            />
-          </Tooltip>
-        </Grid>
-
-        <Grid xs={3}>
-          <Tooltip content="Developers love Next.js" contentColor="success">
-            <Image
-              src="https://www.vectorlogo.zone/logos/reactjs/reactjs-icon.svg"
-              width={100}
-              height={100}
-              alt="React"
-            />
-          </Tooltip>
-        </Grid>
-
-        <Grid xs={3}>
-          <Tooltip content="Developers love Next.js" contentColor="success">
-            <Image
-              src="https://www.vectorlogo.zone/logos/reactjs/reactjs-icon.svg"
-              width={100}
-              height={100}
-              alt="React"
-            />
-          </Tooltip>
-        </Grid>
-
-        <Grid xs={3}>
-          <Tooltip content="Developers love Next.js" contentColor="success">
-            <Image
-              src="https://www.vectorlogo.zone/logos/reactjs/reactjs-icon.svg"
-              width={100}
-              height={100}
-              alt="React"
-            />
-          </Tooltip>
-        </Grid>
-
-        <Grid xs={3}>
-          <Tooltip content="Developers love Next.js" contentColor="success">
-            <Image
-              src="https://www.vectorlogo.zone/logos/reactjs/reactjs-icon.svg"
-              width={100}
-              height={100}
-              alt="React"
-            />
-          </Tooltip>
-        </Grid>
-
-        <Grid xs={3}>
-          <Tooltip content="Developers love Next.js" contentColor="success">
-            <Image
-              src="https://www.vectorlogo.zone/logos/reactjs/reactjs-icon.svg"
-              width={100}
-              height={100}
-              alt="React"
-            />
-          </Tooltip>
-        </Grid>
-
-        <Grid xs={3}>
-          <Tooltip content="Developers love Next.js" contentColor="success">
-            <Image
-              src="https://www.vectorlogo.zone/logos/reactjs/reactjs-icon.svg"
-              width={100}
-              height={100}
-              alt="React"
-            />
-          </Tooltip>
-        </Grid>
-
-        <Grid xs={3}>
-          <Tooltip content="Developers love Next.js" contentColor="success">
-            <Image
-              src="https://www.vectorlogo.zone/logos/reactjs/reactjs-icon.svg"
-              width={100}
-              height={100}
-              alt="React"
-            />
-          </Tooltip>
-        </Grid>
-
-        <Grid xs={3}>
-          <Tooltip content="Developers love Next.js" contentColor="success">
-            <Image
-              src="https://www.vectorlogo.zone/logos/reactjs/reactjs-icon.svg"
-              width={100}
-              height={100}
-              alt="React"
-            />
-          </Tooltip>
-        </Grid>
-
-        <Grid xs={3}>
-          <Tooltip content="Developers love Next.js" contentColor="success">
-            <Image
-              src="https://www.vectorlogo.zone/logos/reactjs/reactjs-icon.svg"
-              width={100}
-              height={100}
-              alt="React"
-            />
-          </Tooltip>
-        </Grid>
-
-        <Grid xs={3}>
-          <Tooltip content="Developers love Next.js" contentColor="success">
-            <Image
-              src="https://www.vectorlogo.zone/logos/reactjs/reactjs-icon.svg"
-              width={100}
-              height={100}
-              alt="React"
-            />
-          </Tooltip>
-        </Grid>
+      <Grid.Container gap={2} style={{ justifyContent: 'center' }}>
+        {techs.map((item) => (
+          <Grid xs={3} key={item.id} style={{ flexBasis: 'unset' }}>
+            <Tooltip content={item.name} contentColor="success">
+              <Image src={item.icon} width={70} height={70} alt={item.name} />
+            </Tooltip>
+          </Grid>
+        ))}
       </Grid.Container>
     </Col>
   );

@@ -20,6 +20,14 @@ export const Nav = styled(Navbar)`
     .nextui-navbar-collapse-wrapper {
       background: transparent !important;
     }
+
+    ul {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+    }
   }
   a {
     padding: 0px !important;

@@ -1,3 +1,4 @@
+import React from 'react';
 import { Grid, Progress } from '@nextui-org/react';
 import { Col } from 'react-bootstrap';
 import { Typewriter, Layout, LoadingMy, GridLayout } from '@components';
@@ -6,57 +7,21 @@ import { TextUI } from 'styles';
 
 import type { GetStaticProps, NextPage } from 'next';
 import { prisma, Responsive } from 'libs';
-import { ITech } from 'interfaces';
+import { ITech, Techmology } from 'interfaces';
 
 const Skills: NextPage<ITech> = ({ technologys }) => {
-  /*   type Skill = {
-    name: string;
-    level: number;
-    color: NormalColors;
-  }; */
+  const [techs, setTechs] = React.useState<Techmology[]>([]);
 
-  /*   type NormalColors =
-    | 'default'
-    | 'primary'
-    | 'secondary'
-    | 'success'
-    | 'warning'
-    | 'error'
-    | 'gradient'; */
-
-  /*   const skills: Skill[] = [
-    {
-      name: 'HTML',
-      level: 90,
-      color: 'error',
-    },
-    {
-      name: 'CSS',
-      level: 80,
-      color: 'secondary',
-    },
-    {
-      name: 'JavaScript',
-      level: 70,
-      color: 'warning',
-    },
-    {
-      name: 'TypeScript',
-      level: 70,
-      color: 'primary',
-    },
-    {
-      name: 'React',
-      level: 70,
-      color: 'success',
-    },
-  ]; */
-
-  const data = [];
-
-  if (technologys != null) {
-    data.push(technologys.slice(0, 5));
-  }
+  React.useEffect(() => {
+    if (technologys != null) {
+      //filter the array and main techs > 80
+      setTechs(
+        (technologys.slice(0, 5) as Techmology[])
+          .filter((item) => item.ability >= 80)
+          .sort((a, b) => b.ability - a.ability),
+      );
+    }
+  }, [technologys]);
 
   return (
     <Layout justify="center">
@@ -66,8 +31,8 @@ const Skills: NextPage<ITech> = ({ technologys }) => {
             <Col
               className={`
               col-${Responsive(
-                6,
-                12,
+                '6',
+                '12',
                 990,
               )} d-flex justify-content-center flex-column px-2`}
             >
@@ -82,7 +47,7 @@ const Skills: NextPage<ITech> = ({ technologys }) => {
                 className="p-2 align-content-center"
                 style={{ display: 'contents' }}
               >
-                {data[0].map((item) => (
+                {techs.map((item) => (
                   <Grid key={item.id} className="p-2">
                     <TextUI>{item.name}</TextUI>
                     <Progress value={item.ability} color={'success'} />
@@ -91,7 +56,7 @@ const Skills: NextPage<ITech> = ({ technologys }) => {
               </Grid.Container>
             </Col>
             <>
-              <GridLayout />
+              <GridLayout {...technologys} />
             </>
           </Col>
         </>
@@ -114,6 +79,7 @@ export const getStaticProps: GetStaticProps = async () => {
         name: true,
         icon: true,
         ability: true,
+        projects: true,
       },
     });
 

@@ -9,6 +9,8 @@ const nextConfig = {
       'www.vectorlogo.zone',
       'upload.wikimedia.org',
       'upload.vectorlogo.zone',
+      'raw.githubusercontent.com',
+      'user-images.githubusercontent.com',
     ],
   },
 };

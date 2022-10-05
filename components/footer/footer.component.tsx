@@ -11,21 +11,29 @@ const Footer: NextPage = () => {
         <Col xs={12}>
           <List>
             <li>
-              <a href="">
+              <a
+                href="https://www.linkedin.com/in/maicon-gabriel-7b171421b/"
+                target={'_blank'}
+                rel={'noreferrer'}
+              >
                 <span>
                   <AiFillLinkedin />
                 </span>
               </a>
             </li>
             <li>
-              <a href="">
+              <a href="mailto:maicongabrielalves99@gmail.com">
                 <span>
                   <MdOutlineEmail />
                 </span>
               </a>
             </li>
             <li>
-              <a href="">
+              <a
+                href="https://github.com/maikeg-alves"
+                target={'_blank'}
+                rel={'noreferrer'}
+              >
                 <span>
                   <SiGithub />
                 </span>

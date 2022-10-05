@@ -1,8 +1,11 @@
 export interface ITech {
-  technologys: {
-    id: number;
-    name: string;
-    icon: string;
-    ability: number;
-  }[];
+  technologys: [];
 }
+
+export type Techmology = {
+  id: number;
+  name: string;
+  icon: string;
+  ability: number;
+  projects: string[];
+};
