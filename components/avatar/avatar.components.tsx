@@ -23,8 +23,8 @@ const Avatar: NextPage<Mobile> = ({ mobile }) => {
       <Image
         src={`https://i.imgur.com/nBtsD1X.png`}
         alt={'foto de perfil'}
-        width={'300x'}
-        height={'300px'}
+        width={'500px'}
+        height={'500px'}
         priority
       />
     </MyAvatar>
