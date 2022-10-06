@@ -1,6 +1,6 @@
 <h1 align="center">Meu portfólio </h1>
 
-Esse projeto teve como objetivo a crioação do meu portfolio pessoal, utilizando das  
+Esse site teve como objetivo de mostrar um pouco do meu trabalho e também de me apresentar para o mercado de trabalho. Para a construção foi utilizado NextJS, Typescript, ReactJS, React-Bootstrap e NextUI para o front-end, e Typescript, Planetscale e Prisma para o back-end e banco de dados, está hospedado na Vercel e o código-fonte está disponível no meu GitHub.
 
 ## 🚀 Começando
 
