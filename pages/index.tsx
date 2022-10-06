@@ -22,7 +22,6 @@ const Home: NextPage = () => {
     <Layout justify="center" align="center" direction="column" title="Home">
       <Col xs={'auto'}>
         <Avatar />
-        {/*  <Testimg /> */}
       </Col>
 
       <Col>

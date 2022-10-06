@@ -12,6 +12,7 @@ import Footer from './footer/footer.component';
 import LoadingMy from './loading/loading.component';
 import GridLayout from './grid_skills/grid.component';
 import ProjectModal from './projects.modal/projectmodal.component';
+import Snackbar from './snackbar/Snackbar.component';
 
 export {
   NavBar,
@@ -28,4 +29,5 @@ export {
   LoadingMy,
   GridLayout,
   ProjectModal,
+  Snackbar,
 };

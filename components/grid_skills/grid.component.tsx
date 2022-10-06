@@ -22,7 +22,6 @@ const GridLayout: NextPage<Techmology[]> = (props) => {
     }
   }, [props]);
 
-  console.log(techs);
   return (
     <Col
       style={{ display: `${Responsive('block', 'none', 960)}` }}
