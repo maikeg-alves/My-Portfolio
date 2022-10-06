@@ -76,6 +76,7 @@ export default async function sandmail(
         res.status(505).json(`${error} - Erro ao enviar email`);
       }
       break;
+
     default:
       res.setHeader('Allow', ['POST']);
       res.status(405).json('Method not allowed');
