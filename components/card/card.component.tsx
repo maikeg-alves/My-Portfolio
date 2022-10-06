@@ -93,6 +93,7 @@ const CardProject: NextPage<Allover> = ({
           </Card.Header>
           <Card.Body css={{ padding: '0' }}>
             <Card.Image
+              css={{ p: 0 }}
               style={{ backgroundColor: 'black', filter: 'brightness(0.5)' }}
               src={`${img}`}
               width="100%"
