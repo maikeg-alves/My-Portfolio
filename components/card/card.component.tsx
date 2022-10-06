@@ -19,6 +19,7 @@ const CardProject: NextPage<Allover> = ({
   pushed_at,
   updated_at,
   technologys,
+  homepage,
 }) => {
   // check if item is new
   function checkNewItems(date: string): boolean {
@@ -52,6 +53,7 @@ const CardProject: NextPage<Allover> = ({
       pushed_at: formatDate(String(pushed_at)),
       updated_at: formatDate(String(updated_at)),
       technologys: technologys,
+      homepage: homepage,
     },
   ];
 

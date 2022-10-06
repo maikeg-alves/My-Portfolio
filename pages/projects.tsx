@@ -33,6 +33,7 @@ const Projects: NextPage<Over> = ({ projects, github }) => {
             created_at,
             updated_at,
             pushed_at,
+            homepage,
           } = githubProject;
 
           if (githubProject) {
@@ -44,6 +45,7 @@ const Projects: NextPage<Over> = ({ projects, github }) => {
               created_at,
               updated_at,
               pushed_at,
+              homepage,
             };
           }
         });

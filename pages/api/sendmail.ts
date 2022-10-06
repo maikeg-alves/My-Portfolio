@@ -66,9 +66,11 @@ export default async function sandmail(
           <h3>Entre em contato pelo Email: ${email}</h3>`,
         };
 
-        await transporter.sendMail(mailOptions, (err, info) => {
-          if (err) res.json(err.message);
-          else res.json(info);
+        await new Promise((resolve, reject) => {
+          transporter.sendMail(mailOptions, (err, info) => {
+            if (err) reject(err);
+            else resolve(info);
+          });
         });
 
         res.status(200).json({ message: 'Email enviado com sucesso!' });

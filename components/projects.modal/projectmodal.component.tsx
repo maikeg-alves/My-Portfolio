@@ -18,6 +18,7 @@ const ProjectModal: NextPage<Allover> = ({
   /*   created_at, */
   /*   pushed_at, */
   /*   updated_at, */
+  homepage,
   technologys,
 }) => {
   const [text, setText] = React.useState<string>('');
@@ -35,6 +36,8 @@ const ProjectModal: NextPage<Allover> = ({
     }
     return '';
   };
+
+  console.log(homepage);
 
   React.useEffect(() => {
     setText(
