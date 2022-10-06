@@ -50,10 +50,10 @@ const ContactEmail: React.FC<Props> = ({ avatar }) => {
 
   React.useEffect(() => {
     if (show) {
-      reset({ name: '', email: '', message: '' });
       setTimeout(() => {
+        reset({ name: '', email: '', message: '' });
         setShow(false);
-      }, 3000);
+      }, 3050);
     }
   }, [show]);
 
@@ -133,16 +133,16 @@ const ContactEmail: React.FC<Props> = ({ avatar }) => {
             </div>
           </Form.Group>
         </FormMy>
-      </Col>
 
-      {show && (
-        <Snackbar
-          message="Mensagem enviada com sucesso!"
-          open={true}
-          type="success"
-          icon={<AiOutlineSend />}
-        />
-      )}
+        {show && (
+          <Snackbar
+            message="Mensagem enviada com sucesso!"
+            open={true}
+            type="success"
+            icon={<AiOutlineSend />}
+          />
+        )}
+      </Col>
     </>
   );
 };

@@ -8,7 +8,7 @@ interface Props {
 export const MYSnackbar = styled.div<Props>`
   visibility: ${(props) => (props.open ? 'visible' : 'hidden')};
   min-width: 250px;
-  margin-left: -125px;
+  margin-left: -150px;
   background-color: ${(props) =>
     (props.type === 'error' && '#f44336') ||
     (props.type === 'success' && '#4caf50')};
