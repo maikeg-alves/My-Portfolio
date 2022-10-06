@@ -1,4 +1,4 @@
-import { Row, Text } from '@nextui-org/react';
+import { Card, Row, Text } from '@nextui-org/react';
 import { AiFillEye } from 'react-icons/ai';
 import { Col } from 'react-bootstrap';
 import { ModalComponent, ProjectModal } from '@components';
@@ -58,8 +58,8 @@ const CardProject: NextPage<Allover> = ({
   return (
     <>
       {name ? (
-        <MyCard className="h-100 w-100" accessKey={`${img}`}>
-          <MyCard.Header
+        <Card className="h-100 w-100 bg-black">
+          <Card.Header
             css={{ position: 'absolute', zIndex: 1, top: 5, height: '77%' }}
           >
             <Col xs={12} className="h-100">
@@ -91,19 +91,9 @@ const CardProject: NextPage<Allover> = ({
                 </Text>
               </Col>
             </Col>
-          </MyCard.Header>
-          <MyCard.Body css={{ padding: '0' }}>
-            {/*   <MyCard.Image
-              css={{ p: 0 }}
-              style={{ backgroundColor: 'black', filter: 'brightness(0.5)' }}
-              src={`${img}`}
-              width="100%"
-              height="100%"
-              objectFit="cover"
-              alt="MyCard example background"
-            /> */}
-          </MyCard.Body>
-          <MyCard.Footer
+          </Card.Header>
+          <MyCard css={{ padding: '0' }} accessKey={`${img}`}></MyCard>
+          <Card.Footer
             isBlurred
             css={{
               position: 'absolute',
@@ -123,7 +113,7 @@ const CardProject: NextPage<Allover> = ({
                   <ModalComponent
                     button={true}
                     namebtn="Veja Mais"
-                    icon={<AiFillEye />}
+                    icon={<AiFillEye fill="currentColor" />}
                   >
                     {modalProject &&
                       modalProject.map((item, index) => (
@@ -133,8 +123,8 @@ const CardProject: NextPage<Allover> = ({
                 </Row>
               </Col>
             </Row>
-          </MyCard.Footer>
-        </MyCard>
+          </Card.Footer>
+        </Card>
       ) : (
         <Col>
           <Text> sem dados </Text>
