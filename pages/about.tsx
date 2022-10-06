@@ -5,6 +5,7 @@ import { Avatar, ModalComponent, Layout } from '@components';
 import { ButtonMy, LinkMy } from '@styles';
 import { Responsive } from '@libs';
 import type { NextPage } from 'next';
+import { Tooltip } from '@nextui-org/react';
 
 const About: NextPage = () => {
   return (
@@ -54,11 +55,18 @@ const About: NextPage = () => {
       </Col>
 
       <Col xs={'auto'}>
-        <ButtonMy auto flat icon={<TbDownload />} color="success">
-          <LinkMy href=" " target="_blank" color={'primary'}>
-            BAIXAR CURRÍCULO
-          </LinkMy>
-        </ButtonMy>
+        <Tooltip content={'81.9 kb'}>
+          <ButtonMy auto flat icon={<TbDownload />} color="success">
+            <LinkMy
+              download
+              href="curriculo.pdf"
+              target="_blank"
+              color={'primary'}
+            >
+              BAIXAR CURRÍCULO
+            </LinkMy>
+          </ButtonMy>
+        </Tooltip>
       </Col>
     </Layout>
   );

@@ -4,6 +4,7 @@ import { Col } from 'react-bootstrap';
 import { ModalComponent, ProjectModal } from '@components';
 import { NextPage } from 'next';
 import { Allover } from '@interfaces';
+import { MyCard } from './style';
 
 const CardProject: NextPage<Allover> = ({
   name,
@@ -57,7 +58,7 @@ const CardProject: NextPage<Allover> = ({
   return (
     <>
       {name ? (
-        <Card className="h-100 w-100">
+        <Card className="h-100 w-100 bg-black">
           <Card.Header
             css={{ position: 'absolute', zIndex: 1, top: 5, height: '77%' }}
           >
@@ -91,16 +92,7 @@ const CardProject: NextPage<Allover> = ({
               </Col>
             </Col>
           </Card.Header>
-          <Card.Body css={{ padding: '0' }}>
-            <Card.Image
-              style={{ backgroundColor: 'black', filter: 'brightness(0.5)' }}
-              src={`${img}`}
-              width="100%"
-              height="100%"
-              objectFit="cover"
-              alt="Card example background"
-            />
-          </Card.Body>
+          <MyCard css={{ padding: '0' }} accessKey={`${img}`}></MyCard>
           <Card.Footer
             isBlurred
             css={{
@@ -121,7 +113,7 @@ const CardProject: NextPage<Allover> = ({
                   <ModalComponent
                     button={true}
                     namebtn="Veja Mais"
-                    icon={<AiFillEye />}
+                    icon={<AiFillEye fill="currentColor" />}
                   >
                     {modalProject &&
                       modalProject.map((item, index) => (

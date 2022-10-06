@@ -75,7 +75,7 @@ const Projects: NextPage<Over> = ({ projects, github }) => {
 
   return (
     <Layout justify="center" title="Projetos">
-      <Col xs={'auto'}>
+      <Col xs={12}>
         <>
           {data?.length > 0 ? (
             <>

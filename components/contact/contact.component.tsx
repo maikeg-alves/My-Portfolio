@@ -1,30 +1,61 @@
 import React from 'react';
 import { Col, Form } from 'react-bootstrap';
 import { useForm, SubmitHandler } from 'react-hook-form';
-
+import { AiOutlineSend } from 'react-icons/ai';
 import { Button } from '@nextui-org/react';
 
-/* import IMGPROFILE from ".../img/avatar.png"; */
-
-/* interfaces */
-
 import { IEmail } from '../../interfaces';
-import { AiOutlineSend } from 'react-icons/ai';
-import { Avatar } from '../../components';
+import { Avatar, Snackbar } from '../../components';
 import { FormMy } from './contact.style';
-/* import Avatar from '../avatar.component'; */
 
-export default function ContactEmail({ avatar }: { avatar?: boolean }) {
+type Props = { avatar?: boolean };
+
+const ContactEmail: React.FC<Props> = ({ avatar }) => {
   const {
     handleSubmit,
     register,
+    reset,
     formState: { errors },
   } = useForm<IEmail>();
 
+  const [show, setShow] = React.useState(false);
+
   //function to send email
   const onSubmit: SubmitHandler<IEmail> = (data: IEmail) => {
-    console.log(data);
+    const { name, email, message } = data;
+    console.log(name, email, message);
+
+    const datamail = {
+      name: name,
+      email: email,
+      message: message,
+    };
+
+    //send email
+
+    if (datamail) {
+      fetch('/api/sendmail', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(datamail),
+      }).then((resp) => {
+        if (resp.status === 200) {
+          setShow(true);
+        }
+      });
+    }
   };
+
+  React.useEffect(() => {
+    if (show) {
+      setTimeout(() => {
+        reset({ name: '', email: '', message: '' });
+        setShow(false);
+      }, 3050);
+    }
+  }, [show]);
 
   return (
     <>
@@ -102,7 +133,18 @@ export default function ContactEmail({ avatar }: { avatar?: boolean }) {
             </div>
           </Form.Group>
         </FormMy>
+
+        {show && (
+          <Snackbar
+            message="Mensagem enviada com sucesso!"
+            open={true}
+            type="success"
+            icon={<AiOutlineSend />}
+          />
+        )}
       </Col>
     </>
   );
-}
+};
+
+export default ContactEmail;
