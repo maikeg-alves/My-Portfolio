@@ -1,9 +1,10 @@
-import { Card, Row, Text } from '@nextui-org/react';
+import { Row, Text } from '@nextui-org/react';
 import { AiFillEye } from 'react-icons/ai';
 import { Col } from 'react-bootstrap';
 import { ModalComponent, ProjectModal } from '@components';
 import { NextPage } from 'next';
 import { Allover } from '@interfaces';
+import { MyCard } from './style';
 
 const CardProject: NextPage<Allover> = ({
   name,
@@ -57,8 +58,8 @@ const CardProject: NextPage<Allover> = ({
   return (
     <>
       {name ? (
-        <Card className="h-100 w-100">
-          <Card.Header
+        <MyCard className="h-100 w-100" accessKey={`${img}`}>
+          <MyCard.Header
             css={{ position: 'absolute', zIndex: 1, top: 5, height: '77%' }}
           >
             <Col xs={12} className="h-100">
@@ -90,19 +91,19 @@ const CardProject: NextPage<Allover> = ({
                 </Text>
               </Col>
             </Col>
-          </Card.Header>
-          <Card.Body css={{ padding: '0' }}>
-            <Card.Image
+          </MyCard.Header>
+          <MyCard.Body css={{ padding: '0' }}>
+            {/*   <MyCard.Image
               css={{ p: 0 }}
               style={{ backgroundColor: 'black', filter: 'brightness(0.5)' }}
               src={`${img}`}
               width="100%"
               height="100%"
               objectFit="cover"
-              alt="Card example background"
-            />
-          </Card.Body>
-          <Card.Footer
+              alt="MyCard example background"
+            /> */}
+          </MyCard.Body>
+          <MyCard.Footer
             isBlurred
             css={{
               position: 'absolute',
@@ -132,8 +133,8 @@ const CardProject: NextPage<Allover> = ({
                 </Row>
               </Col>
             </Row>
-          </Card.Footer>
-        </Card>
+          </MyCard.Footer>
+        </MyCard>
       ) : (
         <Col>
           <Text> sem dados </Text>
