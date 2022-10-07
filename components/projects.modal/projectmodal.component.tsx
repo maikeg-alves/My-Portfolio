@@ -16,18 +16,13 @@ import React from 'react';
 const ProjectModal: NextPage<Allover> = ({
   name,
   difficulty,
-  /*   gif, */
   img,
   description,
-  /*   github, */
   html_url,
-  /*   language, */
-  /*   created_at, */
-  /*   pushed_at, */
-  /*   updated_at, */
   homepage,
   technologys,
-}) => {
+  AllTechnologys,
+}): JSX.Element => {
   const [text, setText] = React.useState<string>('');
 
   const highlight = (text: string, words: string[]) => {
@@ -44,13 +39,11 @@ const ProjectModal: NextPage<Allover> = ({
     return '';
   };
 
-  console.log(homepage);
-
   React.useEffect(() => {
     setText(
       highlight(
         description,
-        technologys.map((tech) => tech.name),
+        AllTechnologys.map((item) => item.name),
       ),
     );
   }, [description, technologys]);

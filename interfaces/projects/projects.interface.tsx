@@ -52,4 +52,7 @@ export interface Allover {
     name: string;
     icon: string;
   }[];
+  AllTechnologys: {
+    name: string;
+  }[];
 }

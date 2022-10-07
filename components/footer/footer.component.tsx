@@ -9,7 +9,7 @@ const Footer: NextPage = () => {
     <footer>
       <Layout>
         <Col xs={12}>
-          <List>
+          <List className="d-flex">
             <li>
               <a
                 href="https://www.linkedin.com/in/maicon-gabriel-7b171421b/"

@@ -22,6 +22,9 @@ a {
   margin: 0;
   padding: 0;
 }
+ul {
+  padding: 0;
+}
 
 .linebreak {
     overflow: hidden;
@@ -34,10 +37,9 @@ a {
 }
 
 .sinalize {
-    color: #000000;
+    color: #000;
     font-weight: bold;
-    background:  linear-gradient( #4ef3ac 0%,#0aee00 100%);
-    padding: 2px;
+    background: #01ee87;
     border-radius: 6px;
 }
 

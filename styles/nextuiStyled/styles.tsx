@@ -21,7 +21,4 @@ export const ConatinerUIH1 = styled(Col)`
   }
 `;
 
-export const ButtonUI = styled(Button)`
-  background: #fff !important;
-  color: #000 !important;
-`;
+export const ButtonUI = styled(Button)``;
