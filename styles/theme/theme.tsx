@@ -4,10 +4,23 @@ import { createTheme } from '@nextui-org/react';
 
 export const Nextuidark = createTheme({
   type: 'dark',
+  theme: {
+    colors: {
+      primary: '#00ee87',
+    },
+  },
 });
 
 export const Nextuilight = createTheme({
   type: 'light',
+
+  theme: {
+    colors: {
+      primary: '#00ee87',
+      successLight: '#00ee87',
+      successLightContrast: '#fff',
+    },
+  },
 });
 
 export const DarkMode: DefaultTheme = {

@@ -8,7 +8,7 @@ import {
   Theme,
   DarkMode,
 } from './theme/theme';
-import { TextUI, ConatinerUIH1 } from './nextuiStyled/styles';
+import { TextUI, ConatinerUIH1, ButtonUI } from './nextuiStyled/styles';
 import {
   AiFillLinkedin,
   MdOutlineEmail,
@@ -39,4 +39,5 @@ export {
   ImageNext,
   ConatinerUIH1,
   MYlink,
+  ButtonUI,
 };
