@@ -30,7 +30,7 @@ yarn dev
 
 ## 📦 Implantação
 
-Visite esse site:  [CLIQUE AQUI](https://maicon-gabriel-alves.vercel.app/s)
+Visite esse site:  [CLIQUE AQUI](https://maicon-gabriel-alves.vercel.app)
 
 ## 🛠️ Construído com
 
