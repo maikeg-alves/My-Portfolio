@@ -23,8 +23,6 @@ const Skills: NextPage<ITech> = ({ technologys }) => {
     }
   }, [technologys]);
 
-  console.log(technologys);
-
   return (
     <Layout justify="center" title="HAbilidades">
       {technologys ? (

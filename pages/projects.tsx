@@ -57,8 +57,21 @@ const Projects: NextPage<Over> = ({ projects, github, allTechnologys }) => {
         return merge as Allover[];
       }
 
+      if (github === undefined || github.length === 0) {
+        throw new Error('Error: github api data is empty');
+      }
+
+      if (projects === undefined || projects.length === 0) {
+        throw new Error('Error: database data is empty');
+      }
+
+      if (allTechnologys === undefined || allTechnologys.length === 0) {
+        throw new Error('Error: database data is empty');
+      }
+
       return [];
     } catch (err) {
+      console.log(err);
       return [];
     }
   };
