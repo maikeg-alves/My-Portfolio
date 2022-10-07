@@ -47,6 +47,14 @@ const About: NextPage = () => {
                 Meu objetivo é me tornar um desenvolvedor fullstack, e estou
                 estudando para isso, atualmente estou estudando ReactJS, NextJS,
                 NodeJS, Typescript, e outras tecnologias.
+                <br />
+                <br />
+                Esse site teve como objetivo de mostrar um pouco do meu.
+                Trabalho, e também de me apresentar para o mercado de trabalho.
+                Para a construção foi utilizado NextJS, Typescript, ReactJS, e
+                React-Bootstrap para o front-end, e NodeJS, Typescript, e
+                MongoDB para o back-end e está hospedado no Vercel, e o
+                código-fonte está disponível no meu GitHub.
               </p>
             </Col>
           </ModalComponent>

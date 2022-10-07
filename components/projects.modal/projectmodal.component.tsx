@@ -1,25 +1,28 @@
-import { Button, Progress, Text } from '@nextui-org/react';
+import { Progress, Text } from '@nextui-org/react';
 import { NextPage } from 'next';
 /* import Image from 'next/image'; */
 import { Col } from 'react-bootstrap';
 import { Allover } from '@interfaces';
-import { BsWindow, ConatinerUIH1, ImageNext, MYlink, SiGithub } from '@styles';
+import {
+  BsWindow,
+  ButtonUI,
+  ConatinerUIH1,
+  ImageNext,
+  MYlink,
+  SiGithub,
+} from '@styles';
 import React from 'react';
 
 const ProjectModal: NextPage<Allover> = ({
   name,
   difficulty,
-  /*   gif, */
   img,
   description,
-  /*   github, */
   html_url,
-  /*   language, */
-  /*   created_at, */
-  /*   pushed_at, */
-  /*   updated_at, */
+  homepage,
   technologys,
-}) => {
+  AllTechnologys,
+}): JSX.Element => {
   const [text, setText] = React.useState<string>('');
 
   const highlight = (text: string, words: string[]) => {
@@ -40,7 +43,7 @@ const ProjectModal: NextPage<Allover> = ({
     setText(
       highlight(
         description,
-        technologys.map((tech) => tech.name),
+        AllTechnologys.map((item) => item.name),
       ),
     );
   }, [description, technologys]);
@@ -103,32 +106,26 @@ const ProjectModal: NextPage<Allover> = ({
         <Col xs={12} className="d-flex justify-content-between py-2 ">
           <Col xs={'auto'}>
             <MYlink href={html_url} target={'_blank'} rel={'noreferrer'}>
-              <Button
-                icon={<SiGithub fill="currentColor" />}
+              <ButtonUI
+                icon={<SiGithub />}
                 style={{ padding: '22px' }}
-                color="success"
                 size={'sm'}
-                href="google.com"
               >
                 Repositório
-              </Button>
+              </ButtonUI>
             </MYlink>
           </Col>
 
           <Col xs={'auto'}>
-            <MYlink
-              href="https://google.com"
-              target={'_blank'}
-              rel={'noreferrer'}
-            >
-              <Button
-                icon={<BsWindow fill="currentColor" />}
+            <MYlink href={homepage} target={'_blank'} rel={'noreferrer'}>
+              <ButtonUI
+                icon={<BsWindow />}
                 style={{ padding: '22px 0' }}
-                color="success"
                 size={'sm'}
+                disabled={homepage === null || '' ? true : false}
               >
                 Visite me
-              </Button>
+              </ButtonUI>
             </MYlink>
           </Col>
         </Col>

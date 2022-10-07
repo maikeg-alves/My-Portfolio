@@ -23,7 +23,6 @@ const ContactEmail: React.FC<Props> = ({ avatar }) => {
   //function to send email
   const onSubmit: SubmitHandler<IEmail> = (data: IEmail) => {
     const { name, email, message } = data;
-    console.log(name, email, message);
 
     const datamail = {
       name: name,
@@ -32,7 +31,6 @@ const ContactEmail: React.FC<Props> = ({ avatar }) => {
     };
 
     //send email
-
     if (datamail) {
       fetch('/api/sendmail', {
         method: 'POST',

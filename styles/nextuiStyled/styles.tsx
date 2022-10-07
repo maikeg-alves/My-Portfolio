@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Text } from '@nextui-org/react';
+import { Text, Button } from '@nextui-org/react';
 import { Col } from 'react-bootstrap';
 
 export const TextUI = styled(Text)`
@@ -20,3 +20,5 @@ export const ConatinerUIH1 = styled(Col)`
     border-radius: 9px;
   }
 `;
+
+export const ButtonUI = styled(Button)``;

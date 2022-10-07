@@ -18,6 +18,7 @@ export interface IProjects {
     created_at: string;
     updated_at: string;
     pushed_at: string;
+    homepage: string;
   }[];
 }
 
@@ -46,8 +47,12 @@ export interface Allover {
   created_at: string;
   pushed_at: string;
   updated_at: string;
+  homepage: string;
   technologys: {
     name: string;
     icon: string;
+  }[];
+  AllTechnologys: {
+    name: string;
   }[];
 }

@@ -23,6 +23,8 @@ const Skills: NextPage<ITech> = ({ technologys }) => {
     }
   }, [technologys]);
 
+  console.log(technologys);
+
   return (
     <Layout justify="center" title="HAbilidades">
       {technologys ? (
@@ -97,3 +99,50 @@ export const getStaticProps: GetStaticProps = async () => {
     };
   }
 };
+
+[
+  {
+    id: 1,
+    name: 'React.Js',
+  },
+  {
+    id: 2,
+    name: 'JavaScript',
+  },
+  {
+    id: 3,
+    name: 'TypeScript',
+  },
+  {
+    id: 4,
+    name: 'Node.Js',
+  },
+  {
+    id: 5,
+    name: 'Bootstrap',
+  },
+  {
+    id: 6,
+    name: 'Next.Js',
+  },
+  {
+    id: 7,
+    name: 'HTML',
+  },
+  {
+    id: 8,
+    name: 'CSS',
+  },
+  {
+    id: 9,
+    name: 'Git',
+  },
+  {
+    id: 12,
+    name: 'Prisma',
+  },
+  {
+    id: 13,
+    name: 'GitHub',
+  },
+];

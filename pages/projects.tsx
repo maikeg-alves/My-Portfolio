@@ -11,9 +11,10 @@ import { prisma } from 'libs';
 type Over = {
   projects: Allover[];
   github: Allover[];
+  allTechnologys: Allover[];
 };
 
-const Projects: NextPage<Over> = ({ projects, github }) => {
+const Projects: NextPage<Over> = ({ projects, github, allTechnologys }) => {
   const [data, setData] = React.useState<Allover[]>([]);
 
   //ANNOTATION: merging github api data with database data
@@ -22,6 +23,8 @@ const Projects: NextPage<Over> = ({ projects, github }) => {
     try {
       if (projects.length > 0 && github.length > 0) {
         const merge = projects.map((project) => {
+          const AllTechnologys = allTechnologys.filter((tech) => tech.name);
+
           const githubProject = github.find(
             (git) => git.name === project.github,
           ) as Allover;
@@ -33,6 +36,7 @@ const Projects: NextPage<Over> = ({ projects, github }) => {
             created_at,
             updated_at,
             pushed_at,
+            homepage,
           } = githubProject;
 
           if (githubProject) {
@@ -44,6 +48,8 @@ const Projects: NextPage<Over> = ({ projects, github }) => {
               created_at,
               updated_at,
               pushed_at,
+              homepage,
+              AllTechnologys,
             };
           }
         });
@@ -56,6 +62,8 @@ const Projects: NextPage<Over> = ({ projects, github }) => {
       return [];
     }
   };
+
+  //ANNOTATION: filter projects by difficulty
 
   function orderArray(array: Array<Allover>): Array<Allover> {
     const dateNow: Date = new Date();
@@ -75,26 +83,26 @@ const Projects: NextPage<Over> = ({ projects, github }) => {
 
   return (
     <Layout justify="center" title="Projetos">
-      <Col xs={12}>
-        <>
-          {data?.length > 0 ? (
-            <>
-              <Col xs={12} align={'center'}>
-                <h1>Projects</h1>
-              </Col>
-              <Carrosel>
-                {data.map((item, index) => (
-                  <SwiperSlide key={index}>
-                    <CardProject {...item} />
-                  </SwiperSlide>
-                ))}
-              </Carrosel>
-            </>
-          ) : (
+      <>
+        {data?.length > 0 ? (
+          <Col xs={12}>
+            <Col xs={12} align={'center'}>
+              <h1>Projects</h1>
+            </Col>
+            <Carrosel>
+              {data.map((item, index) => (
+                <SwiperSlide key={index}>
+                  <CardProject {...item} />
+                </SwiperSlide>
+              ))}
+            </Carrosel>
+          </Col>
+        ) : (
+          <Col xs={'auto'}>
             <LoadingMy />
-          )}
-        </>
-      </Col>
+          </Col>
+        )}
+      </>
     </Layout>
   );
 };
@@ -116,6 +124,13 @@ export const getStaticProps: GetStaticProps = async () => {
       },
     });
 
+    const allTechnologys = await prisma?.technology.findMany({
+      select: {
+        id: true,
+        name: true,
+      },
+    });
+
     const datagit = await fetch(
       'https://api.github.com/users/maikeg-alves/repos',
       {
@@ -131,6 +146,7 @@ export const getStaticProps: GetStaticProps = async () => {
     return {
       props: {
         projects: projects,
+        allTechnologys: allTechnologys,
         github: data,
       },
       revalidate: 60 * 60 * 24, // 24 hours
@@ -143,22 +159,3 @@ export const getStaticProps: GetStaticProps = async () => {
     };
   }
 };
-
-// TODO: acesso restrito a rota
-/* export default async function handler(req, res) {
-  // Check for secret to confirm this is a valid request
-  if (req.query.secret !== process.env.MY_SECRET_TOKEN) {
-    return res.status(401).json({ message: 'Invalid token' })
-  }
-
-  try {
-  //este deve ser o caminho real e não um caminho reescrito
-    //por exemplo. para "/blog/[slug]" deve ser "/blog/post-1"
-    await res.revalidate('/path-to-revalidate')
-    return res.json({ revalidated: true })
-  } catch (err) {
-    // If there was an error, Next.js will continue
-    // to show the last successfully generated page
-    return res.status(500).send('Error revalidating')
-  }
-} */
