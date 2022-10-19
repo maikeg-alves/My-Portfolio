@@ -14,7 +14,7 @@ const Skills: NextPage<ITech> = ({ technologys }) => {
 
   React.useEffect(() => {
     if (technologys != null) {
-      //filter the array and main techs > 80
+      // ANNOTATION:  filter the technologies per ability level and sort them by the highest level
       setTechs(
         (technologys.slice(0, 5) as Techmology[])
           .filter((item) => item.ability >= 80)
@@ -71,6 +71,8 @@ const Skills: NextPage<ITech> = ({ technologys }) => {
 
 export default Skills;
 
+// ANNOTATION: pegando dados do banco de dados
+
 export const getStaticProps: GetStaticProps = async () => {
   try {
     const technologys = await prisma?.technology.findMany({
@@ -97,50 +99,3 @@ export const getStaticProps: GetStaticProps = async () => {
     };
   }
 };
-
-[
-  {
-    id: 1,
-    name: 'React.Js',
-  },
-  {
-    id: 2,
-    name: 'JavaScript',
-  },
-  {
-    id: 3,
-    name: 'TypeScript',
-  },
-  {
-    id: 4,
-    name: 'Node.Js',
-  },
-  {
-    id: 5,
-    name: 'Bootstrap',
-  },
-  {
-    id: 6,
-    name: 'Next.Js',
-  },
-  {
-    id: 7,
-    name: 'HTML',
-  },
-  {
-    id: 8,
-    name: 'CSS',
-  },
-  {
-    id: 9,
-    name: 'Git',
-  },
-  {
-    id: 12,
-    name: 'Prisma',
-  },
-  {
-    id: 13,
-    name: 'GitHub',
-  },
-];

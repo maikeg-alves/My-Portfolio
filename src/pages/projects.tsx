@@ -57,6 +57,8 @@ const Projects: NextPage<Over> = ({ projects, github, allTechnologys }) => {
         return merge as Allover[];
       }
 
+      // ANNOTATION:  if the data is not loaded, it will return an empty array
+
       if (github === undefined || github.length === 0) {
         throw new Error('Error: github api data is empty');
       }
@@ -76,7 +78,7 @@ const Projects: NextPage<Over> = ({ projects, github, allTechnologys }) => {
     }
   };
 
-  //ANNOTATION: filter projects by difficulty
+  //ANNOTATION: filtando os projetos por data de criação (obs: a data de criação do projeto é a data do primeiro commit)
 
   function orderArray(array: Array<Allover>): Array<Allover> {
     const dateNow: Date = new Date();
@@ -121,6 +123,8 @@ const Projects: NextPage<Over> = ({ projects, github, allTechnologys }) => {
 };
 
 export default Projects;
+
+// ANNOTATION: Pegando dados da api do github e do banco de dados
 
 export const getStaticProps: GetStaticProps = async () => {
   try {
