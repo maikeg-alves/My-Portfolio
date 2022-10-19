@@ -84,7 +84,7 @@ export default async function projects(
           },
         });
 
-        //revalidate page
+        //ANNOTATION: revalidando a pagina após a criação de um novo projeto
         await res.revalidate('/projects');
 
         return res.status(200).json({
@@ -139,7 +139,7 @@ export default async function projects(
           },
         });
 
-        //revalidate page
+        //ANNOTATION: revalidando a pagina após a atualização
         await res.revalidate('/projects');
 
         return res.status(200).json({
@@ -174,7 +174,7 @@ export default async function projects(
           },
         });
 
-        //revalidate page
+        //ANNOTATION: revalidando a pagina após a exclusão
         await res.revalidate('/projects');
 
         return res.status(200).json({

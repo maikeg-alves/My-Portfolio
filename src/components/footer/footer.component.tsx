@@ -12,7 +12,7 @@ const Footer: NextPage = () => {
           <List className="d-flex">
             <li>
               <a
-                href="https://www.linkedin.com/in/maicon-gabriel-7b171421b/"
+                href="https://www.linkedin.com/in/maicon-gabriel-alves-7b171421b/"
                 target={'_blank'}
                 rel={'noreferrer'}
               >

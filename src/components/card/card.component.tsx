@@ -22,16 +22,17 @@ const CardProject: NextPage<Allover> = ({
   homepage,
   AllTechnologys,
 }) => {
-  // check if item is new
+  // ANNOTATION: verifica se o projeto tem mais de 20 dias de criação (obs: a data de criação do projeto é a data do primeiro commit)
   function checkNewItems(date: string): boolean {
     const dateNow = new Date();
     const datecreate = new Date(date);
     const timeDiff = Math.abs(datecreate.getTime() - dateNow.getTime());
     const diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
-    return diffDays <= 30 ? true : false;
+    return diffDays < 20 ? true : false;
   }
 
-  //format date
+  // ANNOTATION:  formata a data para o formato brasileiro
+
   function formatDate(date: string): string {
     const datecreate = new Date(date);
     const day = datecreate.getDate();
@@ -40,6 +41,7 @@ const CardProject: NextPage<Allover> = ({
     return `${day}/${month}/${year}`;
   }
 
+  // ANNOTATION:  prepara os dados para serem enviados para o modal
   const modalProject = [
     {
       name: name,
