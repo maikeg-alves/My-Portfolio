@@ -15,7 +15,7 @@ type Over = {
 };
 
 type Git = {
-  message: string;
+  message?: string;
 };
 
 const Projects: NextPage<Over> = ({ projects, github, allTechnologys }) => {
