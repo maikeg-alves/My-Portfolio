@@ -10,12 +10,8 @@ import { prisma } from 'src/libs';
 
 type Over = {
   projects: Allover[];
-  github: Allover[] & Git;
+  github: Allover[];
   allTechnologys: Allover[];
-};
-
-type Git = {
-  message?: string;
 };
 
 const Projects: NextPage<Over> = ({ projects, github, allTechnologys }) => {
@@ -26,11 +22,7 @@ const Projects: NextPage<Over> = ({ projects, github, allTechnologys }) => {
   const meta = () => {
     try {
       if (projects.length > 0 && github.length > 0) {
-        if (
-          github === undefined ||
-          github === null ||
-          github.message === 'Bad credentials'
-        ) {
+        if (github === undefined || github === null) {
           throw new Error('Error: github api data is empty');
         }
 
