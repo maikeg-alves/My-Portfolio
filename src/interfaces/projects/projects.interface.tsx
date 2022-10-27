@@ -42,6 +42,7 @@ export interface Allover {
   img: string;
   description: string;
   github: string;
+  message: string;
   html_url: string;
   language: string;
   created_at: string;
