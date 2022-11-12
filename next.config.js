@@ -13,6 +13,9 @@ const nextConfig = {
       'user-images.githubusercontent.com',
     ],
   },
+  compiler: {
+    styledComponents: true,
+  },
 };
 
 module.exports = nextConfig;

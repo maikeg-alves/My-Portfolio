@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, /* Col */ Container } from 'react-bootstrap';
+import { Row, Container } from 'react-bootstrap';
 import { NextPage } from 'next';
 import Head from 'next/head';
 

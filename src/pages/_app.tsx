@@ -6,6 +6,8 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { Container, BtnMode } from 'src/components';
 import { Nextuilight, Nextuidark, Theme, LightMode, DarkMode } from '@styles';
 
+import { Analytics } from '@vercel/analytics/react';
+
 import '../components/carrosel/swiper.min.css';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
@@ -34,6 +36,7 @@ function App({ Component, pageProps }: AppProps) {
         <Container>
           <NextUIProvider theme={themeMode ? Nextuidark : Nextuilight}>
             <Component {...pageProps} />
+            <Analytics />
           </NextUIProvider>
         </Container>
       </Theme>

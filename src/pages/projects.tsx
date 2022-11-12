@@ -22,6 +22,22 @@ const Projects: NextPage<Over> = ({ projects, github, allTechnologys }) => {
   const meta = () => {
     try {
       if (projects.length > 0 && github.length > 0) {
+        if (github === undefined || github === null) {
+          throw new Error('Error: github api data is empty');
+        }
+
+        if (
+          projects === undefined ||
+          projects.length === 0 ||
+          projects === null
+        ) {
+          throw new Error('Error: database data is empty');
+        }
+
+        if (allTechnologys === undefined || allTechnologys === null) {
+          throw new Error('Error: database data is empty');
+        }
+
         const merge = projects.map((project) => {
           const AllTechnologys = allTechnologys.filter((tech) => tech.name);
 
@@ -58,18 +74,6 @@ const Projects: NextPage<Over> = ({ projects, github, allTechnologys }) => {
       }
 
       // ANNOTATION:  if the data is not loaded, it will return an empty array
-
-      if (github === undefined || github.length === 0) {
-        throw new Error('Error: github api data is empty');
-      }
-
-      if (projects === undefined || projects.length === 0) {
-        throw new Error('Error: database data is empty');
-      }
-
-      if (allTechnologys === undefined || allTechnologys.length === 0) {
-        throw new Error('Error: database data is empty');
-      }
 
       return [];
     } catch (err) {
@@ -172,6 +176,8 @@ export const getStaticProps: GetStaticProps = async () => {
     return {
       props: {
         projects: null,
+        allTechnologys: null,
+        github: null,
       },
     };
   }
