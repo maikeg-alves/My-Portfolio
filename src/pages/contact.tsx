@@ -18,7 +18,7 @@ const Contact: NextPage = () => {
             possivel, se preferrir entre em contato pelas redes sociais.
           </p>
         </Col>
-        <ContactEmail avatar={false} />
+        <ContactEmail avatar={false} Submit={(e: boolean) => e} />
       </Col>
     </Layout>
   );

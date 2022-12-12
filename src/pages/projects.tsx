@@ -82,6 +82,11 @@ const Projects: NextPage<Over> = ({ projects, github, allTechnologys }) => {
     }
   };
 
+  if (meta().length === 0) {
+    console.error('sem dados de resposta com a api');
+    console.error('se estiver em modo de desenvolvedor, ative o pscale');
+  }
+
   //ANNOTATION: filtando os projetos por data de criação (obs: a data de criação do projeto é a data do primeiro commit)
 
   function orderArray(array: Array<Allover>): Array<Allover> {
@@ -173,6 +178,9 @@ export const getStaticProps: GetStaticProps = async () => {
       revalidate: 60 * 60 * 24, // 24 hours
     };
   } catch (error) {
+    if (error) {
+      console.error('sem dados de resposta com a api');
+    }
     return {
       props: {
         projects: null,
