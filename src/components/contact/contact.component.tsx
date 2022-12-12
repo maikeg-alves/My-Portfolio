@@ -8,9 +8,12 @@ import { IEmail } from '../../interfaces';
 import { Avatar, Snackbar } from '..';
 import { FormMy } from './contact.style';
 
-type Props = { avatar?: boolean };
+type Props = {
+  avatar?: boolean;
+  Submit: (value: boolean) => void;
+};
 
-const ContactEmail: React.FC<Props> = ({ avatar }) => {
+const ContactEmail: React.FC<Props> = ({ avatar, Submit }) => {
   const {
     handleSubmit,
     register,
@@ -41,6 +44,7 @@ const ContactEmail: React.FC<Props> = ({ avatar }) => {
       }).then((resp) => {
         if (resp.status === 200) {
           setShow(true);
+          Submit(true);
         }
       });
     }
@@ -51,6 +55,7 @@ const ContactEmail: React.FC<Props> = ({ avatar }) => {
       setTimeout(() => {
         reset({ name: '', email: '', message: '' });
         setShow(false);
+        Submit(false);
       }, 2050);
     }
   }, [show]);

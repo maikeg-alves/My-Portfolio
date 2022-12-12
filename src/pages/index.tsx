@@ -18,6 +18,14 @@ const Home: NextPage = () => {
     });
   }
 
+  const hadleteste = (e: boolean) => {
+    if (e === true) {
+      setTimeout(() => {
+        setShow2(false);
+      }, 2000);
+    }
+  };
+
   return (
     <Layout justify="center" align="center" direction="column" title="Home">
       <Col xs={'auto'}>
@@ -67,7 +75,7 @@ const Home: NextPage = () => {
             className="p-2 btn-contact d-flex justify-content-center"
           >
             <ModalComponent title="Contato" button={true}>
-              <ContactEmail avatar={true} />
+              <ContactEmail avatar={true} Submit={hadleteste} />
             </ModalComponent>
           </Col>
         )}

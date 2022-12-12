@@ -21,6 +21,8 @@ const Skills: NextPage<ITech> = ({ technologys }) => {
           .sort((a, b) => b.ability - a.ability),
       );
     }
+
+    console.error('sem dados de resposta com a api');
   }, [technologys]);
 
   return (
