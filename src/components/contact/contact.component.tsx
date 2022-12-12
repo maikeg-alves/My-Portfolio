@@ -10,7 +10,7 @@ import { FormMy } from './contact.style';
 
 type Props = {
   avatar?: boolean;
-  Submit: (value: boolean) => void;
+  Submit?: (value: boolean) => void;
 };
 
 const ContactEmail: React.FC<Props> = ({ avatar, Submit }) => {
