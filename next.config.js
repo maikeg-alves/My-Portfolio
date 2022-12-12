@@ -24,6 +24,15 @@ const nextConfig = {
     DATABASE_URL: process.env.DATABASE_URL,
     GMAIL_PASSWORD: process.env.GMAIL_PASSWORD,
   },
+
+  async rewrites() {
+    return [
+      {
+        source: 'api/*',
+        destination: '**/*',
+      },
+    ];
+  },
   compiler: {
     styledComponents: true,
   },
