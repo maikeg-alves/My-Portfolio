@@ -151,7 +151,7 @@ export default async function projects(
       break;
 
     default:
-      res.setHeader('Allow', ['GET', 'POST', 'PUT', 'DELETE']);
+      res.setHeader('Access-Control-Allow-Origin', '*');
       res.status(405).end(`Method ${req.method} Not Allowed`);
   }
 }
