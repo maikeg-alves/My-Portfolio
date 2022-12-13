@@ -46,7 +46,7 @@ const ProjectModal: NextPage<Allover> = ({
         AllTechnologys.map((item) => item.name),
       ),
     );
-  }, [description, technologys]);
+  }, [AllTechnologys, description, technologys]);
 
   return (
     <>
