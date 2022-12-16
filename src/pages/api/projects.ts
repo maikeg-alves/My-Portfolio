@@ -105,7 +105,7 @@ export default async function projects(
       }
       break;
 
-    case 'PUT':
+    case 'PATCH':
       try {
         //validetion secret
         if (req.query.secret !== process.env.SECRET) {
