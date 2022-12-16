@@ -58,7 +58,7 @@ const ContactEmail: React.FC<Props> = ({ avatar, Submit }) => {
         Submit(false);
       }, 2050);
     }
-  }, [show]);
+  }, [Submit, reset, show]);
 
   return (
     <>

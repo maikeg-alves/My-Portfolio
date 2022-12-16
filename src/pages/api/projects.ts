@@ -1,4 +1,5 @@
 import { prisma } from 'src/libs/prisma';
+import NextCors from 'nextjs-cors';
 
 import { NextApiRequest, NextApiResponse } from 'next';
 
@@ -6,6 +7,13 @@ export default async function projects(
   req: NextApiRequest,
   res: NextApiResponse,
 ) {
+  await NextCors(req, res, {
+    // Options
+    methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
+    origin: '*',
+    optionsSuccessStatus: 200,
+  });
+
   switch (req.method) {
     case 'GET':
       try {
@@ -97,7 +105,7 @@ export default async function projects(
       }
       break;
 
-    case 'PUT':
+    case 'PATCH':
       try {
         //validetion secret
         if (req.query.secret !== process.env.SECRET) {
