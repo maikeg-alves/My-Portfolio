@@ -81,7 +81,7 @@ export default async function projects(
       }
       break;
 
-    case 'PUT':
+    case 'PATCH':
       try {
         if (req.query.secret !== process.env.SECRET) {
           return res.status(401).json({ message: 'Invalid secret' });
