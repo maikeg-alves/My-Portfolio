@@ -1,8 +1,8 @@
-import { Link, Navbar } from '@nextui-org/react';
+import { Link, Navbar as NavUI } from '@nextui-org/react';
 
 import styled from 'styled-components';
 
-export const Nav = styled(Navbar)`
+export const Navbar = styled(NavUI)`
   background: transparent;
   color: ${(props) => props.theme.body.color} !important;
 

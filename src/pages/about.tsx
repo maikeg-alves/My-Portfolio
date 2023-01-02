@@ -56,7 +56,8 @@ const About: NextPage = () => {
 
       <Col xs={'auto'}>
         <Tooltip content={'81.9 kb'}>
-          <ButtonMy auto flat disabled={true} icon={<TbDownload />} color="success">
+
+          <ButtonMy auto flat icon={<TbDownload />} color="success" disabled>
             <LinkMy
               download
               href="curriculo.pdf"

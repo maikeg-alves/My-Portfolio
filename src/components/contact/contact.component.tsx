@@ -5,7 +5,7 @@ import { AiOutlineSend } from 'react-icons/ai';
 import { Button } from '@nextui-org/react';
 
 import { IEmail } from '../../interfaces';
-import { Avatar, Snackbar } from '..';
+import { Snackbar } from '@components';
 import { FormMy } from './contact.style';
 
 type Props = {
@@ -65,7 +65,6 @@ const ContactEmail: React.FC<Props> = ({ avatar, Submit }) => {
       <Col xs={12} className="d-flex flex-column align-items-center">
         {avatar && (
           <>
-            <Avatar mobile={true} />
             <Col xs>
               <p className="text-break mt-1 text-center">
                 Me mande uma mensagem que entrarei em contato o mais breve

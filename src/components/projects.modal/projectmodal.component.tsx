@@ -12,6 +12,7 @@ import {
   SiGithub,
 } from 'src/styles';
 import React from 'react';
+import { Responsive } from '@libs';
 
 const ProjectModal: NextPage<Allover> = ({
   name,
@@ -60,10 +61,9 @@ const ProjectModal: NextPage<Allover> = ({
             preview :
           </Text>
           <ImageNext
-            radios={'10px'}
             src={`${img}`}
-            width={'550px'}
-            height={'275px'}
+            width={500}
+            height={Number(Responsive('187', '140', 375))}
             blurDataURL={`${img}`}
             alt="Card example background"
           />

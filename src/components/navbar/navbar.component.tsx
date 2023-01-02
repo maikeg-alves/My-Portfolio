@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text } from '@nextui-org/react';
 import Link from 'next/link';
-import { LinkText, Nav } from './navbar.styled';
+import { LinkText, Navbar } from './navbar.styled';
 import { Responsive } from 'src/libs';
 
 export default function NavBar() {
@@ -50,13 +50,12 @@ export default function NavBar() {
 
   return (
     <>
-      <Nav variant="floating">
-        <Nav.Toggle
+      <Navbar variant="floating">
+        <Navbar.Toggle
           showIn="xs"
-          isSelected={isSideMenuOpen}
           onChange={() => HandleSideMenu(true, activeMenu)}
         />
-        <Nav.Brand
+        <Navbar.Brand
           css={{
             '@xs': {
               w: '12%',
@@ -71,9 +70,8 @@ export default function NavBar() {
           <Text b color="inherit">
             MY PORTFOLIO
           </Text>
-        </Nav.Brand>
-
-        <Nav.Content hideIn="xs" variant="underline" activeColor={'success'}>
+        </Navbar.Brand>
+        <Navbar.Content hideIn="xs" variant="underline" activeColor={'success'}>
           {routes.map((item, id) => (
             <Link href={`${item.route}`} key={id}>
               <LinkText
@@ -84,11 +82,10 @@ export default function NavBar() {
               </LinkText>
             </Link>
           ))}
-        </Nav.Content>
-
-        <Nav.Collapse isOpen={isSideMenuOpen}>
+        </Navbar.Content>
+        <Navbar.Collapse isOpen={isSideMenuOpen}>
           {routes.map((item, id) => (
-            <Nav.CollapseItem key={id}>
+            <Navbar.CollapseItem key={id}>
               <Link href={`${item.route}`}>
                 <LinkText
                   isActive={id === activeMenu}
@@ -97,10 +94,10 @@ export default function NavBar() {
                   {item.name}
                 </LinkText>
               </Link>
-            </Nav.CollapseItem>
+            </Navbar.CollapseItem>
           ))}
-        </Nav.Collapse>
-      </Nav>
+        </Navbar.Collapse>
+      </Navbar>
     </>
   );
 }
