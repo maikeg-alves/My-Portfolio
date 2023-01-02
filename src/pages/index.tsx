@@ -3,7 +3,6 @@ import React from 'react';
 import { Col } from 'react-bootstrap';
 
 import { Typewriter } from 'src/components';
-
 import { Avatar, ContactEmail, Layout, ModalComponent } from 'src/components';
 import type { NextPage } from 'next';
 
@@ -75,7 +74,7 @@ const Home: NextPage = () => {
             className="p-2 btn-contact d-flex justify-content-center"
           >
             <ModalComponent title="Contato" button={true}>
-              <ContactEmail avatar={true} Submit={hadleteste} />
+              <ContactEmail avatar Submit={hadleteste} />
             </ModalComponent>
           </Col>
         )}

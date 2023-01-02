@@ -19,11 +19,14 @@ const nextConfig = {
     GMAIL_PASSWORD: process.env.GMAIL_PASSWORD,
     GMAIL_TO: process.env.GMAIL_TO,
     GITHUB_TOKEN: process.env.GITHUB_TOKEN,
-    SECRET: process.env.SECRET,
+    SECRET_KEY: process.env.SECRET_KEY,
   },
 
   compiler: {
     styledComponents: true,
+  },
+  experimental: {
+    forceSwcTransforms: true,
   },
 };
 

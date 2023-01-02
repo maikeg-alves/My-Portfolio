@@ -26,7 +26,7 @@ const Skills: NextPage<ITech> = ({ technologys }) => {
   }, [technologys]);
 
   return (
-    <Layout justify="center" title="HAbilidades">
+    <Layout justify="center" title="Habilidades">
       {technologys ? (
         <>
           <Col xs={12} className="d-flex">
@@ -77,26 +77,27 @@ export default Skills;
 
 export const getStaticProps: GetStaticProps = async () => {
   try {
-    const technologys = await prisma?.technology.findMany({
-      select: {
-        id: true,
-        name: true,
-        icon: true,
-        ability: true,
-        projects: true,
-      },
-    });
+    const technologys =
+      (await prisma?.technology.findMany({
+        select: {
+          id: true,
+          name: true,
+          icon: true,
+          ability: true,
+          projects: true,
+        },
+      })) || [];
 
     return {
       props: {
-        technologys: technologys,
+        technologys,
       },
       revalidate: 60 * 60 * 24, // 24 hours
     };
   } catch (error) {
     return {
       props: {
-        technologys: null,
+        technologys: [],
       },
     };
   }

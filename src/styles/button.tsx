@@ -13,4 +13,8 @@ export const ButtonMy = styled(Button)`
     color: #fff;
     transform: translateY(-2px);
   }
+  &:disabled {
+    background-color: #3a3a3a;
+    color: #9a9797;
+  }
 `;

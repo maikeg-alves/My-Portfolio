@@ -4,87 +4,75 @@ import { SwiperSlide } from 'swiper/react';
 
 import { Carrosel, CardProject, Layout, LoadingMy } from 'src/components';
 import type { Allover } from 'src/interfaces';
-import type { GetStaticProps, NextPage } from 'next';
+import type { GetStaticProps } from 'next';
 
 import { prisma } from 'src/libs';
 
-type Over = {
+type Props = {
   projects: Allover[];
   github: Allover[];
   allTechnologys: Allover[];
 };
 
-const Projects: NextPage<Over> = ({ projects, github, allTechnologys }) => {
+const Projects: React.FC<Props> = (props) => {
   const [data, setData] = React.useState<Allover[]>([]);
 
-  //ANNOTATION: merging github api data with database data
+  const mergeProjectsData = (): Allover[] => {
+    const { projects, github, allTechnologys } = props;
 
-  const meta = () => {
-    try {
-      if (projects.length > 0 && github.length > 0) {
-        if (github === undefined || github === null) {
-          throw new Error('Error: github api data is empty');
-        }
-
-        if (
-          projects === undefined ||
-          projects.length === 0 ||
-          projects === null
-        ) {
-          throw new Error('Error: database data is empty');
-        }
-
-        if (allTechnologys === undefined || allTechnologys === null) {
-          throw new Error('Error: database data is empty');
-        }
-
-        const merge = projects.map((project) => {
-          const AllTechnologys = allTechnologys.filter((tech) => tech.name);
-
-          const githubProject = github.find(
-            (git) => git.name === project.github,
-          ) as Allover;
-
-          const {
-            description,
-            html_url,
-            language,
-            created_at,
-            updated_at,
-            pushed_at,
-            homepage,
-          } = githubProject;
-
-          if (githubProject) {
-            return {
-              ...project,
-              description,
-              html_url,
-              language,
-              created_at,
-              updated_at,
-              pushed_at,
-              homepage,
-              AllTechnologys,
-            };
-          }
-        });
-
-        return merge as Allover[];
-      }
-
-      // ANNOTATION:  if the data is not loaded, it will return an empty array
-
-      return [];
-    } catch (err) {
-      console.log(err);
+    if (
+      projects.length === 0 &&
+      github.length === 0 &&
+      allTechnologys.length === 0
+    ) {
       return [];
     }
+
+    const mergeData = props.projects
+      .map((project) => {
+        const AllTechnologys = props.allTechnologys.filter((tech) => tech.name);
+
+        const gitDataRepos = props.github.find(
+          (git) => git.name === project.github,
+        ) as Allover;
+
+        if (!gitDataRepos) {
+          return null;
+        }
+
+        const {
+          description,
+          html_url,
+          language,
+          created_at,
+          updated_at,
+          pushed_at,
+          homepage,
+        } = gitDataRepos;
+
+        return {
+          ...project,
+          description,
+          html_url,
+          language,
+          created_at,
+          updated_at,
+          pushed_at,
+          homepage,
+          AllTechnologys,
+        };
+      })
+      .filter((item) => item);
+
+    return mergeData as Allover[];
   };
 
-  if (meta().length === 0) {
-    console.error('sem dados de resposta com a api');
-    console.error('se estiver em modo de desenvolvedor, ative o pscale');
+  // fim mergeProjectsData
+
+  if (mergeProjectsData().length === 0) {
+    console.error(
+      'sem dados de resposta com a api\n⚠️ se estiver em modo de desenvolvedor, ative o pscale ⚠️\nuse o comando: pscale connect my-api main --port 3309',
+    );
   }
 
   //ANNOTATION: filtando os projetos por data de criação (obs: a data de criação do projeto é a data do primeiro commit)
@@ -101,9 +89,9 @@ const Projects: NextPage<Over> = ({ projects, github, allTechnologys }) => {
   }
 
   React.useEffect(() => {
-    setData(orderArray(meta()));
+    setData(orderArray(mergeProjectsData()));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [projects, github]);
+  }, [props.projects, props.github, props.allTechnologys]);
 
   return (
     <Layout justify="center" title="Projetos">
@@ -137,27 +125,29 @@ export default Projects;
 
 export const getStaticProps: GetStaticProps = async () => {
   try {
-    const projects = await prisma?.project.findMany({
-      select: {
-        id: true,
-        name: true,
-        github: true,
-        description: true,
-        difficulty: true,
-        img: true,
-        gif: true,
-        technologys: true,
-      },
-    });
+    const projects =
+      (await prisma?.project.findMany({
+        select: {
+          id: true,
+          name: true,
+          github: true,
+          description: true,
+          difficulty: true,
+          img: true,
+          gif: true,
+          technologys: true,
+        },
+      })) || [];
 
-    const allTechnologys = await prisma?.technology.findMany({
-      select: {
-        id: true,
-        name: true,
-      },
-    });
+    const allTechnologys =
+      (await prisma?.technology.findMany({
+        select: {
+          id: true,
+          name: true,
+        },
+      })) || [];
 
-    const datagit = await fetch(
+    const repos = await fetch(
       'https://api.github.com/users/maikeg-alves/repos',
       {
         headers: {
@@ -167,25 +157,22 @@ export const getStaticProps: GetStaticProps = async () => {
       },
     );
 
-    const data = await datagit.json();
+    const gitdata = await repos.json();
 
     return {
       props: {
         projects: projects,
         allTechnologys: allTechnologys,
-        github: data,
+        github: gitdata,
       },
       revalidate: 60 * 60 * 24, // 24 hours
     };
   } catch (error) {
-    if (error) {
-      console.error('sem dados de resposta com a api');
-    }
     return {
       props: {
-        projects: null,
-        allTechnologys: null,
-        github: null,
+        projects: [],
+        allTechnologys: [],
+        github: [],
       },
     };
   }
