@@ -10,7 +10,7 @@ const users = [
   },
 ];
 
-export default function login(req: NextApiRequest, res: NextApiResponse) {
+export default async function login(req: NextApiRequest, res: NextApiResponse) {
   
   await NextCors(req, res, {
     // Options
