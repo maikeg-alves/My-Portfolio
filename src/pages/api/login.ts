@@ -1,5 +1,6 @@
 import jwt from 'jsonwebtoken';
 import { NextApiRequest, NextApiResponse } from 'next';
+import NextCors from 'nextjs-cors';
 
 const users = [
   {
@@ -10,6 +11,14 @@ const users = [
 ];
 
 export default function login(req: NextApiRequest, res: NextApiResponse) {
+  
+  await NextCors(req, res, {
+    // Options
+    methods: ['POST'],
+    origin: '*',
+    optionsSuccessStatus: 200,
+  });
+  
   switch (req.method) {
     case 'POST':
       // pegando as ifnormçoes do body
