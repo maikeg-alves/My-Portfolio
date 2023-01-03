@@ -14,7 +14,7 @@ const users = [
 export default async function login(req: NextApiRequest, res: NextApiResponse) {
   await NextCors(req, res, {
     // Options
-    methods: ['POST'],
+    methods: ['POST', 'GET'],
     origin: '*',
     optionsSuccessStatus: 200,
   });
@@ -69,7 +69,7 @@ export default async function login(req: NextApiRequest, res: NextApiResponse) {
       }
       break;
     default:
-      res.setHeader('Allow', ['POST']);
+      res.setHeader('Allow', ['POST', 'GET']);
       res.status(405).json('Method not allowed');
       break;
   }
