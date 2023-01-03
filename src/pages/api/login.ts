@@ -1,6 +1,7 @@
 import jwt from 'jsonwebtoken';
 import { NextApiRequest, NextApiResponse } from 'next';
 import NextCors from 'nextjs-cors';
+/* import { authenticate } from 'src/scripts'; */
 
 const users = [
   {
@@ -11,14 +12,13 @@ const users = [
 ];
 
 export default async function login(req: NextApiRequest, res: NextApiResponse) {
-  
   await NextCors(req, res, {
     // Options
     methods: ['POST'],
     origin: '*',
     optionsSuccessStatus: 200,
   });
-  
+
   switch (req.method) {
     case 'POST':
       // pegando as ifnormçoes do body
@@ -48,6 +48,25 @@ export default async function login(req: NextApiRequest, res: NextApiResponse) {
         token: token,
       });
 
+      break;
+    case 'GET':
+      try {
+        const SECRET_KEY = process.env.SECRET_KEY as string;
+
+        const authHeader = req.headers.authorization;
+
+        if (!authHeader) return res.status(401).send({ valid: false });
+
+        const token = authHeader.split(' ')[1];
+
+        const decoded = jwt.verify(token, SECRET_KEY);
+
+        if (decoded) {
+          return res.send({ valid: true });
+        }
+      } catch (err) {
+        return res.status(401).send({ valid: false });
+      }
       break;
     default:
       res.setHeader('Allow', ['POST']);
