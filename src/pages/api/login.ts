@@ -39,7 +39,7 @@ export default async function login(req: NextApiRequest, res: NextApiResponse) {
 
       // se estiver tudi bem ele gera o token de acesso com uma hora de duration
       const token = jwt.sign({ email: user.email }, SECRET_KEY, {
-        expiresIn: 60, // 1 minuto para ispirar o token
+        expiresIn: '1h', // 1 minuto para ispirar o token
       });
 
       res.send({
