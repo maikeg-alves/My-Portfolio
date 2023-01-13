@@ -138,7 +138,7 @@ export default async function projects(
               img,
               gif,
               technologys: {
-                connect: technologys_id.map((id: number) => ({ id })),
+                set: technologys_id.map((id: number) => ({ id })),
               },
             },
           });
