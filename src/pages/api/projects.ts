@@ -78,6 +78,22 @@ export default async function projects(
             });
           }
 
+          // verificando se os ids das tecnologias existe
+
+          const technologysExist = await prisma.technology.count({
+            where: {
+              id: {
+                in: technologys_id,
+              },
+            },
+          });
+
+          if (technologysExist !== technologys_id.length) {
+            return res.status(404).json({
+              message: 'Some of the technologys does not exist',
+            });
+          }
+
           const project = await prisma.project.findUnique({
             where: {
               name,
