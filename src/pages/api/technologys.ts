@@ -48,6 +48,13 @@ export default async function technologies(
       authenticate(req, res, async () => {
         try {
           const { name, icon, ability } = req.body;
+
+          if (!name || !icon || !ability) {
+            return res.status(400).json({
+              message: 'Missing fields',
+            });
+          }
+
           const technology = await prisma.technology.findUnique({
             where: { name },
           });
@@ -75,7 +82,10 @@ export default async function technologies(
             revalidated: true,
           });
         } catch (err) {
-          res.status(505).send(`${err}error when creating technology ❌`);
+          console.error(err);
+          return res
+            .status(505)
+            .send(`${err}error when creating technology ❌`);
         }
       });
 
@@ -86,6 +96,13 @@ export default async function technologies(
         try {
           const id = req.query.id;
           const { name, icon, ability } = req.body;
+
+          if (!name || !icon || !ability) {
+            return res.status(400).json({
+              message: 'Missing fields',
+            });
+          }
+
           const technology = await prisma.technology.findUnique({
             where: { id: Number(id) },
           });
@@ -114,7 +131,10 @@ export default async function technologies(
             revalidated: true,
           });
         } catch (err) {
-          res.status(505).send(`${err} error communicating with server ❌`);
+          console.error(err);
+          return res
+            .status(505)
+            .send(`${err} error communicating with server ❌`);
         }
       });
       break;

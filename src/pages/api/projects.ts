@@ -64,6 +64,20 @@ export default async function projects(
             technologys_id,
           } = req.body;
 
+          if (
+            !name ||
+            !github ||
+            !description ||
+            !difficulty ||
+            !img ||
+            !gif ||
+            !technologys_id
+          ) {
+            return res.status(400).json({
+              message: 'Missing fields',
+            });
+          }
+
           const project = await prisma.project.findUnique({
             where: {
               name,
@@ -99,7 +113,10 @@ export default async function projects(
             revalidated: true,
           });
         } catch (error) {
-          res.status(505).send(`${error} error communicating with server ❌`);
+          console.error(error);
+          return res
+            .status(505)
+            .send(`${error} error communicating with server ❌`);
         }
       });
 
@@ -119,6 +136,20 @@ export default async function projects(
             gif,
             technologys_id,
           } = req.body;
+
+          if (
+            !name ||
+            !github ||
+            !description ||
+            !difficulty ||
+            !img ||
+            !gif ||
+            !technologys_id
+          ) {
+            return res.status(400).json({
+              message: 'Missing fields',
+            });
+          }
 
           const project = await prisma.project.findMany({
             where: { id: Number(id) },
@@ -152,7 +183,10 @@ export default async function projects(
             revalidated: true,
           });
         } catch (error) {
-          res.status(505).json(`${error} error communicating with server ❌`);
+          console.error(error);
+          return res
+            .status(505)
+            .json(`${error} error communicating with server ❌`);
         }
       });
       break;
