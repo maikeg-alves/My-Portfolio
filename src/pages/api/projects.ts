@@ -153,20 +153,6 @@ export default async function projects(
             technologys_id,
           } = req.body;
 
-          if (
-            !name ||
-            !github ||
-            !description ||
-            !difficulty ||
-            !img ||
-            !gif ||
-            !technologys_id
-          ) {
-            return res.status(400).json({
-              message: 'Missing fields',
-            });
-          }
-
           const project = await prisma.project.findMany({
             where: { id: Number(id) },
           });
