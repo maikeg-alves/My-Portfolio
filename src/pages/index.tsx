@@ -56,7 +56,7 @@ const Home: NextPage = () => {
             style={{ color: '#00ee87' }}
           >
             <Typewriter
-              text={['UI Design', 'Illustration', 'Front-end Developer']}
+              text={['UI Design', 'Illustration', 'Full Stack Developer']}
               delay={1000}
               cursor={true}
               onFinished={() =>
