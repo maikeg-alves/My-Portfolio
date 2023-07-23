@@ -1,6 +1,6 @@
 import React from 'react';
 import HamburgerMenu from './menuHamburger';
-import { NavBar, Nav, NavLink, SimpleLink } from './styles';
+import { NavBarStyled, Nav, NavLink, SimpleLink } from './styles';
 
 import { useRouter } from 'next/router';
 import { useMediaQuery } from '@libs';
@@ -47,7 +47,7 @@ export default function NavBar() {
 
   return (
     <>
-      <NavBar>
+      <NavBarStyled>
         <Nav>
           {isMobile && (
             <div>
@@ -75,7 +75,7 @@ export default function NavBar() {
             </ul>
           </div>
         </Nav>
-      </NavBar>
+      </NavBarStyled>
 
       <MenuFullScrean isOpen={isMenuOpen}>
         {routes.map((route) => (
