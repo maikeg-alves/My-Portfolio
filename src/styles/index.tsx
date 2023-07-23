@@ -15,6 +15,7 @@ import {
   SiGithub,
   BsCodeSlash,
   BsWindow,
+  BsWhatsapp,
 } from './icons/all.icons.style';
 
 import { ImageNext } from './next/styles.next';
@@ -22,6 +23,7 @@ import { ImageNext } from './next/styles.next';
 import { MYlink } from './link/link.styled';
 
 import { GlobalStyle } from './global';
+
 export {
   ButtonMy,
   LinkMy,
@@ -42,4 +44,5 @@ export {
   MYlink,
   ButtonUI,
   GlobalStyle,
+  BsWhatsapp,
 };

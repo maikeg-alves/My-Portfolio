@@ -2,7 +2,12 @@ import Layout from 'src/components/layout/layout.component';
 import { NextPage } from 'next';
 import { List } from 'src/styles';
 import { Col } from 'react-bootstrap';
-import { AiFillLinkedin, MdOutlineEmail, SiGithub } from 'src/styles';
+import {
+  AiFillLinkedin,
+  MdOutlineEmail,
+  SiGithub,
+  BsWhatsapp,
+} from 'src/styles';
 
 const Footer: NextPage = () => {
   return (
@@ -36,6 +41,17 @@ const Footer: NextPage = () => {
               >
                 <span>
                   <SiGithub />
+                </span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://api.whatsapp.com/send?phone=5511997217411"
+                target={'_blank'}
+                rel={'noreferrer'}
+              >
+                <span>
+                  <BsWhatsapp />
                 </span>
               </a>
             </li>
