@@ -1,3 +1,5 @@
+// os daods ficam armazenados em um banco de dados relacional mysql, planetscale
+// utiliza o ORM prisma para armaznar o código 
 datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")

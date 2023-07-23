@@ -167,6 +167,7 @@ export const getStaticProps: GetStaticProps = async () => {
       },
       revalidate: 60 * 60 * 24, // 24 hours
     };
+    
   } catch (error) {
     return {
       props: {

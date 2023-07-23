@@ -16,6 +16,7 @@
     "@types/nodemailer": "^6.4.6",
     "@vercel/analytics": "^0.1.4",
     "bootstrap": "^5.2.1",
+    "framer-motion": "^10.13.0",
     "googleapis": "^108.0.0",
     "jsonwebtoken": "^9.0.0",
     "next": "^13.1.1",
@@ -49,7 +50,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "prettier": "^2.7.1",
     "prisma": "^4.4.0",
-    "styled-components": "^5.3.5",
+    "styled-components": "^6.0.5",
     "typescript": "4.8.3"
   },
   "resolutions": {

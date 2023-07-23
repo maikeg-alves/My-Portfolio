@@ -1,11 +1,11 @@
 import { Col /* , Container, Row  */ } from 'react-bootstrap';
 import { TbDownload } from 'react-icons/tb';
+import { Tooltip } from '@nextui-org/react';
 
 import { Avatar, ModalComponent, Layout } from 'src/components';
 import { ButtonMy, LinkMy } from 'src/styles';
 import { Responsive } from 'src/libs';
 import type { NextPage } from 'next';
-import { Tooltip } from '@nextui-org/react';
 
 const About: NextPage = () => {
   return (

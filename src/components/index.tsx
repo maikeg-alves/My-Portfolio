@@ -1,4 +1,4 @@
-import NavBar from './navbar/navbar.component';
+import NavBar from './navbar';
 import Container from './container/container.component';
 import Avatar from './avatar/avatar.components';
 import ModalComponent from './modal/modal.component';

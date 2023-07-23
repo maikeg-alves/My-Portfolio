@@ -1,8 +1,8 @@
 import React from 'react';
 import { Grid, Progress } from '@nextui-org/react';
 import { Col } from 'react-bootstrap';
-import { Typewriter, Layout, LoadingMy, GridLayout } from 'src/components';
 
+import { Typewriter, Layout, LoadingMy, GridLayout } from 'src/components';
 import { TextUI } from 'src/styles';
 
 import type { GetStaticProps, NextPage } from 'next';
