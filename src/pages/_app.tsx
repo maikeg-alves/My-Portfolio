@@ -22,7 +22,9 @@ function App({ Component, pageProps }: AppProps) {
     // verifica se tem algum valor no stroger
     if (typeof window !== 'undefined') {
       const mode = localStorage.getItem('mode');
-      setThemeMode(mode === 'light' ? true : false); // se tiver
+      if (mode) {
+        setThemeMode(mode === 'light' ? true : false);
+      }
     }
   }, [themeMode]);
 
@@ -38,7 +40,7 @@ function App({ Component, pageProps }: AppProps) {
         <BtnMode setState={(e) => setThemeMode(e)} />
         <Container>
           <NextUIProvider theme={themeMode ? Nextuidark : Nextuilight}>
-            <Analytics /> {/* ⚠️ analitics do nextjs ⚠️*/}
+            <Analytics /> {/* ⚠️ analitics  nextjs ⚠️*/}
             <Component {...pageProps} />
           </NextUIProvider>
         </Container>

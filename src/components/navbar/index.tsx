@@ -67,7 +67,9 @@ export default function NavBar() {
               {routes.map((route) => (
                 <NavLink
                   key={route.id}
-                  onClick={() => router.push(route.route)}
+                  onClick={() => {
+                    router.push(route.route), setMenuOpen(false);
+                  }}
                 >
                   {route.name}
                 </NavLink>
@@ -79,7 +81,12 @@ export default function NavBar() {
 
       <MenuFullScrean isOpen={isMenuOpen}>
         {routes.map((route) => (
-          <NavLink key={route.id} onClick={() => router.push(route.route)}>
+          <NavLink
+            key={route.id}
+            onClick={() => {
+              router.push(route.route), setMenuOpen(false);
+            }}
+          >
             {route.name}
           </NavLink>
         ))}
