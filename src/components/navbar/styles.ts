@@ -8,7 +8,7 @@ export const NavBarStyled = styled.div`
   position: relative;
   height: auto;
   color: white;
-  z-index: 2;
+  z-index: 3;
 `;
 
 export const Nav = styled.div`

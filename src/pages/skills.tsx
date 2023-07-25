@@ -21,13 +21,12 @@ const Skills: NextPage<ITech> = ({ technologys }) => {
           .sort((a, b) => b.ability - a.ability),
       );
     }
-
     console.error('sem dados de resposta com a api');
   }, [technologys]);
 
   return (
     <Layout justify="center" title="Habilidades">
-      {technologys ? (
+      {techs && (
         <>
           <Col xs={12} className="d-flex">
             <Col
@@ -62,7 +61,9 @@ const Skills: NextPage<ITech> = ({ technologys }) => {
             </>
           </Col>
         </>
-      ) : (
+      )}
+
+      {!techs && (
         <Col xs={'auto'}>
           <LoadingMy />
         </Col>

@@ -14,7 +14,7 @@ export const Overlay = styled.div<{ isOpen: boolean }>`
   min-height: 100%;
   background-color: ${(props) => props.theme.navbar.colapse};
   backdrop-filter: blur(10px);
-  z-index: 1;
+  z-index: 2;
   transform: translateY(${({ isOpen }) => (isOpen ? '0%' : '-100%')});
   /*  transition: all 0.5s ease-in-out; */
   display: flex;

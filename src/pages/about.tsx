@@ -19,9 +19,9 @@ const About: NextPage = () => {
       </Col>
 
       <Col
-        xs={5}
+        xs={6}
         className="text-break"
-        style={{ width: Responsive('50%', '100%', 960) }}
+        style={{ width: Responsive('50%', '90%', 960) }}
         aling="center"
       >
         <p style={{ margin: 0, textAlign: 'justify' }}>
@@ -30,7 +30,7 @@ const About: NextPage = () => {
           sempre em busca de novos conhecimentos e desafios. Estou a procura de
           uma oportunidade de trabalho para colocar em prática meus
           conhecimentos e aprender mais.
-          <ModalComponent button={false} title={'Sobre mim'} ontitle={true}>
+          <ModalComponent button={false} title={'Sobre mim'} ontitle>
             <Col sm={'11'}>
               <p>
                 Programação nasceu para mim como um hoppy em 2020, em meio a um
