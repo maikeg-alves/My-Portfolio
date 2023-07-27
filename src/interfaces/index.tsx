@@ -1,5 +1,12 @@
 import { IEmail, MailtrapTransporter } from './email/email.interface';
-import { IProjects, ICard, Allover } from './projects/projects.interface';
+import {
+  IProjects,
+  ICard,
+  Allover,
+  IProject,
+  Github,
+  CombinedProject,
+} from './projects/projects.interface';
 import { ITheme } from './themes/theme.interface';
 import { ITech, Techmology } from './technologys/technologys.interface';
 import { SeoProps } from './seo';
@@ -14,4 +21,7 @@ export type {
   Allover,
   Techmology,
   SeoProps,
+  IProject,
+  Github,
+  CombinedProject,
 };

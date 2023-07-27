@@ -20,75 +20,24 @@ export default async function technologies(
       try {
         const id = req.query.id;
 
-        if (id) {
-          const technology = await prisma.technology.findUnique({
-            where: {
-              id: Number(id),
-            },
+        const technology = await prisma.technology.findUnique({
+          where: {
+            id: Number(id),
+          },
+        });
+
+        if (!technology) {
+          return res.status(404).json({
+            mensager: 'technology not find ❌',
           });
-
-          if (!technology) {
-            return res.status(404).json({
-              mensager: 'technology not find ❌',
-            });
-          }
-
-          res.status(200).json(technology);
         }
 
-        const technology = await prisma.technology.findMany();
+        res.status(200).json(technology);
 
         res.json(technology);
       } catch (error) {
         res.status(505).send(`${error} error communicating with server ❌`);
       }
-      break;
-
-    case 'POST':
-      authenticate(req, res, async () => {
-        try {
-          const { name, icon, ability } = req.body;
-
-          if (!name || !icon || !ability) {
-            return res.status(400).json({
-              message: 'Missing fields',
-            });
-          }
-
-          const technology = await prisma.technology.findUnique({
-            where: { name },
-          });
-
-          if (technology) {
-            return res.status(404).json({
-              mensager: 'tecnology not find ❌',
-            });
-          }
-
-          const Newtechnology = await prisma.technology.create({
-            data: {
-              name,
-              icon,
-              ability,
-            },
-          });
-
-          //revalidate page
-          await res.revalidate('/skills');
-
-          return res.status(200).json({
-            mensager: 'technology created successfull✅',
-            Newtechnology,
-            revalidated: true,
-          });
-        } catch (err) {
-          console.error(err);
-          return res
-            .status(505)
-            .send(`${err}error when creating technology ❌`);
-        }
-      });
-
       break;
 
     case 'PUT':
@@ -175,7 +124,7 @@ export default async function technologies(
       break;
 
     default:
-      res.setHeader('Allow', ['GET', 'POST', 'PUT', 'DELETE']);
+      res.setHeader('Allow', ['GET', 'PUT', 'DELETE']);
       res.status(405).end(`Method ${req.method} Not Allowed`);
   }
 }

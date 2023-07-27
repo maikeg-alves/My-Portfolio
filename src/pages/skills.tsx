@@ -13,6 +13,7 @@ const Skills: NextPage<ITech> = ({ technologys }) => {
   const [techs, setTechs] = React.useState<Techmology[]>([]);
 
   React.useEffect(() => {
+    console.log(technologys);
     if (technologys != null) {
       // ANNOTATION:  filter the technologies per ability level and sort them by the highest level
       setTechs(

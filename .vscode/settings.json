@@ -4,5 +4,8 @@
   },
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "commentTranslate.targetLanguage": "pt"
+  "commentTranslate.targetLanguage": "pt",
+  "[prisma]": {
+    "editor.defaultFormatter": "Prisma.prisma"
+  }
 }
