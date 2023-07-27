@@ -81,8 +81,8 @@ export interface Github {
   description: string;
   html_url: string;
   language: string;
-  created_at: Date;
-  updated_at: Date;
-  pushed_at: Date;
+  created_at: string;
+  updated_at: string;
+  pushed_at: string;
   homepage: string;
 }

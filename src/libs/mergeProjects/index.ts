@@ -1,5 +1,7 @@
 import { Github, IProject } from '@interfaces';
 import { CombinedProject } from 'src/interfaces/projects/projects.interface';
+import { orderProjects } from '../orderProjects';
+import { formatDate } from '../formateData';
 
 export function mergeProjects(
   apiProjects: Github[],
@@ -19,9 +21,9 @@ export function mergeProjects(
         description: matchingApiProject.description,
         html_url: matchingApiProject.html_url,
         language: matchingApiProject.language,
-        created_at: matchingApiProject.created_at,
-        updated_at: matchingApiProject.updated_at,
-        pushed_at: matchingApiProject.pushed_at,
+        created_at: formatDate(matchingApiProject.created_at),
+        updated_at: formatDate(matchingApiProject.updated_at),
+        pushed_at: formatDate(matchingApiProject.pushed_at),
         homepage: matchingApiProject.homepage,
       };
 
@@ -29,5 +31,5 @@ export function mergeProjects(
     }
   });
 
-  return combinedProjects;
+  return orderProjects(combinedProjects);
 }

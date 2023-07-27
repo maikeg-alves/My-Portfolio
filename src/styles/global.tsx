@@ -37,10 +37,11 @@ ul {
 }
 
 .sinalize {
-    color: #000;
-    font-weight: bold;
-    background: #01ee87;
+  font-weight: bold;
+    background: repeating-linear-gradient(137deg, #00ee87, #e801ffc2 100px);
     border-radius: 6px;
+    padding: 0px 8px 4px 8px;
+    color: white;
 }
 
 button {
