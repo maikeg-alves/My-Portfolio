@@ -47,11 +47,11 @@ export const DarkMode: DefaultTheme = {
   navbar: {
     background: '#000000',
     color: '#fff',
-    colapse: '#000000d2 ',
+    colapse: '#000000a1 ',
   },
   boxShadow: {
-    color1: '#00000000',
-    color2: '#00000000',
+    color1: '#1d1d1d',
+    color2: '#1c1b1b',
   },
   avatar: {
     img: 'https://i.imgur.com/nBtsD1X.png',
@@ -82,7 +82,7 @@ export const LightMode: DefaultTheme = {
   navbar: {
     background: '#ececec',
     color: '#000000a9',
-    colapse: '#ffffffd9',
+    colapse: '#ffffffae',
   },
   boxShadow: {
     color1: '#c3c3c3',

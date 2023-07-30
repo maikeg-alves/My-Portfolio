@@ -1,6 +1,7 @@
+import { ContainerProps } from 'react-bootstrap';
+
 import { NavBar, Footer } from '../index';
 import { Main } from './container.styled';
-import { ContainerProps } from 'react-bootstrap';
 import styles from '../../styles/Home.module.css';
 import 'bootstrap/dist/css/bootstrap.css';
 

@@ -1,11 +1,11 @@
-import { Col /* , Container, Row  */ } from 'react-bootstrap';
+import { Col } from 'react-bootstrap';
 import { TbDownload } from 'react-icons/tb';
-
-import { Avatar, ModalComponent, Layout } from 'src/components';
-import { ButtonMy, LinkMy } from 'src/styles';
-import { Responsive } from 'src/libs';
-import type { NextPage } from 'next';
 import { Tooltip } from '@nextui-org/react';
+
+import { Avatar, ModalComponent, Layout } from '@components';
+import { ButtonMy, LinkMy } from '@styles';
+import { Responsive } from '@utils';
+import type { NextPage } from 'next';
 
 const About: NextPage = () => {
   return (
@@ -19,9 +19,9 @@ const About: NextPage = () => {
       </Col>
 
       <Col
-        xs={5}
+        xs={6}
         className="text-break"
-        style={{ width: Responsive('50%', '100%', 960) }}
+        style={{ width: Responsive('50%', '90%', 960) }}
         aling="center"
       >
         <p style={{ margin: 0, textAlign: 'justify' }}>
@@ -30,7 +30,7 @@ const About: NextPage = () => {
           sempre em busca de novos conhecimentos e desafios. Estou a procura de
           uma oportunidade de trabalho para colocar em prática meus
           conhecimentos e aprender mais.
-          <ModalComponent button={false} title={'Sobre mim'} ontitle={true}>
+          <ModalComponent button={false} title={'Sobre mim'} ontitle>
             <Col sm={'11'}>
               <p>
                 Programação nasceu para mim como um hoppy em 2020, em meio a um
