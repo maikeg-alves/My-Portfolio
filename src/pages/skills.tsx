@@ -2,12 +2,12 @@ import React from 'react';
 import { Grid, Progress } from '@nextui-org/react';
 import { Col } from 'react-bootstrap';
 
-import { Typewriter, Layout, LoadingMy, GridLayout } from 'src/components';
-import { TextUI } from 'src/styles';
+import { Typewriter, Layout, LoadingMy, GridLayout } from '@components';
+import { TextUI } from '@styles';
 
 import type { GetStaticProps, NextPage } from 'next';
-import { prisma, Responsive } from 'src/libs';
-import { ITech, Techmology } from 'src/interfaces';
+import { prisma, Responsive } from '@utils';
+import { ITech, Techmology } from '@interfaces';
 
 const Skills: NextPage<ITech> = ({ technologys }) => {
   const [techs, setTechs] = React.useState<Techmology[]>([]);

@@ -21,7 +21,7 @@
       "@img": ["./public/images/"],
       "@interfaces": ["src/interfaces"],
       "@pages": ["src/components/pages"],
-      "@libs": ["src/libs"],
+      "@utils": ["src/utils"],
       "@styles": ["src/styles"],
       "@templates": ["src/templates"]
     }

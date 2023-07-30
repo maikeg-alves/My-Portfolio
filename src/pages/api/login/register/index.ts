@@ -1,7 +1,7 @@
 import NextCors from 'nextjs-cors';
 import { NextApiRequest, NextApiResponse } from 'next';
-import { prisma } from '@libs';
-import { convertPasswordToHash } from '../../../../libs/auth';
+import { prisma } from '@utils';
+import { convertPasswordToHash } from '@utils';
 
 const emailAdim = process.env.EMAIL_ADMIN;
 

@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import NextCors from 'nextjs-cors';
-import { prisma, chackePassword, generateToken } from '@libs';
+import { prisma, chackePassword, generateToken } from '@utils';
 
 const Login = async (req: NextApiRequest, res: NextApiResponse) => {
   try {

@@ -1,6 +1,6 @@
 import NextCors from 'nextjs-cors';
 import { NextApiRequest, NextApiResponse } from 'next';
-import { prisma, generateRandomCode, generateToken } from '@libs';
+import { prisma, generateRandomCode, generateToken } from '@utils';
 
 import { sendMail } from '../../sendmail';
 

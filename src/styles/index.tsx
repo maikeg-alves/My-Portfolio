@@ -1,15 +1,20 @@
-import { ButtonMy } from './button';
-import { LinkMy } from './link';
-import { List } from './list';
-import {
+export { ButtonMy } from './button';
+export { LinkMy } from './link';
+export { List } from './list';
+export { TextUI, ConatinerUIH1, ButtonUI } from './nextuiStyled/styles';
+export { ImageNext } from './next/styles.next';
+export { MYlink } from './link/link.styled';
+export { GlobalStyle } from './global';
+
+export {
   Nextuidark,
   Nextuilight,
   LightMode,
   Theme,
   DarkMode,
 } from './theme/theme';
-import { TextUI, ConatinerUIH1, ButtonUI } from './nextuiStyled/styles';
-import {
+
+export {
   AiFillLinkedin,
   MdOutlineEmail,
   SiGithub,
@@ -17,32 +22,3 @@ import {
   BsWindow,
   BsWhatsapp,
 } from './icons/all.icons.style';
-
-import { ImageNext } from './next/styles.next';
-
-import { MYlink } from './link/link.styled';
-
-import { GlobalStyle } from './global';
-
-export {
-  ButtonMy,
-  LinkMy,
-  List,
-  Nextuidark,
-  Nextuilight,
-  LightMode,
-  DarkMode,
-  Theme,
-  TextUI,
-  AiFillLinkedin,
-  MdOutlineEmail,
-  SiGithub,
-  BsCodeSlash,
-  BsWindow,
-  ImageNext,
-  ConatinerUIH1,
-  MYlink,
-  ButtonUI,
-  GlobalStyle,
-  BsWhatsapp,
-};

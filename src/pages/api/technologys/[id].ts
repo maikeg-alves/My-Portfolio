@@ -1,8 +1,7 @@
-import { prisma } from 'src/libs/prisma';
+import { prisma, authenticate } from '@utils';
 
 import { NextApiRequest, NextApiResponse } from 'next';
 import NextCors from 'nextjs-cors';
-import { authenticate } from 'src/scripts';
 
 export default async function technologies(
   req: NextApiRequest,

@@ -3,7 +3,7 @@ import HamburgerMenu from './menuHamburger';
 import { NavBarStyled, Nav, NavLink, SimpleLink } from './styles';
 
 import { useRouter } from 'next/router';
-import { useMediaQuery } from '@libs';
+import { useMediaQuery } from '@utils';
 import MenuFullScrean from './menuFullScreen';
 
 export default function NavBar() {

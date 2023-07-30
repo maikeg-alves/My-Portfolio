@@ -5,7 +5,7 @@ import { NextUIProvider } from '@nextui-org/react';
 import { AppProps } from 'next/dist/shared/lib/router/router';
 import { GlobalStyle } from '@styles';
 import 'bootstrap/dist/css/bootstrap.css';
-import { Container, BtnMode } from 'src/components';
+import { Container, BtnMode } from '@components';
 import { Nextuilight, Nextuidark, Theme, LightMode, DarkMode } from '@styles';
 
 import '../components/carrosel/swiper.min.css';

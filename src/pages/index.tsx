@@ -1,9 +1,8 @@
 import React from 'react';
-/* import Typewriter from 'typewriter-effect'; */
 import { Col } from 'react-bootstrap';
 
-import { Typewriter } from 'src/components';
-import { Avatar, ContactEmail, Layout, ModalComponent } from 'src/components';
+import { Typewriter } from '@components';
+import { Avatar, ContactEmail, Layout, ModalComponent } from '@components';
 import type { NextPage } from 'next';
 
 const Home: NextPage = () => {

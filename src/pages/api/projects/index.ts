@@ -1,10 +1,9 @@
-import { prisma } from 'src/libs/prisma';
 import NextCors from 'nextjs-cors';
 
 import { NextApiRequest, NextApiResponse } from 'next';
-import { authenticate } from 'src/scripts';
+
 import { IProject, CombinedProject } from '@interfaces';
-import { mergeProjects } from '@libs';
+import { mergeProjects, prisma, authenticate } from '@utils';
 
 export default async function projects(
   req: NextApiRequest,

@@ -3,7 +3,7 @@ import * as mime from 'mime-types';
 import { NextApiRequest, NextApiResponse } from 'next';
 import NextCors from 'nextjs-cors';
 import multer from 'multer';
-import { authenticate } from 'src/scripts';
+import { authenticate } from '@utils';
 
 export const config = {
   api: {

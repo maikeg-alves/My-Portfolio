@@ -1,13 +1,8 @@
-import Layout from 'src/components/layout/layout.component';
+import { Layout } from '@components';
 import { NextPage } from 'next';
-import { List } from 'src/styles';
+import { List } from '@styles';
 import { Col } from 'react-bootstrap';
-import {
-  AiFillLinkedin,
-  MdOutlineEmail,
-  SiGithub,
-  BsWhatsapp,
-} from 'src/styles';
+import { AiFillLinkedin, MdOutlineEmail, SiGithub, BsWhatsapp } from '@styles';
 
 const Footer: NextPage = () => {
   return (

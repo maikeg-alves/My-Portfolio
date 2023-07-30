@@ -11,8 +11,8 @@ import {
   ImageNext,
   MYlink,
   SiGithub,
-} from 'src/styles';
-import { Responsive, baseUrl } from '@libs';
+} from '@styles';
+import { Responsive, baseUrl } from '@utils';
 
 const ProjectModal: NextPage<CombinedProject> = (props) => {
   const [text, setText] = React.useState<string>('');

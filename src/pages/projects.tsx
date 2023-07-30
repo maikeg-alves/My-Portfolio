@@ -2,10 +2,10 @@ import React from 'react';
 import { Col } from 'react-bootstrap';
 import { SwiperSlide } from 'swiper/react';
 
-import { Carrosel, CardProject, Layout, LoadingMy } from 'src/components';
+import { Carrosel, CardProject, Layout, LoadingMy } from '@components';
 import type { CombinedProject } from '@interfaces';
 import type { GetStaticProps } from 'next';
-import { baseUrl } from '@libs';
+import { baseUrl } from '@utils';
 
 type Props = {
   projects: CombinedProject[];

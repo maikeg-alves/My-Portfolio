@@ -1,5 +1,4 @@
-import { Github, IProject } from '@interfaces';
-import { CombinedProject } from 'src/interfaces/projects/projects.interface';
+import { Github, IProject, CombinedProject } from '@interfaces';
 import { orderProjects } from '../orderProjects';
 import { formatDate } from '../formateData';
 

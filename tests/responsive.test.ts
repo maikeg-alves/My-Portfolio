@@ -1,4 +1,4 @@
-import { Responsive } from '@libs';
+import { Responsive } from '@utils';
 import test from 'node:test';
 
 test('responsive teste ', () => {

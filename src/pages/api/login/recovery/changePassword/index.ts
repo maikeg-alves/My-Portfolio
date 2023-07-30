@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import NextCors from 'nextjs-cors';
-import { prisma, authenticate, convertPasswordToHash } from '@libs';
+import { prisma, authenticate, convertPasswordToHash } from '@utils';
 
 const ChagerPassword = async (req: NextApiRequest, res: NextApiResponse) => {
   try {

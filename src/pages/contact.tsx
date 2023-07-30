@@ -1,11 +1,11 @@
 import React from 'react';
 import { Col } from 'react-bootstrap';
 
-import { Responsive } from 'src/libs';
-import { ContactEmail, Layout } from 'src/components';
+import { Responsive } from '@utils';
+import { ContactEmail, Layout } from '@components';
 
 import type { NextPage } from 'next';
-import { TextUI } from 'src/styles';
+import { TextUI } from '@styles';
 
 const Contact: NextPage = () => {
   return (
