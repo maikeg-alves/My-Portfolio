@@ -1,4 +1,4 @@
-import { IEmail, MailtrapTransporter } from './email/email.interface';
+import type { IEmail, MailtrapTransporter } from './email/email.interface';
 import {
   IProjects,
   ICard,

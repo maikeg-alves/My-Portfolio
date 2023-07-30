@@ -30,6 +30,23 @@ model Technology {
   projects Project[]
 }
 
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String
+  aboutMe   String?
+  isAdmin   Boolean
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model EmailConfirmation {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  code      Int?
+  createdAt DateTime @default(now())
+}
+
 model ProjectToTechnology {
   project_id    Int @map(name: "project_id")
   technology_id Int @map(name: "technology_id")

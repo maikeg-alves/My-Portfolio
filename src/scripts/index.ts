@@ -1,3 +1,3 @@
-import { authenticate } from './auth';
+import { authenticate } from '../libs/auth';
 
 export { authenticate };
