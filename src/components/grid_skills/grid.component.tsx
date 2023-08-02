@@ -3,11 +3,11 @@ import { Grid, Text, Tooltip } from '@nextui-org/react';
 import { Col } from 'react-bootstrap';
 import Image from 'next/image';
 
-import { Responsive } from 'src/libs';
-import { TextUI } from 'src/styles';
+import { Responsive } from '@utils';
+import { TextUI } from '@styles';
 
 import type { NextPage } from 'next';
-import type { Techmology } from 'src/interfaces';
+import type { Techmology } from '@interfaces';
 
 const GridLayout: NextPage<Techmology[]> = (props) => {
   const [techs, setTechs] = React.useState<Techmology[]>([]);

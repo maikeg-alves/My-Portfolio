@@ -2,11 +2,11 @@ import { Modal, useModal, Text, Link } from '@nextui-org/react';
 import { BsFillChatFill } from 'react-icons/bs';
 import { ReactNode } from 'react';
 
-import { ButtonMy } from 'src/styles';
+import { ButtonMy } from '@styles';
 //icons
 
 //resoisve screen
-import { useMediaQuery } from 'src/libs';
+import { useMediaQuery } from '@utils';
 
 export default function ModalComponent({
   children,

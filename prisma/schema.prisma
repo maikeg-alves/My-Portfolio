@@ -1,30 +1,57 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
 datasource db {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
+  provider             = "mysql"
+  url                  = env("DATABASE_URL")
   referentialIntegrity = "prisma"
 }
 
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
   previewFeatures = ["referentialIntegrity"]
 }
 
 model Project {
-  id           Int      @id @default(autoincrement())
-  name         String   @unique
-  github       String   @unique
-  description  String
+  id           Int          @id @default(autoincrement())
+  name         String       @unique
+  github       String       @unique
+  description_ String?
   difficulty   Int
   img          String
-  gif          String
-  technologys Technology[]
+  technologies Technology[]
 }
 
 model Technology {
-  id          Int          @id @default(autoincrement())
-  name        String       @unique
-  icon        String       @unique
-  ability     Int
-  projects     Project[]
+  id       Int       @id @default(autoincrement())
+  name     String    @unique
+  icon     String    @unique
+  ability  Int
+  projects Project[]
+}
 
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String
+  aboutMe   String?
+  isAdmin   Boolean
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model EmailConfirmation {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  code      Int?
+  createdAt DateTime @default(now())
+}
+
+model ProjectToTechnology {
+  project_id    Int @map(name: "project_id")
+  technology_id Int @map(name: "technology_id")
+
+  @@unique([project_id, technology_id], name: "_ProjectToTechnology_project_id_technology_id_unique")
+  @@index([technology_id], name: "_ProjectToTechnology_technology_id_index")
+  @@map("_ProjectToTechnology")
 }

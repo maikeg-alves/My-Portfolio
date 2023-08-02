@@ -1,18 +1,19 @@
 import React from 'react';
 import { Grid, Progress } from '@nextui-org/react';
 import { Col } from 'react-bootstrap';
-import { Typewriter, Layout, LoadingMy, GridLayout } from 'src/components';
 
-import { TextUI } from 'src/styles';
+import { Typewriter, Layout, LoadingMy, GridLayout } from '@components';
+import { TextUI } from '@styles';
 
 import type { GetStaticProps, NextPage } from 'next';
-import { prisma, Responsive } from 'src/libs';
-import { ITech, Techmology } from 'src/interfaces';
+import { prisma, Responsive } from '@utils';
+import { ITech, Techmology } from '@interfaces';
 
 const Skills: NextPage<ITech> = ({ technologys }) => {
   const [techs, setTechs] = React.useState<Techmology[]>([]);
 
   React.useEffect(() => {
+    console.log(technologys);
     if (technologys != null) {
       // ANNOTATION:  filter the technologies per ability level and sort them by the highest level
       setTechs(
@@ -21,13 +22,12 @@ const Skills: NextPage<ITech> = ({ technologys }) => {
           .sort((a, b) => b.ability - a.ability),
       );
     }
-
     console.error('sem dados de resposta com a api');
   }, [technologys]);
 
   return (
     <Layout justify="center" title="Habilidades">
-      {technologys ? (
+      {techs && (
         <>
           <Col xs={12} className="d-flex">
             <Col
@@ -62,7 +62,9 @@ const Skills: NextPage<ITech> = ({ technologys }) => {
             </>
           </Col>
         </>
-      ) : (
+      )}
+
+      {!techs && (
         <Col xs={'auto'}>
           <LoadingMy />
         </Col>

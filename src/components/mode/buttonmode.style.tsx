@@ -20,8 +20,8 @@ export const Float = styled.div`
   .container {
     margin: 0;
     padding: 0;
-    width: ${(props) => props.defaultValue};
-    height: ${(props) => props.defaultValue};
+    width: 50px;
+    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
