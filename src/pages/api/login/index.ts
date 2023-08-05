@@ -5,7 +5,7 @@ import { prisma, chackePassword, generateToken } from '@utils';
 const Login = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     await NextCors(req, res, {
-      methods: ['POST'], // Método deve ser POST para login
+      methods: ['POST'],
       origin: '*',
       optionsSuccessStatus: 200,
     });
