@@ -1,9 +1,10 @@
 /* eslint-disable */
-import * as mime from 'mime-types';
-import { NextApiRequest, NextApiResponse } from 'next';
 import NextCors from 'nextjs-cors';
-import multer from 'multer';
 import { authenticate } from '@utils';
+import * as mime from 'mime-types';
+import multer from 'multer';
+import { NextApiRequest, NextApiResponse } from 'next';
+import path from 'path';
 
 export const config = {
   api: {
@@ -21,7 +22,9 @@ const upload = multer({
     destination: (request, file, callback) => {
       const { isProjectPic } = request.query;
       const destinationPath =
-        isProjectPic === 'true' ? `./public/` : `./public/`;
+        isProjectPic === 'true'
+          ? path.join(process.cwd(), 'public')
+          : path.join(process.cwd(), 'public');
       callback(null, destinationPath);
     },
     filename: (request, file, callback) => {
