@@ -5,7 +5,7 @@ import { prisma, authenticate, convertPasswordToHash } from '@utils';
 const ChagerPassword = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     await NextCors(req, res, {
-      methods: ['GET'],
+      methods: ['POST'],
       origin: '*',
       optionsSuccessStatus: 200,
     });

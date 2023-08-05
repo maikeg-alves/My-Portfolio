@@ -11,42 +11,34 @@ export default async function register(
 ) {
   await NextCors(req, res, {
     // Options
-    methods: ['POST', 'GET'],
+    methods: ['POST'],
     origin: '*',
     optionsSuccessStatus: 200,
   });
 
-  switch (req.method) {
-    case 'POST':
-      try {
-        const { email, password } = req.body;
+  try {
+    const { email, password } = req.body;
 
-        if (!email || !password) {
-          return res.status(401).end('Invalid credentials');
-        }
+    if (!email || !password) {
+      return res.status(401).end('Invalid credentials');
+    }
 
-        if (email != emailAdim) {
-          return res.status(401).end('Invalid credentials');
-        }
+    if (email != emailAdim) {
+      return res.status(401).end('Invalid credentials');
+    }
 
-        await prisma.user.create({
-          data: {
-            email,
-            password: convertPasswordToHash(password),
-            isAdmin: true,
-            updatedAt: new Date(),
-          },
-        });
+    await prisma.user.create({
+      data: {
+        email,
+        password: convertPasswordToHash(password),
+        isAdmin: true,
+        updatedAt: new Date(),
+      },
+    });
 
-        res.status(200).send({ menssage: 'user created with, success' });
-      } catch (error) {
-        console.error(error);
-        res.status(500).send({ error: 'An unexpected error occurred.' });
-      }
-      break;
-    default:
-      res.setHeader('Allow', ['POST']);
-      res.status(405).json('Method not allowed');
-      break;
+    res.status(200).send({ menssage: 'user created with, success' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send({ error: 'An unexpected error occurred.' });
   }
 }
