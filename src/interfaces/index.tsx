@@ -10,4 +10,5 @@ export type {
   Github,
   CombinedProject,
   Technology,
+  IProject,
 } from './projects/projects.interface';

@@ -1,3 +1,4 @@
+/* TODO: vai ser substituido pela nova interface */
 export interface IProjects {
   projects: {
     id: number;
@@ -85,4 +86,30 @@ export interface Github {
   updated_at: string;
   pushed_at: string;
   homepage: string;
+}
+
+/* nova interface 👇 */
+
+export interface IProject {
+  id: number;
+  createdAt: Date;
+  updatedAt: Date;
+  name: string;
+  description: string;
+  thumbnail_url: string;
+  githubRepoId: string;
+  githubCreatedAt: Date;
+  githubUpdatedAt: Date;
+  linkRepo: string;
+  liveSite: string;
+  techs: ITech[];
+}
+
+export interface ITech {
+  id: number;
+  createdAt: Date;
+  updatedAt: Date;
+  name: string;
+  icon: string;
+  description: string;
 }

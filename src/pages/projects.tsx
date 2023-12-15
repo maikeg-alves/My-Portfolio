@@ -3,16 +3,19 @@ import { Col } from 'react-bootstrap';
 import { SwiperSlide } from 'swiper/react';
 
 import { Carrosel, CardProject, Layout, LoadingMy } from '@components';
-import type { CombinedProject } from '@interfaces';
+import type { IProject } from '@interfaces';
 import type { GetStaticProps } from 'next';
-import { baseUrl } from '@utils';
+/* 
+
+TODO: trocar pela url geral
+import { baseUrl } from '@utils'; */
 
 type Props = {
-  projects: CombinedProject[];
+  projects: IProject[];
 };
 
 const Projects: React.FC<Props> = (props) => {
-  const [data, setData] = React.useState<CombinedProject[]>([]);
+  const [data, setData] = React.useState<IProject[]>([]);
 
   React.useEffect(() => {
     setData(props.projects);
@@ -21,24 +24,24 @@ const Projects: React.FC<Props> = (props) => {
   return (
     <Layout justify="center" title="Projetos">
       <>
-        {data.length > 0 ? (
-          <Col xs={12}>
-            <Col xs={12} align={'center'}>
-              <h1>Projects</h1>
-            </Col>
-            <Carrosel>
-              {data.map((item, index) => (
-                <SwiperSlide key={index}>
-                  <CardProject {...item} />
-                </SwiperSlide>
-              ))}
-            </Carrosel>
-          </Col>
-        ) : (
-          <Col xs={'auto'}>
+        <Col xs={12}>
+          {!data.length ? (
             <LoadingMy />
-          </Col>
-        )}
+          ) : (
+            <>
+              <Col xs={12} align={'center'}>
+                <h1>Projects</h1>
+              </Col>
+              <Carrosel>
+                {data.map((project) => (
+                  <SwiperSlide key={project.id}>
+                    <CardProject {...project} />
+                  </SwiperSlide>
+                ))}
+              </Carrosel>
+            </>
+          )}
+        </Col>
       </>
     </Layout>
   );
@@ -46,25 +49,26 @@ const Projects: React.FC<Props> = (props) => {
 
 export default Projects;
 
-// ANNOTATION: Pegando dados da api do github e do banco de dados
-
 export const getStaticProps: GetStaticProps = async () => {
   try {
-    const response = await fetch(`${baseUrl}/api/projects`, {
-      method: 'GET',
-    });
+    const response = await fetch(
+      `https://api.maicongabrielalves.com.br/projects`,
+      {
+        method: 'GET',
+      },
+    );
 
     if (!response.ok) {
       throw new Error('Failed to fetch projects from API');
     }
 
-    const data = await response.json();
+    const projects = await response.json();
 
     return {
       props: {
-        projects: data,
+        projects,
       },
-      revalidate: 60 * 60 * 24, // 24 hours
+      revalidate: 60 * 60 * 24,
     };
   } catch (error) {
     console.error(error);

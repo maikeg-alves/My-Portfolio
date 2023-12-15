@@ -5,11 +5,10 @@ import { Col } from 'react-bootstrap';
 import { NextPage } from 'next';
 
 import { ModalComponent, ProjectModal } from '@components';
-import { CombinedProject } from '@interfaces';
+import { IProject } from '@interfaces';
 import { MyCard } from './style';
 
-const CardProject: NextPage<CombinedProject> = (props) => {
-  // ANNOTATION: verifica se o projeto tem mais de 20 dias de criação (obs: a data de criação do projeto é a data do primeiro commit)
+const CardProject: NextPage<IProject> = (props) => {
   function checkNewItems(date: string): boolean {
     const dateNow = new Date();
     const datecreate = new Date(date);
@@ -17,7 +16,7 @@ const CardProject: NextPage<CombinedProject> = (props) => {
     const diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
     return diffDays < 20 ? true : false;
   }
-
+   c
   return (
     <>
       <Card className="h-100 w-100 bg-black">
@@ -30,8 +29,8 @@ const CardProject: NextPage<CombinedProject> = (props) => {
               className="d-flex flex-column h-100 justify-content-between"
             >
               <Col xs={12}>
-                <Col>
-                  {checkNewItems(props.created_at) && (
+                {checkNewItems(props.githubUpdatedAt) && (
+                  <Col xs={12}>
                     <Text
                       size={12}
                       weight="bold"
@@ -40,8 +39,8 @@ const CardProject: NextPage<CombinedProject> = (props) => {
                     >
                       New
                     </Text>
-                  )}
-                </Col>
+                  </Col>
+                )}
                 <Col>
                   <Text color="white" h2>
                     {props.name}
@@ -68,7 +67,7 @@ const CardProject: NextPage<CombinedProject> = (props) => {
           <Row>
             <Col>
               <Text size={12}>Ultima modificação</Text>
-              <Text size={12}>{props.updated_at}</Text>
+              <Text size={12}>{props.githubUpdatedAt}</Text>
             </Col>
             <Col>
               <Row justify="flex-end">
