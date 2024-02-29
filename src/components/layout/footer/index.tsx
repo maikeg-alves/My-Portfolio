@@ -8,9 +8,9 @@ interface FooterProps {
 export const Footer: React.FC<FooterProps> = () => {
   return (
     <>
-      <section className="bg-[#1E1D1D] py-12 px-4 sm:px-6 lg:px-8 flex justify-center items-center">
-        <div className="container flex flex-col sm:flex-row justify-between items-center">
-          <div className="flex flex-col max-w-md w-full text-white">
+      <section className=" py-12 px-4 sm:px-6 lg:px-8 flex justify-center items-center bg-[#fafafa] dark:bg-[#1E1D1D] ">
+        <div className="container flex flex-col sm:flex-row justify-between items-center  text-black dark:text-white">
+          <div className="flex flex-col max-w-md w-full">
             <h1 className="text-3xl font-bold mb-4 lg:text-4xl">
               FALE CONOSCO
             </h1>
@@ -27,7 +27,7 @@ export const Footer: React.FC<FooterProps> = () => {
               <button className="bg-gray-800 text-white px-4">Enviar</button>
             </div>
           </div>
-          <div className="flex flex-row sm:flex-row justify-between max-w-md w-full mt-6 sm:mt-0 text-white ">
+          <div className="flex flex-row sm:flex-row justify-between max-w-md w-full mt-6 sm:mt-0 ">
             <div className="flex flex-col">
               <h2 className="text-lg font-bold mb-4">Links Úteis</h2>
               <ul className="cursor-pointer font-medium">
@@ -54,8 +54,8 @@ export const Footer: React.FC<FooterProps> = () => {
           </div>
         </div>
       </section>
-      <footer className="flex flex-col justify-between w-full inset-x-0 bottom-0 bg-[#292727] text-white p-4 text-center lg:flex-row">
-        <div className="flex justify-center lg:items-center">
+      <footer className="flex flex-col justify-between w-full inset-x-0 bottom-0 p-4 text-center lg:flex-row  text-black dark:text-white  bg-[#fafafa] dark:bg-[#1E1D1D]">
+        <div className="flex justify-center lg:items-center md:mb-2">
           <p className="mr-2">Siga-nos nas redes:</p>
           <ul className="flex flex-row">
             <li className="mr-2">

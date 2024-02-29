@@ -22,7 +22,7 @@ function App() {
         <Services />
         <Projetos />
         <Professional />
-       {/*  <WorkFlow /> */}
+        <WorkFlow />
       </Layout.Root>
       <Layout.Footer />
     </Router>

@@ -23,7 +23,7 @@ export const router: RouteProps[] = [
     errorElement: <ErrorPage />,
   },
   {
-    path: "/projects",
+    path: "/projetos",
     element: <div>projects</div>,
     errorElement: <ErrorPage />,
   },

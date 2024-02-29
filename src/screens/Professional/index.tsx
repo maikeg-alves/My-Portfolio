@@ -7,18 +7,21 @@ interface ProfessionalProps {
 export const Professional: React.FC<ProfessionalProps> = () => {
   return (
     <section
-      className="bg-[#90A19D] flex justify-center items-center"
-      id="drakar"
+      className="bg-[#90A19D] flex rl justify-center items-center drakar"
+      id="Proficional"
     >
-      <div className="container  text-white flex flex-col-reverse justify-center items-center md:flex-row">
-        <div className=" w-full flex flex-row justify-start lg:flex-col">
-          <div className="max-w-md">
+      <div className="container  text-white flex flex-col-reverse justify-around items-center md:flex-row">
+        <div
+          className=" w-auto flex flex-row justify-start lg:flex-col"
+          data-aos="zoom-out-right"
+        >
+          <div className="max-w-lg">
             <div className="w-full mb-5">
-              <div className="mb-3 md:mb-5">
-                <h1 className="font-bold mb-3 text-4xl md:text-5xl">
+              <div className="mb-3  md:mb-5">
+                <h1 className="font-bold mb-3  text-4xl md:text-5xl">
                   CONHEÇA O PROFISSIONAL
                 </h1>
-                <p className="font-medium text-sm text-gray-300 ">
+                <p className="font-medium max-w-sm text-sm text-gray-300 ">
                   Desenvolvedor Web Especializado em Transformar Ideias em
                   Realidade Digital
                 </p>
@@ -54,15 +57,17 @@ export const Professional: React.FC<ProfessionalProps> = () => {
           </div>
         </div>
 
-        <div className="mb-5 w-full flex justify-end md:mb-10">
-          <div className="w-full relative lg:max-w-[355px]">
+        <div
+          className="my-2 w-auto justify-end hidden lg:flex"
+          data-aos="fade-left"
+        >
+          <div className="max-w-[355px] relative">
             <img
+              id={"photo-dev"}
               src="https://flowbite.com/docs/images/blog/image-4.jpg"
-              className="bg-cover bg-center h-[170px] w-full rounded-lg md:w-[355px] md:h-[543px] "
+              className="w-[300px] h-[400px]  rounded-lg float-animation"
               alt="avatar foto"
             />
-
-            <div className="bg-black opacity-50 h-[20px] filter blur hidden lg:block"></div>
           </div>
         </div>
       </div>

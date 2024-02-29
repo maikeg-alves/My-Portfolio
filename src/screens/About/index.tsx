@@ -29,9 +29,12 @@ export const About: React.FC<AboutProps> = () => {
   ];
 
   return (
-    <section className="flex w-full bg-white dark:bg-[#0f0f0f] " id={"drakar"}>
-      <div className="container flex flex-col justify-center items-center text-[#0f0f0f] dark:text-white lg:flex-row">
-        <div className="w-full mb-10 lg:mb-0">
+    <section
+      className="flex w-full bg-white dark:bg-[#0f0f0f] drakar "
+      id={"Sobre"}
+    >
+      <div className="container flex flex-col justify-around items-center text-[#0f0f0f] dark:text-white lg:flex-row">
+        <div className="w-auto mb-10 lg:mb-0" data-aos="fade-right">
           <div className="max-w-md">
             <h1 className="font-bold text-3xl lg:text-5xl mb-5">
               SOLUÇÕES DIGITAIS{" "}
@@ -39,7 +42,7 @@ export const About: React.FC<AboutProps> = () => {
                 PERSONALIZADAS
               </span>
               <span className="hidden lg:block">PERSONALIZADAS</span> PARA O SEU{" "}
-              <span className="text-[#F0941F]">SUCESSO!</span>
+              <span className="destaque">SUCESSO!</span>
             </h1>
           </div>
           <div className="w-full lg:max-w-sm">
@@ -57,7 +60,10 @@ export const About: React.FC<AboutProps> = () => {
             </p>
           </div>
         </div>
-        <div className="w-full flex justify-center lg:justify-end">
+        <div
+          className="w-auto flex justify-center lg:justify-end"
+          data-aos="fade-down"
+        >
           <div className="grid grid-cols-2 items-center gap-10 text-white  ">
             {items.map((item, index) => (
               <div
